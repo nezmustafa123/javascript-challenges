@@ -3,8 +3,8 @@ function cutFruitPieces(fruit){
 }
 
 function fruitProcessor(apples, oranges) {
-    const applePieces = cutFruitPieces;
-    const orangePieces = cutFruitPieces;
+    const applePieces = cutFruitPieces(apples);
+    const orangePieces = cutFruitPieces(oranges);
     
     const juice = `Juice with ${applePieces} piece of appple and ${orangePieces} pieces of orange.`;
     return juice;
