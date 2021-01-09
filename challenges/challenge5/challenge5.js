@@ -1,3 +1,10 @@
+'use strict';
+
+
+
+
+
+
 //function cutFruitPieces(fruit){
 //    return fruit * 4;
 //}
@@ -29,6 +36,8 @@ function checkWinner(avgDolphins, avgKoalas) {
         console.log(`Dolphins win ${avgDolphins} to ${avgKoalas}`);
     } else if (avgKoalas >=2 * avgDolphins) {
         console.log(`Koalas win ${avgKoalas} to ${avgDolphins}`);
+    } else {
+        console.log('Draw');
     }
 };
 
