@@ -83,7 +83,7 @@ console.log(friendsNew);
 
 console.log(popped);
 
-//remove firrst 
+//remove first 
 //returns element that was removed
 friendsNew.shift(); //first
 
@@ -111,3 +111,40 @@ console.log(friendsNew.indexOf('Bob'));
 if (friends.includes('Peter')) {
     console.log(`You hsve s friend called Peter`);
 }
+
+
+
+//challenge
+
+const calcTip = (bill) => {
+    const tip = bill <= 300 && bill >= 50 ? (bill * 0.2) : (bill * 0.15);
+    return tip;
+}
+
+
+
+const bill1 = calcTip(125);
+const bill2 = calcTip(555);
+const bill3 = calcTip(44);
+
+
+
+const bills = [125, 555, 44];
+
+const tips = [calcTip(bills[0]),calcTip(bills[1]),calcTip(bills[2])];
+
+console.log(tips);
+
+//enter the parameter when calling function
+
+const total = [bills[0] + calcTip(bills[0]), bills[1] + calcTip(bills[1]), bills[2] + calcTip(bills[2])];
+
+console.log(total);
+
+
+
+
+
+
+
+
