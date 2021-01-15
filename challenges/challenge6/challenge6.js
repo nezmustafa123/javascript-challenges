@@ -1,10 +1,16 @@
 const friend1 = "Jim";
+<<<<<<< HEAD
 const friend2 = "Steven";
 const friend3 = "Peter";
+=======
+const friend1 = "Steven";
+const friend1 = "Peter";
+>>>>>>> dfd0b3bdaf8ada7f8bed82b1053e0b2f2e8c8621
 
 const friends = ['Michael', 'Steven', 'Peter'];
 
 
+<<<<<<< HEAD
 const y = new Array(1991, 1984, 2008, 2020);
 
 //console.log(friends[0]);
@@ -148,3 +154,19 @@ console.log(total);
 
 
 
+=======
+const years = newArray(1991, 1984, 2008, 2020);
+
+console.log(friends[0]);
+console.log(friends[2]);
+
+console.log(friends.length);
+console.log(friends[friends.length-1]);
+
+friends[2] = 'Jay';
+console.log(friends);
+
+
+
+//testing
+>>>>>>> dfd0b3bdaf8ada7f8bed82b1053e0b2f2e8c8621
