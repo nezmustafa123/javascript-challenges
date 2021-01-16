@@ -82,3 +82,33 @@ console.log(`${nezObject.firstName} has ${nezObject.friends.length} friends and 
 
 
 
+//OBJECT MOETHODS
+//OBJECTS HOLDING ARRAYS AND OBJECTS IN OBJECTS
+//functions are just a value
+//key value pairs add functions to objects 
+
+
+const nezObject = {
+   firstName: 'Nez',
+    surName: 'Mustafa',
+    birthYear: 1990,
+    job: 'Developer',
+    friends: ['Michael', 'Peter', 'Steven'],
+    hasDriversLicense: true,
+    calcAge: function(birthYear) {
+    return 2021 - birthYear;
+   }
+};
+//property of object
+//function expression creates method
+
+
+//property is equal to function value
+
+
+nezObject.calcAge(1990)
+
+
+
+
+
