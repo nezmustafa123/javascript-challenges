@@ -88,6 +88,45 @@
 //key value pairs add functions to objects 
 
 
+//const nezObject = {
+//   firstName: 'Nez',
+//    surName: 'Mustafa',
+//    birthYear: 1990,
+//    job: 'Developer',
+//    friends: ['Michael', 'Peter', 'Steven'],
+//    hasDriversLicense: true,
+////    calcAge: function(birthYear) {
+////    return 2021 - birthYear;
+////   }
+//    //no need for parameter
+//    
+//    calcAge: function() {
+//        console.log(this);
+//        return 2021 - this.birthYear;
+//    }
+//};
+//property of object
+//function expression creates method
+
+
+//property is equal to function value
+
+
+//console.log(nezObject.calcAge(1990));
+//access using brackets notation enclose it in brackets and string
+//console.log(nezObject['calcAge'](1991));
+
+
+//use this keyword to use property value directly dry principle
+//birthyear written in oneplace access directly through object by referencing it using 'this'
+//this equal to object on which method is called
+//left side of the dot 'nezObject'
+//this refers to the object calling the method
+
+//console.log(nezObject.calcAge());
+
+//can instead calculate the age one store it in the object then retrieve the age as a property from the object
+
 const nezObject = {
    firstName: 'Nez',
     surName: 'Mustafa',
@@ -101,33 +140,23 @@ const nezObject = {
     //no need for parameter
     
     calcAge: function() {
+        
+        
+        
+//        calculate age create new property on object and set it equal
+        this.age = 2021 - this.birthYear;
+        return this.age;
+        //return the age property
         console.log(this);
-        return 2021 - this.birthYear;
-    }
+    },
+    //call calcAge in the string
+    getSummary: function() {
+       return `${this.firstName} is a ${this.calcAge()} year old ${this.job} and he has ${this.hasDriversLicense ? `a ` : `no`} driver's license`;
+     }
 };
-//property of object
-//function expression creates method
 
-
-//property is equal to function value
-
-
-console.log(nezObject.calcAge(1990));
-//access using brackets notation enclose it in brackets and string
-console.log(nezObject['calcAge'](1991));
-
-
-//use this keyword to use property value directly dry principle
-//birthyear written in oneplace access directly through object by referencing it using 'this'
-//this equal to object on which method is called
-//left side of the dot 'nezObject'
-//this refers to the object calling the method
 
 console.log(nezObject.calcAge());
-
-
-
-
-
+console.log(nezObject.getSummary());
 
 
