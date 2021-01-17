@@ -3,23 +3,23 @@
 //give elements a name as opposed to an array
 
 //key/property value pairs
-const nezObject = {
-   firstName: 'Nez',
-    surName: 'Mustafa',
-    age: 2037- 1991,
-    job: 'Developer',
-    friends: ['Michael', 'Peter', 'Steven']
-};
-
+//const nezObject = {
+//   firstName: 'Nez',
+//    surName: 'Mustafa',
+//    age: 2037- 1991,
+//    job: 'Developer',
+//    friends: ['Michael', 'Peter', 'Steven']
+//};
+//
 
 //many ways of creating objects
 
 
 //retrieve data from objects and change data using dot and bracket notation
 
-console.log(nezObject);
+//console.log(nezObject);
 
-console.log(nezObject.surname);
+//console.log(nezObject.surname);
 
 //will give the surname the dot is an operator
 
@@ -32,13 +32,13 @@ console.log(nezObject.surname);
 //store recurring part of key in a variable and create a new expression 
 
 
-console.log(nezObject.firstName);
+//console.log(nezObject.firstName);
 
-const nameKey = 'Name';
+//const nameKey = 'Name';
 
-console.log(nezObject['first' + nameKey]);
+//console.log(nezObject['first' + nameKey]);
 
-console.log(nezObject['sur' + nameKey]);
+//console.log(nezObject['sur' + nameKey]);
 
 //execute the plus operation in the brackets then retrieve the property
 
@@ -49,7 +49,7 @@ console.log(nezObject['sur' + nameKey]);
 
 //get something from user interface
 
-const interestedIn = prompt("What do you want to know about Nez? Choose between firstName, lastName, age, job, and friends");
+//const interestedIn = prompt("What do you want to know about Nez? Choose between firstName, lastName, age, job, and friends");
 
 //display input in the console
 
@@ -63,21 +63,21 @@ const interestedIn = prompt("What do you want to know about Nez? Choose between 
 
 //handle undefine/falsy values
 
-if(nezObject[interestedIn]) {
-    console.log(nezObject[interestedIn])
-} else {
-    console.log('Wring request! Choose between firstName, lastName, age, job and friends');
-}
+//if(nezObject[interestedIn]) {
+//    console.log(nezObject[interestedIn])
+//} else {
+//    console.log('Wring request! Choose between firstName, lastName, age, job and friends');
+//}
 
 //add properties values using 
 
-nezObject.location = 'London';
-nezObject['twitter'] ='@nezmustafa';
+//nezObject.location = 'London';
+//nezObject['twitter'] ='@nezmustafa';
 
 //challenge 
 //
-
-console.log(`${nezObject.firstName} has ${nezObject.friends.length} friends and his best friend is ${nezObject.friends[0]}`);
+//
+//console.log(`${nezObject.firstName} has ${nezObject.friends.length} friends and his best friend is ${nezObject.friends[0]}`);
 
 
 
@@ -95,9 +95,15 @@ const nezObject = {
     job: 'Developer',
     friends: ['Michael', 'Peter', 'Steven'],
     hasDriversLicense: true,
-    calcAge: function(birthYear) {
-    return 2021 - birthYear;
-   }
+//    calcAge: function(birthYear) {
+//    return 2021 - birthYear;
+//   }
+    //no need for parameter
+    
+    calcAge: function() {
+        console.log(this);
+        return 2021 - this.birthYear;
+    }
 };
 //property of object
 //function expression creates method
@@ -106,7 +112,20 @@ const nezObject = {
 //property is equal to function value
 
 
-nezObject.calcAge(1990)
+console.log(nezObject.calcAge(1990));
+//access using brackets notation enclose it in brackets and string
+console.log(nezObject['calcAge'](1991));
+
+
+//use this keyword to use property value directly dry principle
+//birthyear written in oneplace access directly through object by referencing it using 'this'
+//this equal to object on which method is called
+//left side of the dot 'nezObject'
+//this refers to the object calling the method
+
+console.log(nezObject.calcAge());
+
+
 
 
 
