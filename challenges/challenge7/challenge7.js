@@ -160,3 +160,34 @@ console.log(nezObject.calcAge());
 console.log(nezObject.getSummary());
 
 
+
+//BMI CHALLENGE using objects
+
+
+
+const markObject = {
+    firstName: 'Mark',
+    surName: 'Miller',
+    mass: 78,
+    height: 169,
+    calcBMI: function() {
+        this.BMI = ((this.mass) / (this.height ** 2));
+        return this.BMI;
+    }
+    
+};
+
+const jonObject = {
+    firstName: 'Jon',
+    surName: 'Smith',
+    mass: 93,
+    height: 1.95,
+    calcBMI: function() {
+        this.BMI = ((this.mass) / (this.height ** 2));
+        return this.BMI;
+    }
+    
+};
+
+
+
