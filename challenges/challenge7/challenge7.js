@@ -169,7 +169,7 @@ const markObject = {
     firstName: 'Mark',
     surName: 'Miller',
     mass: 78,
-    height: 169,
+    height: 1.69,
     calcBMI: function() {
         this.BMI = ((this.mass) / (this.height ** 2));
         return this.BMI;
@@ -177,10 +177,10 @@ const markObject = {
     
 };
 
-const jonObject = {
+const johnObject = {
     firstName: 'Jon',
     surName: 'Smith',
-    mass: 93,
+    mass: 92,
     height: 1.95,
     calcBMI: function() {
         this.BMI = ((this.mass) / (this.height ** 2));
@@ -188,6 +188,26 @@ const jonObject = {
     }
     
 };
+
+
+const markBMI = markObject.calcBMI();
+const johnBMI = johnObject.calcBMI();
+//john calling calc bmi this points to john object
+console.log(markBMI);
+console.log(johnBMI);
+
+
+if(markObject.BMI > johnObject.BMI) {
+    console.log(`Mark ${markObject.surName}'s BMI (${markObject.BMI}) is higher than John ${johnObject.surName}'s BMI (${johnObject.BMI})`);
+} else if (johnObject.BMI > markObject.BMI) {
+    console.log(`John ${johnObject.surName}'s BMI ${johnObject.BMI} is higher than Mark ${markObject.surName}'s BMI (${markObject.BMI})`);
+}
+
+
+
+
+
+
 
 
 
