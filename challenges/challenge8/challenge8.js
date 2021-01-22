@@ -22,5 +22,39 @@ console.log('Lifting weights rep 8');
 //when condition is false loop will stop
 //use rep variable
 for(let rep = 1; rep <= 10; rep ++) {
-     console.log(`Lifting weights rep ${rep}`)
+     console.log(`Lifting weights rep ${rep}`);
 }
+
+
+
+
+
+const nezArray = [
+  'Nez',
+   'Mustafa',
+    2037-1990,
+    'developer',
+    ['Micahel', 'Peter', 'Steven'],
+];
+
+const types = [];
+
+
+
+//dynamically calulated array length
+for (let i = 0; i < nezArray.length; i++) {
+    //reading from jonas array
+    console.log(nezArray[i], typeof nezArray[i]);
+    
+    //looping two arrays at the same time
+    //based on original array
+    types[i] = typeof nezArray[i];
+    
+    
+}
+
+//create new arrays with certain variable types based on values of original array
+console.log(types);
+
+
+
