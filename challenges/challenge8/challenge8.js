@@ -35,6 +35,7 @@ const nezArray = [
     2037-1990,
     'developer',
     ['Micahel', 'Peter', 'Steven'],
+    true,
 ];
 
 const types = [];
@@ -43,14 +44,16 @@ const types = [];
 
 //dynamically calulated array length
 for (let i = 0; i < nezArray.length; i++) {
-    //reading from jonas array
+    //reading from nez array
     console.log(nezArray[i], typeof nezArray[i]);
     
     //looping two arrays at the same time
     //based on original array
+    //inserting type of the index from first array into second array to fill it
     types[i] = typeof nezArray[i];
     
-    
+    //can also do
+    types.push(typeof jonas[i]);
 }
 
 //create new arrays with certain variable types based on values of original array
@@ -58,3 +61,37 @@ console.log(types);
 
 
 
+const years = [1991, 2007, 1969, 2020];
+const ages = [];
+//ca;culate age and populate using new loop
+for (let i = 0; i < years.length; i++) {
+  ages.push(2037 - years[i]);
+    //can also do
+//    2037-years[i] = ages[i];
+}
+console.log(ages);
+
+//continue and break
+
+//continue exit current iteration
+console.log('----ONLY STRINGS----')
+for (let i = 0; i < nezArray.length; i++) {
+    //reading from nez array
+    if(typeof nezArray[i] !== 'string') continue;
+//    current iteration skips if not string
+    console.log(nezArray[i], typeof nezArray[i]);
+  
+}
+//print elements to array that are strings
+
+
+//break terminates loop
+
+console.log('----BREAK OUT IF NUMBER----')
+for (let i = 0; i < nezArray.length; i++) {
+    //reading from nez array
+    if(typeof nezArray[i] === 'number') break;
+//    current iteration skips if not string
+    console.log(nezArray[i], typeof nezArray[i]);
+  //once first number is found nothing else if printed
+}
