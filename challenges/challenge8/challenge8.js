@@ -133,7 +133,7 @@ for (let excercise = 1; exercise < 4; excercise++ ) {
     //new loop created and executed
     
     for (let rep = 1; rep < 6; rep++) {
-        console.log(`Lifting weight reptition ${rep}`);
+        console.log(`Excercise ${exercise} Lifting weight reptition ${rep}`);
     }
     
     
