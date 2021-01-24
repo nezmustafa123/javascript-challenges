@@ -28,15 +28,15 @@ for(let rep = 1; rep <= 10; rep ++) {
 
 
 
-
-const nezArray = [
-  'Nez',
-   'Mustafa',
-    2037-1990,
-    'developer',
-    ['Micahel', 'Peter', 'Steven'],
-    true,
-];
+//
+//const nezArray = [
+//  'Nez',
+//   'Mustafa',
+//    2037-1990,
+//    'developer',
+//    ['Micahel', 'Peter', 'Steven'],
+//    true,
+//];
 
 const types = [];
 
@@ -95,3 +95,48 @@ for (let i = 0; i < nezArray.length; i++) {
     console.log(nezArray[i], typeof nezArray[i]);
   //once first number is found nothing else if printed
 }
+
+
+const nezArray = [
+    'Nez',
+    'Mustafa',
+    2037- 1990,
+    'Developer',
+    ['Michael', 'Peter', 'Steven']
+];
+
+
+//loop backwards
+
+// 0, 1, ... 4
+// 4, 3, ... 0
+
+//start at the last index
+for(let i = jonas.length - 1; i >= 0; i -- ) {
+    console.log(i, nezArray[i]);
+}
+
+
+
+//nested loops 
+//loop inside loop
+
+//three gym excercises repeat each of them 5 times
+//15 reps 5 for each excercise
+
+for (let excercise = 1; exercise < 4; excercise++ ) {
+    console.log(`----------- Starting excercise ${excercise}`);
+    
+    
+    
+    //5 repetitions for each excercise loop within a loop
+    //new loop created and executed
+    
+    for (let rep = 1; rep < 6; rep++) {
+        console.log(`Lifting weight reptition ${rep}`);
+    }
+    
+    
+    
+}
+
