@@ -3,14 +3,14 @@
 //give elements a name as opposed to an array
 
 //key/property value pairs
-//const nezObject = {
-//   firstName: 'Nez',
-//    surName: 'Mustafa',
-//    age: 2037- 1991,
-//    job: 'Developer',
-//    friends: ['Michael', 'Peter', 'Steven']
-//};
-//
+const nezObject = {
+   firstName: 'Nez',
+    surName: 'Mustafa',
+    age: 2037- 1991,
+    job: 'Developer',
+    friends: ['Michael', 'Peter', 'Steven']
+};
+
 
 //many ways of creating objects
 
@@ -88,23 +88,23 @@
 //key value pairs add functions to objects 
 
 
-//const nezObject = {
-//   firstName: 'Nez',
-//    surName: 'Mustafa',
-//    birthYear: 1990,
-//    job: 'Developer',
-//    friends: ['Michael', 'Peter', 'Steven'],
-//    hasDriversLicense: true,
-////    calcAge: function(birthYear) {
-////    return 2021 - birthYear;
-////   }
-//    //no need for parameter
-//    
-//    calcAge: function() {
-//        console.log(this);
-//        return 2021 - this.birthYear;
-//    }
-//};
+const nezObject = {
+   firstName: 'Nez',
+    surName: 'Mustafa',
+    birthYear: 1990,
+    job: 'Developer',
+    friends: ['Michael', 'Peter', 'Steven'],
+    hasDriversLicense: true,
+//    calcAge: function(birthYear) {
+//    return 2021 - birthYear;
+//   }
+//    no need for parameter
+    
+    calcAge: function() {
+        console.log(this);
+        return 2021 - this.birthYear;
+    }
+};
 //property of object
 //function expression creates method
 
@@ -140,10 +140,7 @@ const nezObject = {
     //no need for parameter
     
     calcAge: function() {
-        
-        
-        
-//        calculate age create new property on object and set it equal
+    // calculate age create new property on object and set it equal
         this.age = 2021 - this.birthYear;
         return this.age;
         //return the age property

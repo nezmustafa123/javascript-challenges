@@ -42,19 +42,19 @@ const types = [];
 
 
 
-//dynamically calulated array length
-for (let i = 0; i < nezArray.length; i++) {
-    //reading from nez array
-    console.log(nezArray[i], typeof nezArray[i]);
-    
-    //looping two arrays at the same time
-    //based on original array
-    //inserting type of the index from first array into second array to fill it
-    types[i] = typeof nezArray[i];
-    
-    //can also do
-    types.push(typeof jonas[i]);
-}
+////dynamically calulated array length
+//for (let i = 0; i < nezArray.length; i++) {
+//    //reading from nez array
+//    console.log(nezArray[i], typeof nezArray[i]);
+//    
+//    //looping two arrays at the same time
+//    //based on original array
+//    //inserting type of the index from first array into second array to fill it
+//    types[i] = typeof nezArray[i];
+//    
+//    //can also do
+//    types.push(typeof jonas[i]);
+//}
 
 //create new arrays with certain variable types based on values of original array
 console.log(types);
@@ -139,4 +139,62 @@ for (let excercise = 1; exercise < 4; excercise++ ) {
     
     
 }
+
+
+
+
+//while loop
+
+for(let rep = 1; rep <= 10; rep ++) {
+     console.log(`Lifting weights rep ${rep}`);
+}
+
+//will run while condition is true
+
+let rep = 1;
+
+while (rep <= 10) {
+    console.log(`WHITE: Lifting weights repititon ${rep}`);
+    //end of iteration increment
+    
+    rep++;
+    
+}
+
+//while loop without condition or counter
+//use when you don't know how many iterations you'll have
+
+//roll a dice then keep rolling a dice till land on a six
+
+
+let dice = Math.trunc(Math.random() * 6) +1;
+
+console.log(dice);
+
+
+
+//keep running loop till roll a six
+//start with random dice number then create new one and check again
+//inside the while loop
+while (dice !== 6) {
+    console.log(`You rolled a ${dice}`);
+    //reassign dice at end of each iteration
+   dice = Math.trunc(Math.random() * 6) + 1;
+    
+    if(dice === 6) console.log('Loop is about to end..');
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
