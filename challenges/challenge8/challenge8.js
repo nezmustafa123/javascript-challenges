@@ -190,6 +190,84 @@ while (dice !== 6) {
 
 
 
+//CHALLENGE
+
+
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+
+
+
+
+const calcTip = (bill) => {
+    const tip = bill <= 300 && bill >= 50 ? (bill * 0.2) : (bill * 0.15);
+    tips.push(tip);
+}
+const calcTotal = (bill, tip) => {
+    totals.push(bill + tip);
+}
+
+
+
+
+for (let i = 0; i < bills.length; i++) {
+calcTip(bills[i]);
+};
+
+
+for (let i = 0; i < bills.length; i++) {
+calcTotal(bills[i], tips[i]);
+};
+
+
+
+
+console.log(tips);
+
+console.log(totals);
+
+
+
+
+
+const calcAverage = (arr) => {
+    let sum = 0;
+    for ( let i = 0; i< arr.length; i++) {
+        sum += arr[i];
+    }; 
+    return sum/ (arr.length);
+}
+
+calcAverage(totals);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
