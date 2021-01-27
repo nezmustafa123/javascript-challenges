@@ -242,7 +242,8 @@ const calcAverage = (arr) => {
 
 calcAverage(totals);
 
-//can also do 
+//can also do this for calcTips
+
 for(let i =  0; i< bills.length; i++) {
     const tip = calcTip(bills[i]);
     //each iteration creates new tip variable
