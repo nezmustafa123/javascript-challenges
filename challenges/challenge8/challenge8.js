@@ -238,7 +238,7 @@ const calcAverage = (arr) => {
         sum += arr[i];
     }; 
     return sum/ (arr.length);
-}
+};
 
 calcAverage(totals);
 
@@ -247,10 +247,10 @@ calcAverage(totals);
 for(let i =  0; i< bills.length; i++) {
     const tip = calcTip(bills[i]);
     //each iteration creates new tip variable
-    
+    //AND THE NEW TIP VARIABLE IS PUSHED to array
     tips.push(tip);
     totals.push(tip + bills[i]);
-}
+};
 
 
 
