@@ -100,7 +100,7 @@ const calcTempAmplitudeBug = function (temps1, temps2) {
 
 const amplitudeBug = calcTempAmplitudeBug([3,4,5,2], [10, 3, 9]);
 //A) IDENTIFY
-console.log(amplitudeNew);
+console.log(amplitudeBug);
 
 
 
@@ -108,11 +108,39 @@ console.log(amplitudeNew);
 
 
 
+//CHALLENGE
 
+//Given an array of forecasted maximum temperatures, the thermometer displays a
+//string with the given temperatures. Example: [17, 21, 23] will print "... 17oC in 1
+//days ... 21oC in 2 days ... 23oC in 3 days ..."
 
+//1) Understanding the problem
+//-- Break array up into elements and put dots before each one as a sperator
+//--transform to string seperated by ..
+//days are index plus 1
+//2) Break up into sub-problems
+//--Transform array into string
+//--each element transform to a string with degrees celsius
+//-- strings need oto contain day (index + 1)
+//-- add ... between elements and start and end of string
 
+const data1 = [17, 21, 23]
+const data2 =  [12, 5, -5, 0, 4]
 
+const printForecast = (arr) => {
+    
+    let str = '';
+    //creat initial string
+    //add multiple string to main string each iteratoin because string plus number is always string
+    for(let i  = 0; i < arr.length; i++) {
+        str = str + `${arr[i]}oC in ${i + 1} days ... `;
+    }
+    
+    console.log('...' + str);
+    
+};
 
+printForecast(data1)
 
 
 
