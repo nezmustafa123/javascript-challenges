@@ -72,7 +72,7 @@ const calcTempAmplitudeBug = function (temps1, temps2) {
     //say you made a mistake here
     //will give error 
     let max = 0;
-    let min = 0];
+    let min = 0;
     //assume max value of array is first element
     //loop through
     for ( let i = 0; i < temps.length; i++) {
@@ -82,6 +82,7 @@ const calcTempAmplitudeBug = function (temps1, temps2) {
         
         if(typeof curTemp !== 'number') continue;
         //skip current iteration
+        debugger;
         if(curTemp > max) {
             //if current position is greater than maximum value it will be maximum
             max = curTemp;
