@@ -6,6 +6,8 @@ const ents = {
   "'": "&apos;",
 }
 
+//creat 
+
 function convertHTML(str) {
 //replace key with key property
     for(let key in ents) {
