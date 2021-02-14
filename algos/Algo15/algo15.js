@@ -1,23 +1,43 @@
+//function steamrollArray(arr) {
+//
+//let newArr = [];
+//
+//arr.forEach(item => {
+//  console.log(flatten(item));
+//})
+//
+//  newArr = (flatten(arr[3]));
+//
+//}
+//
+//
+//
+//function flatten(item) {
+//  if(!Array.isArray(item)) {
+//    return item;
+//  }
+//
+//  return flatten(item[0]);
+//}
+
+
+
+
 function steamrollArray(arr) {
 
-let newArr = [];
-
+const finalArr = [];
+//loop through 
 arr.forEach(item => {
-  console.log(flatten(item));
-})
+  if(Array.isArray(item)) {
+//recursevley call the function
 
-  newArr = (flatten(arr[3]));
-
-}
-
-
-
-function flatten(item) {
-  if(!Array.isArray(item)) {
-    return item;
+   finalArr.push(...steamrollArray(item))
+   console.log(finalArr)
+  } else {
+    finalArr.push(item);
   }
-
-  return flatten(item[0]);
+})
+  return finalArr;
 }
 
 
