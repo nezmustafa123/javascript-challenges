@@ -44,6 +44,7 @@ function diffArray(arr1, arr2) {
 
 
 
+
 //
 //function diffArray(arr1, arr2) {
 //  var newArr = [];
@@ -62,3 +63,6 @@ function diffArray(arr1, arr2) {
 //}
 //
 //diffArray([1, 2, 3, 5], [1, 2, 3, 4, 7, 9, 5]);
+
+
+
