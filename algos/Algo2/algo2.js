@@ -45,3 +45,24 @@ function diffArray(arr1, arr2) {
 
 
 
+//
+//function diffArray(arr1, arr2) {
+//  var newArr = [];
+//  let arr1Length = arr1.length;
+//  let arr2Length = arr2.length;
+//
+//  let smallerArray = arr1Length < arr2Length ? arr1 : arr2;
+//  let biggerArray = arr1Length > arr2Length ? arr1 : arr2;
+//
+//  for (const index in biggerArray) {
+//    if (!smallerArray.includes(biggerArray[index])) {
+//      newArr.push(biggerArray[index]);
+//    }
+//  }
+//  console.log(newArr);
+//}
+//
+//diffArray([1, 2, 3, 5], [1, 2, 3, 4, 7, 9, 5]);
+
+
+
