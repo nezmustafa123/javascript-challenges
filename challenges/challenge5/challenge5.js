@@ -1,10 +1,5 @@
 'use strict';
-
-
-
-
-
-
+//functin like a fruit machine
 //function cutFruitPieces(fruit){
 //    return fruit * 4;
 //}
@@ -32,8 +27,10 @@ console.log(avgKoalas);
 
 
 function checkWinner(avgDolphins, avgKoalas) {
+    //if average do;hins twice that of average koalas
     if (avgDolphins >=2 * avgKoalas) {
         console.log(`Dolphins win ${avgDolphins} to ${avgKoalas}`);
+        //if average koalas twice that of average dolphins
     } else if (avgKoalas >=2 * avgDolphins) {
         console.log(`Koalas win ${avgKoalas} to ${avgDolphins}`);
     } else {

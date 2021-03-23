@@ -11,14 +11,16 @@
 //
 
 //BONUS 1
-
+//average score dolphin
 const scoreDol = (97 + 112 + 101) / 3;
+//average score koala
 const scoreKoa = (109 + 95 + 106) / 3;
-
+//both cases have to be true
 if(scoreDol > scoreKoa && scoreDol >= 100) {
     console.log(`Dolphins win`);
 } else if (scoreKoa > scoreDol && scoreKoa >= 100) {
     console.log(`Koalas win`);
+    //all cases have to be true for case to be true
 } else if (scoreKoa === scoreDol && scoreDol >= 100 && scoreKoa >= 100) {
     console.log(`Draw`);
 } else {

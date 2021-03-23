@@ -47,7 +47,7 @@ calcAge(1991);
 const calcAgeArrow = birthYear => {
     console.log(2037 - birthYear);
     console.log(this);
-    //lexical this keyword in arrow function uses this keywork of parent scope
+    //lexical this keyword in arrow function uses "this" keyword of parent scope
     
 }
 calcAgeArrow(1980);
@@ -60,7 +60,7 @@ const nez = {
         console.log(this);
         console.log(2037- this.year);
         //use birth year already in the object itself
-        //instead of passing data in again use this keyword to reference object istelf
+        //instead of passing data in again use "this" keyword to reference object istelf
     }
 }
 

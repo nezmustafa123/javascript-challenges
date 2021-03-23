@@ -4,7 +4,7 @@ const friend3 = "Peter";
 
 
 const friends = ['Michael', 'Steven', 'Peter'];
-
+//zero indexed array 0 1 2
 
 const y = new Array(1991, 1984, 2008, 2020);
 
@@ -12,8 +12,9 @@ const y = new Array(1991, 1984, 2008, 2020);
 //console.log(friends[2]);
 //
 //console.log(friends.length);
+//get the value at the end of the array
 //console.log(friends[friends.length-1]);
-
+//replace the element at the second index with jay
 friends[2] = 'Jay';
 //console.log(friends);
 
