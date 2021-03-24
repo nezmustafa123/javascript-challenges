@@ -13,7 +13,7 @@ const nez = {
         
     },
     greet: () => console.log(`Hey ${this.firstName}`),
-    //will print out hey matilda because this keyword points to window object 
+    //will print out hey matilda because this keyword points to window object inside the arrow function
     //firstname property added to window firstName:'Matilda'
     //never use var or arrow function as a method
     //this.first name translates to window.firstName 
