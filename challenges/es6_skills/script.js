@@ -1,7 +1,7 @@
 'use strict';
 
 
-//destructuring arrays
+//DESTRUCTURING ARRAYS
 
 const restaurant = {
     name: 'Classico Italiano',
@@ -10,7 +10,20 @@ const restaurant = {
     starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
     mainMenu: ['Pizza', 'Pasta', 'Risotto'],
     //two parameters one index for starter menu one index for main menu person will order giving index for each menu
-    
+    openingHours: {
+        thu: {
+            open: 12,
+            close: 22,
+        },
+        fri: {
+            open: 11,
+            close: 23,
+        },
+        sat: {
+            open: 0,
+            close: 24,
+        },
+    },
     order: function(starterIndex, mainIndex) {
         //starter menu at position starter index main menu at position mainindex
         return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
@@ -99,6 +112,11 @@ console.log(i, j, k);
 const [p = 1, q = 1, r = 1] = [8,9];
 console.log(p, q, r);
 //r will become one
+
+
+//DESTRUCTURING OBJECTS
+
+
 
 
 
