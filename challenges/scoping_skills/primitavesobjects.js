@@ -135,7 +135,7 @@ const jessicaCopy = Object.assign({}, jessica2);
 //merge empty object with jessica 2
 
 jessicaCopy.lastName = 'Davis';
-//copy of iriginal object
+//copy of original object
 console.log('Before marriage:', jessica2);
 console.log('After marriage:', jessicaCopy);
 
