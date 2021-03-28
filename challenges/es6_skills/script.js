@@ -56,6 +56,13 @@ restaurant.orderDelivery({
 
 
 
+
+
+
+
+
+
+
 //unpacking values from an array or object into seperate variables 
 //break down large data structures into smaller data structures like variable
 
@@ -187,7 +194,7 @@ let {a, b} = obj;
 //have to wrap everything in a parenthesis
 
 ({a, b} = obj);
-
+//set a to 23 and b to 7
 
 //nested objects destructuring
 
@@ -209,3 +216,62 @@ console.log(o, c);
 
 
 //instead of defining parameters manuall pass object into function function can destructure object
+
+
+//SPREAD OPERATOR
+
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr); 
+//get new array with three elements from the original array
+
+const newArr = [1,2, ...arr];
+//zpread operator expand array into all original elements
+console.log(newArr);
+//writes the elements individually
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
