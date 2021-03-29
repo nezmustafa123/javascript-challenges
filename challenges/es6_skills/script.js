@@ -36,6 +36,18 @@ const restaurant = {
     console.log(`Order receieved! ${this.starterMenu[starterMenu]}, and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
 },
     //instead of defining parameters manuall pass object into function function can destructure object
+    
+    
+    //function accepting multiple arguments then use spread operator to pass in those arguments
+    //method to order pasta with three ingredients
+    orderPasta: function(ing1, ing2, ing3) {
+        console.log(`Here is your flaming pasta with ${ing1}, ${ing2}, ${ing3}`);
+    } 
+    
+    
+    
+    
+    
 };
 //pass in object of options
 //one argument one object
@@ -179,15 +191,15 @@ const {menu = [], starterMenu: starters = []} = restaurant;
 console.log(menu, starters);
 
 //mutate variables while destructuring object
-let a = 111;
-let b = 999;
+//let a = 111;
+//let b = 999;
 
 const obj = {a : 23, b: 7, c: 14};
 
 //can't do 
-const {a, b} = obj;
+//const {a, b} = obj;
 //or 
-let {a, b} = obj;
+//let {a, b} = obj;
 
 //because javascript expects a code block
 //can't assign anything to a code block
@@ -248,7 +260,7 @@ console.log(1,2,7,8,9);
 
 //create new array using restaurant main menu expans it and add element to it
 
-const newMenu = [...restaurant.mainMenu, 'Gnocci']
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
 
 console.log(newMenu);
 //spread operator doesn't create new variables
@@ -264,22 +276,45 @@ const mainMenuCopy = [...restaurant.mainMenu];
 
 const menu = [...restaurant.mainMenu , ...restaurant.starterMenu];
 
+console.log(menu);
+
+//spread operator works on all ITERABLES
+
+//strings mpas sets NOT objects
+
+//use on a string
+const str = 'Nez';
+const letters = [...str, ' ', 'S.'];
+//expand the string empty string and an s
+
+console.log(letters);
+//will list out letter in indivudual string each one is seperate element
+//only use spread when building array or passing arguments into function
+//can also do 
+console.log(...str);
 
 
+//can't do this
+//console.log(`${...str} Mustafa`);
 
 
+//function accepting multiple arguments then use spread operator to pass in those arguments
+//get ingredients from promt window
+// call prompt three times put result prompts into an array
+const ingredients = [prompt('Let\'s make pasta! Ingredient 1?'),
+                     prompt('Ingredient 2?'),
+                     prompt('Ingredient 3?'),
+                    ];
 
 
+console.log(ingredients);
+//see the array
 
-
-
-
-
-
-
-
-
-
+//call method
+//old way
+restaruant.orderPasta(ingredients[0],ingredients[1], ingredients[2]);
+//new way
+restaurant.orderPasta(...ingredients);
 
 
 
