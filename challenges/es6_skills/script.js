@@ -229,24 +229,40 @@ const newArr = [1,2, ...arr];
 //zpread operator expand array into all original elements
 console.log(newArr);
 //writes the elements individually
+//take all elements out of arr array
+//use spread operator when writing multiple values sperated by commas
+const newArr = [1,2, arr];
+//includes array in array
 
 
+//can use spread operator on newArr log individual elemets out
+
+console.log(...newArr);
+//same as writing
+console.log(1,2,7,8,9);
+//get aray of elements indivisualy
+
+//pass values as arguments into functions
+//pass multiple elements into funciton
 
 
+//create new array using restaurant main menu expans it and add element to it
 
+const newMenu = [...restaurant.mainMenu, 'Gnocci']
 
+console.log(newMenu);
+//spread operator doesn't create new variables
+//can only use it in places where you'd write values sperated by commas
 
+//copy array 
 
+const mainMenuCopy = [...restaurant.mainMenu];
 
+//shallow copy of array
 
+//join array 
 
-
-
-
-
-
-
-
+const menu = [...restaurant.mainMenu , ...restaurant.starterMenu];
 
 
 
