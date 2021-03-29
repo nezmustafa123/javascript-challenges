@@ -317,9 +317,25 @@ restaruant.orderPasta(ingredients[0],ingredients[1], ingredients[2]);
 restaurant.orderPasta(...ingredients);
 
 
+//spread operator also works on objects even though they're not iterables
 
 
 
+//create new restaurant object
+//spread old restaurant into new
+const newRestaurant = {foundedIn: 1997, ...restaurant, founder: 'Mario'};
+
+console.log(newRestaurant);
+
+//shallow copies of objects instead of object assign
+
+const restaurantCopy = {...restaurant};
+restaurantCopy.name 'Ristorante Roma';
+
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
+
+//names are different so it created a seperate copy
 
 
 
