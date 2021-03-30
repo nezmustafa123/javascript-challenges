@@ -340,5 +340,27 @@ console.log(restaurant.name);
 
 
 
+//REST OPERATOR
 
+//same syntax as spread collect multiple elements condense them into an array
+//opposite of spread
+
+
+
+const arr = [1,2, ...[3,4]];
+//SPREAD because on right and side of assignment operator
+
+const [a,b, ...others] = [1,2,3,4,5];
+//REST because on left hand side of operator
+console.log(a,b, ...others);
+
+//rest and descturturing collects elements unused by destructuring
+//puts them all into one
+
+//skip variable 'pasta'
+
+ const [pizza, , risotto, ...otherFood] = [
+    ...restaurant.mainMenu,
+    ...restaurant.starterMenu,
+ ];
 
