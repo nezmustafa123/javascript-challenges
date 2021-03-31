@@ -163,7 +163,7 @@ console.log(p, q, r);
 //DESTRUCTURING OBJECTS
 //order of object doesn't matter so don't need to manually skip elements like in array use curly braces because that's how you create objects
 
-//three brand new variables 
+//three brand new variables NAMES HAVE TO MATCH PROPERTY NAMES
 const {name, openingHours, categories} = restaurant;
 
 console.log(name, openingHours, categories)
@@ -186,7 +186,7 @@ console.log(restaurantName, hours, tags);
 //destructure menu set default menu
 //get starter menu property set it to starters
 const {menu = [], starterMenu: starters = []} = restaurant; 
-//default value will apply to menu and not starter menu because it doesn't exist
+//default value will apply to menu and not starter menu because menu doesn't exist
 
 console.log(menu, starters);
 
@@ -355,12 +355,71 @@ const [a,b, ...others] = [1,2,3,4,5];
 console.log(a,b, ...others);
 
 //rest and descturturing collects elements unused by destructuring
-//puts them all into one
+//corrals all the rest of the elements into one array 
+//must be the last in the destructuring assignment other wise javascript won't know when to stop.
 
 //skip variable 'pasta'
-
+//can only be one rest in any destructuring assignment
  const [pizza, , risotto, ...otherFood] = [
     ...restaurant.mainMenu,
     ...restaurant.starterMenu,
  ];
+
+
+//objects
+
+//remaining elements will be collected into new object
+//select only saturday opening hours the rest should go into weekdays
+
+const {sat, ...weekdays} = resataurant.openingHours;
+console.log(weekdays);
+//collects the rest of the properties inside object 
+//apart from saturday
+
+
+
+//objects 
+//pass 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
