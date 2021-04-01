@@ -33,7 +33,7 @@ const restaurant = {
         //set default values if object can't be destructured fully
         //4 property names in the object
         //4 variable names available in the functoin now
-    console.log(`Order receieved! ${this.starterMenu[starterMenu]}, and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
+    console.log(`Order receieved! ${this.starterMenu[starterIndex]}, and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
 },
     //instead of defining parameters manuall pass object into function function can destructure object
     
@@ -181,8 +181,8 @@ const {
 console.log(restaurantName, hours, tags);
 
 
-//trying to aaccess property that doesn't exist
-//set default values
+//trying to aaccess property that doesn't exist 
+//can set default values
 //destructure menu set default menu
 //get starter menu property set it to starters
 const {menu = [], starterMenu: starters = []} = restaurant; 
@@ -327,7 +327,7 @@ const newRestaurant = {foundedIn: 1997, ...restaurant, founder: 'Mario'};
 
 console.log(newRestaurant);
 
-//shallow copies of objects instead of object assign
+//crate shallow copies of objects instead of using object assign
 
 const restaurantCopy = {...restaurant};
 restaurantCopy.name 'Ristorante Roma';
@@ -378,12 +378,29 @@ console.log(weekdays);
 
 
 
-//objects 
-//pass 
+//functions
 
+//spread operator second use case pass multiple arguments into function at the same time
 
+//add arbitary amount of arguments into function
 
+const add = function(...numbers) {
+//use rest parameters    
+    console.log(numbers);
+    //they are arrays
+    //take multiple values packs them all into one array 
+    //condensed
+    //spread operator expands
+    let sum = 0;
+    for(let i = 0; i < numbers.length; i++) {
+        sum += numbers[i];
+        console.log(sum);
+    }
+};
 
+add(2,3);
+add(5,3,7,2);
+add(8,2,5,3,2,1,4);
 
 
 
