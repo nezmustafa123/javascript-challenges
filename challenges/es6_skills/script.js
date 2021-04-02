@@ -402,13 +402,15 @@ add(2,3);
 add(5,3,7,2);
 add(8,2,5,3,2,1,4);
 
+//rest arguments compress the arguments into one local variable which becomes array
 
+//take to next level
 
+const x = [23,5,7];
 
-
-
-
-
+//put all values in add function using spread operator
+add(...x);
+//same as writing add(23,5,7);
 
 
 
