@@ -42,9 +42,12 @@ const restaurant = {
     //method to order pasta with three ingredients
     orderPasta: function(ing1, ing2, ing3) {
         console.log(`Here is your flaming pasta with ${ing1}, ${ing2}, ${ing3}`);
-    } 
+    },
     
-    
+    orderPizza: function(mainIngredient, ...otherIngredients) {
+        console.log(mainIngredient);
+        console.log(otherIngredients);
+    },
     
     
     
@@ -64,14 +67,6 @@ restaurant.orderDelivery({
     starterIndex: 1
     //will use default values passed into the function
 });
-
-
-
-
-
-
-
-
 
 
 
@@ -373,7 +368,7 @@ console.log(a,b, ...others);
 
 const {sat, ...weekdays} = resataurant.openingHours;
 console.log(weekdays);
-//collects the rest of the properties inside object 
+//collects the rest of the properties inside object in one object
 //apart from saturday
 
 
@@ -412,20 +407,19 @@ const x = [23,5,7];
 add(...x);
 //same as writing add(23,5,7);
 
+//spread operator unpacks array rest operator packs them again
+//can accept array and all single values too
+restaurant.orderPizza('mushroom', 'onion', 'olives', 'pepperoni', 'spinach');
+
+//first argument will be stores into mainingredient the rest are stored into the other ingredients array by the rest parameter syntax
 
 
+resturant.orderPizza('mushrooms');
+//just define one order pizza with only mushrooms remaining arguments will be put into an emppty array
 
-
-
-
-
-
-
-
-
-
-
-
+//the variable defined by the rest operator will be empty
+//spread operator used where you write elements/values sperated by comma
+//rest operator used by variables names seperated by commas
 
 
 
