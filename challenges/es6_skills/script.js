@@ -107,6 +107,7 @@ console.log(firstagain, secondagain);
 //can use to swtich variables say restaruant wanted to switch main and secondary categories
 
 let [main, , secondary] = restaurant.categories;
+//skip the second element in restaurant.categories.
 console.log(main, secondary);
 
 //without destructuring 
@@ -124,7 +125,7 @@ console.log(main, secondary);
 
 //use destructuring new array two variables inverted
 //don't need let or const
-[main, secondary] = [secondary,main];
+[main, secondary] = [secondary, main];
 
 //function returning array then immdietely destruct array into variables
 //recieve array and destructure
@@ -422,11 +423,26 @@ resturant.orderPizza('mushrooms');
 //rest operator used by variables names seperated by commas
 
 
+//SHORT CUIRCUTING && AND ||
 
+//use ANY data type return ANY data type
+//use two values that arent booleans return value that isn't boolean
+//if first value is truthy value it will return that first value
+//other operand won't be evaulated
 
+console.log(3 || 'Nez');
+//will return 3
+console.log(''|| 'Nez');
+//Nez
+console.log(true || 0);
+//true
+console.log(undefined || null);
+//undefined is falsy value so it goes to second operand no short circuiting 
+//even though null is falsey value
 
+console.log(undefined || 0 || '' || 'Hello' || 23 || null);
 
-
+//will return hello because it's the first truthy calue
 
 
 
