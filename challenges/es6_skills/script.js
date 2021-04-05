@@ -95,8 +95,12 @@ console.log(arr);
 //destructure will follow same order out of categories array
 const [first, second] = restaurant.categories;
 
+ //if want so skip leave a hole in the destructuring assignment
+const [first, ,second] = restaurant.categories;
+
+//now first becomes italian second becomes vegetarian
 console.log(first, second);
-//if want to skip leave a whole
+
 
 const [firstagain, ,secondagain] = restaurant.categories;
 //second element skipped second becomes third
@@ -124,7 +128,7 @@ console.log(main, secondary);
 
 
 //use destructuring new array two variables inverted
-//don't need let or const
+//don't need let or const because reassigning the values of two variables
 [main, secondary] = [secondary, main];
 
 //function returning array then immdietely destruct array into variables
@@ -442,13 +446,18 @@ console.log(undefined || null);
 
 console.log(undefined || 0 || '' || 'Hello' || 23 || null);
 
-//will return hello because it's the first truthy calue
+//will return hello because it's the first truthy value
 
 
+//example 
+restaurant.numGuests = 23;
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+//default value of 10
 
-
-
-
-
+//restaurant numguests undefined
+const guests2 = restuarant.numGuests || 10;
+console.log(guests2);
+//or operator short ciruits and the result of guests2 will become 23
 
 
