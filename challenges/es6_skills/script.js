@@ -186,7 +186,7 @@ console.log(restaurantName, hours, tags);
 //destructure menu set default menu
 //get starter menu property set it to starters
 const {menu = [], starterMenu: starters = []} = restaurant; 
-//default value will apply to menu and not starter menu because menu doesn't exist
+//default value will apply to menu and not startermenu because menu doesn't exist
 
 console.log(menu, starters);
 
@@ -433,7 +433,7 @@ resturant.orderPizza('mushrooms');
 //use two values that arent booleans return value that isn't boolean
 //if first value is truthy value it will return that first value
 //other operand won't be evaulated
-
+console.log('----OR----')
 console.log(3 || 'Nez');
 //will return 3
 console.log(''|| 'Nez');
@@ -451,6 +451,8 @@ console.log(undefined || 0 || '' || 'Hello' || 23 || null);
 
 //example 
 restaurant.numGuests = 23;
+//create a new property
+//does the property exist or is it undefined
 const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
 console.log(guests1);
 //default value of 10
@@ -459,5 +461,37 @@ console.log(guests1);
 const guests2 = restuarant.numGuests || 10;
 console.log(guests2);
 //or operator short ciruits and the result of guests2 will become 23
+//don't have to use tenary operator or if else statement
+
+//will not work when number of guests is zero because 0 is falsey
+
+console.log('----AND----')
+//the and operator works in the opposite way to the or operator when it hits a falsey value it returns it
+console.log(0 && 'Nez');
+//0 will be returned
+console.log(8 && 'Nez');
+//Nez is returned if truthy the valueation continues 
+//&& operator true if all are true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
