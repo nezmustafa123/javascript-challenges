@@ -442,7 +442,7 @@ console.log(true || 0);
 //true
 console.log(undefined || null);
 //undefined is falsy value so it goes to second operand no short circuiting 
-//even though null is falsey value
+//even though null is falsey value IT RETURNS NULL
 
 console.log(undefined || 0 || '' || 'Hello' || 23 || null);
 
@@ -470,16 +470,29 @@ console.log('----AND----')
 console.log(0 && 'Nez');
 //0 will be returned
 console.log(8 && 'Nez');
-//Nez is returned if truthy the valueation continues 
+//Nez is returned if truthy the valueation continues and last value is returned
 //&& operator true if all are true
 
+console.log('Hello' && 23 && null && 'Nez');
+//null is first falsey value so it will return null and short circuit
+
+//if method exists if statement
+if(restaurant.orderPizza) {
+    //execute it
+    restaurant.orderPizza('mushrooms', 'spinach');
+}
+
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach'); 
+//if order pizza doesn't exist (undefined) return will short ciruit and nothing will happen
+//if it does exist and is a truthy value the second part will be evaluated
+
+//call function in second part it's fine to call a function in second operand
+
+//OR OPERATOR WILL RETURN FIRST TRUTHY VALUE OF ALL OPERANDS OR LAST VALUE IF ALL ARE FALSEY
+//AND OPERATOR WILL RETURN FIRST FALSEY VALUE OR LAST ONE IF ALL ARE TRUTHY
 
 
-
-
-
-
-
+//OR OPERATOR CAN SET DEFAULT VALUES
 
 
 
