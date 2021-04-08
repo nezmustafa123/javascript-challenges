@@ -416,7 +416,7 @@ add(...x);
 //can accept array and all single values too
 restaurant.orderPizza('mushroom', 'onion', 'olives', 'pepperoni', 'spinach');
 
-//first argument will be stores into mainingredient the rest are stored into the other ingredients array by the rest parameter syntax
+//first argument will be stored into mainingredient parameter/ local variable the rest are stored into the other ingredients array by the rest parameter syntax
 
 
 resturant.orderPizza('mushrooms');
@@ -494,10 +494,23 @@ restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
 
 //OR OPERATOR CAN SET DEFAULT VALUES
 
+//NULLISH COALESCING OPERATOR 
+restaurant.numGuest = 0;
+const guests = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests);
 
+//0 us falsey value so javascript will take default value
 
+//use nullish coalescing operator 
+//es 2020
+const guestCorrect = restaurant.numGuest ?? 10;
+//works almost the same way as or operator 
+console.log(guestCorrect);
+//returns 0 
+//works will concept of nullish values instead of falsey values: null and undefined
 
-
+//it's as if falsey values are truthy values so only continues when first operand is undefined 
+//or null if it's falsey it is short circuited
 
 
 
