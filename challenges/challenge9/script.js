@@ -47,3 +47,7 @@ const [players1, players2] = game.players;
 
 console.log(players1);
 console.log(players2);
+
+const [gk, ...fieldPlayers] = players1;
+
+console.log(gk, fieldPlayers);
