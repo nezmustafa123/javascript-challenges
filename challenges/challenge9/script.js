@@ -29,9 +29,8 @@ players: [
 'Gotze',
 ],
 ],
-score: '4:0',
-scored: ['Lewandowski', 'Gnarby', 'Lewandowski',
-'Hummels'],
+score: '3:0',
+scored: ['Lewandowski', 'Gnarby', 'Lewandowski'],
 date: 'Nov 9th, 2037',
 odds: {
 team1: 1.33,
@@ -51,3 +50,5 @@ console.log(players2);
 const [gk, ...fieldPlayers] = players1;
 
 console.log(gk, fieldPlayers);
+
+const [allPlayers] = [...players1, ...players2];
