@@ -52,3 +52,5 @@ const [gk, ...fieldPlayers] = players1;
 console.log(gk, fieldPlayers);
 
 const [allPlayers] = [...players1, ...players2];
+
+const players1Final = [...players1, 'Thiago', 'Cutinho', 'Perisic'];
