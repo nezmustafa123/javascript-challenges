@@ -54,3 +54,9 @@ console.log(gk, fieldPlayers);
 const [allPlayers] = [...players1, ...players2];
 
 const players1Final = [...players1, 'Thiago', 'Cutinho', 'Perisic'];
+
+const {team1, x:draw, team2} = game.odds;
+console.log(draw);
+
+//can also do inside the odds object
+const {odds : {team1, x:draw, team2}} = game;
