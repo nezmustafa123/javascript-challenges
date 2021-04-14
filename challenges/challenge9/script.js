@@ -30,7 +30,7 @@ players: [
 ],
 ],
 score: '3:0',
-scored: ['Lewandowski', 'Gnarby', 'Lewandowski'],
+scored: ['Lewandowski', 'Gnarby', 'Alaba'],
 date: 'Nov 9th, 2037',
 odds: {
 team1: 1.33,
@@ -44,8 +44,8 @@ team2: 6.5,
 
 const [players1, players2] = game.players;
 
-console.log(players1);
-console.log(players2);
+//console.log(players1);
+//console.log(players2);
 
 const [gk, ...fieldPlayers] = players1;
 
@@ -55,8 +55,17 @@ const [allPlayers] = [...players1, ...players2];
 
 const players1Final = [...players1, 'Thiago', 'Cutinho', 'Perisic'];
 
-const {team1, x:draw, team2} = game.odds;
-console.log(draw);
+//const {team1, x:draw, team2} = game.odds;
+//console.log(draw);
 
 //can also do inside the odds object
 const {odds : {team1, x:draw, team2}} = game;
+
+
+
+const printGoals = function(...players){
+    console.log(`${players.length} goals were scored`)
+};
+
+printGoals('Lewandoski', 'Gnarbry', 'Alaba');
+
