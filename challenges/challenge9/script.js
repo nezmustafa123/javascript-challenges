@@ -64,8 +64,36 @@ const {odds : {team1, x:draw, team2}} = game;
 
 
 const printGoals = function(...players){
+    //players becomes array that you can use in function
     console.log(`${players.length} goals were scored`)
 };
 
-printGoals('Lewandoski', 'Gnarbry', 'Alaba');
+printGoals('Davies', 'Muller', 'Lewandowski','Kimmich');
+printGoals(...game.scored);
+printGoals(game.scored);
+//will only print one goal scored because it is one argument
+//so have to unpack
+
+
+team1 < team2 && console.log('Team 1 is more likely to win');
+//if odds if team one less team one is less likeyl to win
+//if true evaluation continues
+team1 < team2 && console.log('Team 1 is more likely to win');
+//if odds of team 2 less team two more likely to win
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
