@@ -52,6 +52,19 @@ const restaurant = {
     
     
 };
+
+
+//for of loop
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+//don't have to set up counter or condition 
+
+for(const item of menu){
+    console.log(item);
+};
+
+//for item of menu loops over entire menu array on each iteration of menu array gives current item
+
+
 //pass in object of options
 //one argument one object
 //destructured in function//doesnt have to match the order but has to match the name
