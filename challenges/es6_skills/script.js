@@ -62,6 +62,30 @@ for(const item of menu){
     console.log(item);
 };
 
+//get current index
+for(const item of menu.entries()) {
+    console.log(item);
+    //menu entries is array each item is new array
+    //each item becomes an array with index and array element itself
+    //first item in item array second item in item array
+    console.log(`${item[0]+1}: ${item[1]}`);
+}
+
+//can also destructure
+
+//get current index
+for(const [i, el] of menu.entries()) {
+//    console.log(item);
+    //menu entries is array each item is new array
+    //each item becomes an array with index and array element itself
+    //first item in item array second item in item array
+    console.log(`${i +1}: ${el}`);
+}
+
+
+console.log([...memu.entries()]);
+//array in each position contains a new array that contains element and the index number of that element in original array
+
 //for item of menu loops over entire menu array on each iteration of menu array gives current item
 
 
