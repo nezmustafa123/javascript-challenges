@@ -1,16 +1,8 @@
 'use strict';
 
-
 //DESTRUCTURING ARRAYS
 
-const restaurant = {
-    name: 'Classico Italiano',
-    location: 'Via Angelo Tavanti 23, Firenze, Italy',
-    categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
-    starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
-    mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-    //two parameters one index for starter menu one index for main menu person will order giving index for each menu
-    openingHours: {
+const openingHours = {
         thu: {
             open: 12,
             close: 22,
@@ -23,7 +15,34 @@ const restaurant = {
             open: 12,
             close: 24,
         },
-    },
+},
+
+
+const restaurant = {
+    name: 'Classico Italiano',
+    location: 'Via Angelo Tavanti 23, Firenze, Italy',
+    categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+    starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+    mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+  
+//    openingHours: {
+//        thu: {
+//            open: 12,
+//            close: 22,
+//        },
+//        fri: {
+//            open: 11,
+//            close: 23,
+//        },
+//        sat: {
+//            open: 12,
+//            close: 24,
+//        },
+//    },
+    //property name set to object variable
+    openingHours: openingHours,
+    mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+    //two parameters one index for starter menu one index for main menu person will order giving index for each menu
     order: function(starterIndex, mainIndex) {
         //starter menu at position starter index main menu at position mainindex
         return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
