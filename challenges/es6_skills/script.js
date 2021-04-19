@@ -40,13 +40,18 @@ const restaurant = {
 //        },
 //    },
     //property name set to object variable
-    openingHours: openingHours,
+//    openingHours: openingHours,
+    //with enhanced object literals can do this 
+    openinghours,
     mainMenu: ['Pizza', 'Pasta', 'Risotto'],
     //two parameters one index for starter menu one index for main menu person will order giving index for each menu
-    order: function(starterIndex, mainIndex) {
+    //es6 object literal syntax for methods
+    order(starterIndex, mainIndex) {
         //starter menu at position starter index main menu at position mainindex
         return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
     },
+    //methods
+    
     //destructure straight away
     orderDelivery: function ({starterIndex = 1, mainIndex = 0, time ='20.00', address ='Mutrix Road' }) {
         //set default values if object can't be destructured fully
