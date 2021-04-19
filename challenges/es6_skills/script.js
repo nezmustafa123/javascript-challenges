@@ -1,21 +1,42 @@
 'use strict';
 
 //DESTRUCTURING ARRAYS
+//computer porerty names
+
+const weekdays =  ['mon', 'tue','wed', 'thu','fri','sat', 'sun'];
+////take property names out of array and use them
+//const openingHours = {
+//        thu: {
+//            open: 12,
+//            close: 22,
+//        },
+//        fri: {
+//            open: 11,
+//            close: 23,
+//        },
+//        sat: {
+//            open: 12,
+//            close: 24,
+//        },
+//},
 
 const openingHours = {
-        thu: {
+        [weekdays[3]]: {
             open: 12,
             close: 22,
         },
-        fri: {
+        [weekdays[4]]: {
             open: 11,
             close: 23,
         },
-        sat: {
+    //compute using template literal day-6
+        [`day-${ 2 + 4 }`]: {
             open: 12,
             close: 24,
         },
 },
+
+
 
 
 const restaurant = {
