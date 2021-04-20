@@ -94,9 +94,16 @@ const restaurant = {
         console.log(otherIngredients);
     },
     
-    
-    
 };
+
+//check if property exists may have to check for multiple properties
+if(restaurant.openingHours && restaurant.openingHours.mon) console.log
+(restaurant.openingHours.mon.open);
+
+//will return error should check if opening hours.mon propery exists
+//if data came from api would cause problems
+
+
 
 
 //for of loop
