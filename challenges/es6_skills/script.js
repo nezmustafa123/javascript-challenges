@@ -38,7 +38,6 @@ const openingHours = {
 
 
 
-
 const restaurant = {
     name: 'Classico Italiano',
     location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -96,16 +95,52 @@ const restaurant = {
     
 };
 
-//check if property exists may have to check for multiple properties
+//check if property exists may have to check for multiple properties multiple restuarnats maybe not open on monday
+//maybe opening hours doesn't exists as a property either
 if(restaurant.openingHours && restaurant.openingHours.mon) console.log
 (restaurant.openingHours.mon.open);
-
-//will return error should check if opening hours.mon propery exists
+//undefined.open is error
+//will return error should check if openinghours.mon propery exists
 //if data came from api would cause problems
+//opening hours monday is undefined trying to check the open property is an error
 
+//WITH OPTIONAL CHAINING
+//if opening hours mon property does exist then it will return true otherwise it will return undefined
+//nullish coaelescing operator principle if not undefined or null result will be returned and property will be read if it's zero or empty string it stil exists 
+console.log(restaurant.openingHours.mon?.open);
+            
+ //can do the same for opening hours property
 
-
-
+console.log(restaurant.openingHours?.mon?.open);
+//if property exists then read the rest
+            
+   const days = ['mon', 'tues', 'wed', 'thurs', 'fri', 'sat', 'sun'];
+            
+        for(const day of days) {
+//            console.log(day);
+            //loop through days and test if opening hours has property corresponding to day
+        const open = restaurant.openingHours[day]?.open ?? 'closed';
+            //use nullish coalescing because roperty is zero
+            //reelly on nullish null or undefined
+            //if the current day exists check the open property
+//            console.log(`On ${day}, we are open at ${open}`);
+}
+            
+            
+//use on methods
+//does method exist
+console.log(restaurant.order?.(0,1) ?? 'Method does not exist');
+console.log(restaurant.orderRisotto?.(0,1) ?? 'Method does not exist');
+            
+//optional chainging arrays 
+ const users = [{name: 'Jonas', email: 'hello"nez.com'}];
+ console.log(users[0]?.name?? 'User array empty');
+//does value on left exist
+//if users array empty then user array empty would appear
+            
+            
+            
+            
 //for of loop
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 //don't have to set up counter or condition 
@@ -120,9 +155,9 @@ for(const item of menu.entries()) {
     //menu entries is array each item is new array
     //each item becomes an array with index and array element itself
     //first item in item array second item in item array
-    console.log(`${item[0]+1}: ${item[1]}`);
-}
+//    console.log(`${item[0]+1}: ${item[1]}`);
 
+};
 //can also destructure
 
 //get current index
@@ -131,8 +166,8 @@ for(const [i, el] of menu.entries()) {
     //menu entries is array each item is new array
     //each item becomes an array with index and array element itself
     //first item in item array second item in item array
-    console.log(`${i +1}: ${el}`);
-}
+//    console.log(`${i +1}: ${el}`);
+};
 
 
 console.log([...memu.entries()]);
@@ -588,7 +623,7 @@ restaurant.numGuest = 0;
 const guests = restaurant.numGuests ? restaurant.numGuests : 10;
 console.log(guests);
 
-//0 us falsey value so javascript will take default value
+//0 is falsey value so javascript will take default value 10
 
 //use nullish coalescing operator 
 //es 2020
