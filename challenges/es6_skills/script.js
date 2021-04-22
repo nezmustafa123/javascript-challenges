@@ -132,7 +132,7 @@ console.log(restaurant.openingHours?.mon?.open);
 console.log(restaurant.order?.(0,1) ?? 'Method does not exist');
 console.log(restaurant.orderRisotto?.(0,1) ?? 'Method does not exist');
             
-//optional chainging arrays 
+//optional chaining arrays 
  const users = [{name: 'Jonas', email: 'hello"nez.com'}];
  console.log(users[0]?.name?? 'User array empty');
 //does value on left exist
@@ -636,8 +636,25 @@ console.log(guestCorrect);
 //it's as if falsey values are truthy values so only continues when first operand is undefined 
 //or null if it's falsey it is short circuited
 
+//LOOPING OVER OBJECTS 
 
+//loop over property names(keys) values or both together
+//use for of loop to loop indirectly 
 
+for (const day of Object.keys(openingHours)) {
+    console.log(day);
+    //thu
+    //fri
+    //sat
+    //keynames of object
+};
+
+const properties = Object.keys(openingHours);
+//properties is array with the three property names (days)
+
+console.log(properties);
+console.log(`We are open on ${properties.length} days`);
+//length is 3 because array in properties object is 3 
 
 
 
