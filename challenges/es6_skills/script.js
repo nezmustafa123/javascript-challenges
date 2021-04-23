@@ -641,26 +641,51 @@ console.log(guestCorrect);
 //loop over property names(keys) values or both together
 //use for of loop to loop indirectly 
 
-for (const day of Object.keys(openingHours)) {
+
+const properties = Object.keys(openingHours);
+//properties is array with the three property names (days)
+//object keys is also an array
+console.log(properties);
+
+
+let openStr = `We are open on ${properties.length} days`
+//length is 3 because array in properties object is 3 
+
+for (const day of properties) {
     console.log(day);
     //thu
     //fri
     //sat
     //keynames of object
+    openStr += `${day}, `;
+    //we are open on 3 days thu fri sat
 };
 
-const properties = Object.keys(openingHours);
-//properties is array with the three property names (days)
-
-console.log(properties);
-console.log(`We are open on ${properties.length} days`);
-//length is 3 because array in properties object is 3 
 
 
+//property values themselves 
 
+const values = Object.values(openingHours);
+console.log(values);
 
+//prints out values 
 
+//looping through entries keys values
+//entire object
 
+const entries = Object.entries(openingHours);
+//whole onject turns into array each item is also an array two elements first key then the value
+
+for(const [key, value] of entries) {
+    console.log(`On ${key} day we are open at ${open} and close at ${close}`);
+    
+}
+//can destructure straight away
+
+for(const [key, {open, close}] of entries) {
+    console.log(`On ${key} day we are open at ${open} and close at ${close}`);
+    
+}
 
 
 
