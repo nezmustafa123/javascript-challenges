@@ -84,7 +84,7 @@ team1 < team2 && console.log('Team 1 is more likely to win');
 //destruct the nested array inside the larger game.scored.entries array
 
 for(const [i, player] of game.scored.entries()) {
-    console.log(`Goal ${i + 1}: {player}`)
+    console.log(`Goal ${i + 1}: ${player}`);
 }
 
 
