@@ -98,6 +98,37 @@ for (const odd of odds) {
 
 //length is three
 average /= odds.length;
+//divide by three reassign
+console.log(average);
+
+//object entries destructure variable names.for object use objec.entries
+//ods and game object have same property names team 1 team 2
+for (const  [team, odd] of Object.entries(game.odds)) {
+    //entire game object reference team property which is also the same in the odds object
+    const teamStr = team === 'x' ? 'draw' : `Victory ${game[team]}`;
+    console.log(`Odd of  ${teamStr} ${odd}`
+     //will print out team name and odd
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

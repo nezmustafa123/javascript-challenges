@@ -152,7 +152,7 @@ for(const item of menu){
 //get current index
 for(const item of menu.entries()) {
     console.log(item);
-    //menu entries is array each item is new array
+    //menu entries is array of which each item is nested array
     //each item becomes an array with index and array element itself
     //first item in item array second item in item array
 //    console.log(`${item[0]+1}: ${item[1]}`);
