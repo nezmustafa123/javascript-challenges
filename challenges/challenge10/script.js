@@ -81,16 +81,19 @@ team1 < team2 && console.log('Team 1 is more likely to win');
 team1 < team2 && console.log('Team 1 is more likely to win');
 //if odds of team 2 less team two more likely to win
 
-//destruct the nested array inside the larger game.scored.entries array
+//destruct the nested arrays inside the larger game.scored.entries array
 
 for(const [i, player] of game.scored.entries()) {
     console.log(`Goal ${i + 1}: ${player}`);
 }
 
+
+//get the VALUES of game odds object NOT the keys
 const odds = Object.values(game.odds);
 let average = 0;
 //odds is an array
 
+//for of loop
 for (const odd of odds) {
     average += odd;
  //length is three
@@ -101,11 +104,11 @@ average /= odds.length;
 //divide by three reassign
 console.log(average);
 
-//object entries destructure variable names.for object use objec.entries
-//ods and game object have same property names team 1 team 2
-for (const  [team, odd] of Object.entries(game.odds)) {
+//object entries destructure variable names for object use object.entries
+//odds and game object have same property names team 1 team 2
+for (const [team, odd] of Object.entries(game.odds)) {
     //entire game object reference team property which is also the same in the odds object
-    const teamStr = team === 'x' ? 'draw' : `Victory ${game[team]}`;
+    const teamStr = team === 'x' ? 'draw' : `Victory for ${game[team]}`;
     console.log(`Odd of  ${teamStr} ${odd}`
      //will print out team name and odd
 }

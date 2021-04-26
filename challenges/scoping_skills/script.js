@@ -75,7 +75,7 @@ function first(){
         //fist function accesses global scope so second function can access global scope too because first scope accesss globbal scope
         //scope goes up not down
         //also functions have access to function arguments in the outer scope
-        console.log(`%{myName} is a ${age} year old ${job}`);
+        console.log(`${myName} is a ${age} year old ${job}`);
     }
     
     second();

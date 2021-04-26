@@ -689,16 +689,26 @@ for(const [key, {open, close}] of entries) {
 
 
 
+//sets and maps
+//set is collection of unique values 
+//create new set pass in iterable like array
+
+const ordersSet = new Set(['pasta', 'pizza', 'pizza', 'risotto', 'pasta','pizza']);
+
+//can hold mixed data types order of elements in set is irrelevant
+console.log(ordersSet);
 
 
+//all duplicated are gone all elements in set are unique 
+
+//strings are also iterables 
+
+console.log(new Set['Nez']);
+
+//will give set of components in iterable which is string
 
 
-
-
-
-
-
-
+//size of a set
 
 
 
