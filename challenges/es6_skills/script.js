@@ -404,7 +404,7 @@ console.log(menu);
 
 //spread operator works on all ITERABLES
 
-//strings mpas sets NOT objects
+//strings maps sets arrays NOT objects
 
 //use on a string
 const str = 'Nez';
@@ -693,7 +693,12 @@ for(const [key, {open, close}] of entries) {
 //set is collection of unique values 
 //create new set pass in iterable like array
 
-const ordersSet = new Set(['pasta', 'pizza', 'pizza', 'risotto', 'pasta','pizza']);
+const ordersSet = new Set(['pasta', 
+                           'pizza', 
+                           'pizza', 
+                           'risotto', 
+                           'pasta',
+                           'pizza']);
 
 //can hold mixed data types order of elements in set is irrelevant
 console.log(ordersSet);
@@ -702,7 +707,7 @@ console.log(ordersSet);
 //all duplicated are gone all elements in set are unique 
 
 //strings are also iterables 
-
+//pass in string
 console.log(new Set['Nez']);
 
 //will give set of components in iterable which is string
@@ -711,18 +716,64 @@ console.log(new Set['Nez']);
 //size of a set
 
 
+consle.log(ordersSet.size);
+//will output three because there is 3 unique values
+
+console.log(ordersSet.has('Pizza')); //true
+console.log(ordersSet.has('Bread')); //false
+
+//similar to includes method in arrays
+//add elements to a set
+ordersSet.add('Garlic Bread');
+ordersSet.add('Garlic Bread');
+
+//set will only return one garlic bread because it is a unique value and values have to be unique
+
+ordersSet.delete('Risotto');
+//will delete risottot
+console.log(ordersSet);
+
+//retrieve values out of a set
+//in sets thre is no indexes and no ways of getting values out of a set
+//all are unique and order doesn't matter just see if value is contained in a set
+
+
+//delete all elements from set
+ordersSet.clear()
+
+
+//iterate and loop through
+
+for(const order of ordersSet) {
+    console.log(order);
+    //prints out all elements in set
+};
 
 
 
+//use sets to remove all duplicate elements in arrays
+
+const staff = ['Waiter', 'Chef','Waiter', 'Manager', 'Chef'];
+
+//if want to get the unique values only then use a set
+
+const staffSet = [... new Set(staff)];
+console.log(staffSet);
+//set with unique values
+
+//convert from set to array
+
+//spread operator works on all iterables
+//create array around and unpack
+//const staffSet = [... new Set(staff)];
+//use size property to know how many uniqie values there are
 
 
+console.log(new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size);
 
-
-
-
-
-
-
+console.log(new Set('Nez Mustafa').size);
+//gives unique characters in string
+//not ot replace arrays
 
 
 
