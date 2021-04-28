@@ -39,6 +39,7 @@ const openingHours = {
 
 
 const restaurant = {
+    //keys in objects are basically strings
     name: 'Classico Italiano',
     location: 'Via Angelo Tavanti 23, Firenze, Italy',
     categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
@@ -775,13 +776,42 @@ console.log(new Set('Nez Mustafa').size);
 //gives unique characters in string
 //not ot replace arrays
 
+//MAPS more useful than sets can use any type of key
 
 
+const rest = new Map();
+
+//fill up the map
+rest.set('map', 'classico italiano');
+rest.set(1, 'Firsenze, italy');
+console.log(rest.set(2, 'Lison, portugal'));
+//updates and returns the map
+
+//can chain the set method because the set method returns the updated map
+rest
+    .set('categories', ['italian', 'pizzeria', 'vegetairan', 'organic'])
+    .set('open', 11)
+    .set('close',23)
+    .set(true, 'we are open :D');
+//use the get method to retrieve values from a set
+//pass in name of key
 
 
+console.log(rest.get('name'));
+//classico italiano
+console.log(rest.get(true));
+//we are open :D
+//key has to be same data type
+console.log(rest.get(1));
 
+const time = 21;
+//use hypthetical time to get correct string
+    //use boolean operator inside get method will resolve to true or false
+rest.get(time > rest.get('open') && time < rest.get('close'));
+//is time greater than rest.get open and below rest.get close
 
-
+//will resolve to true or flase and map to one value
+//we are open
 
 
 
