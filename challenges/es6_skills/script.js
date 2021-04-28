@@ -750,8 +750,6 @@ for(const order of ordersSet) {
     //prints out all elements in set
 };
 
-
-
 //use sets to remove all duplicate elements in arrays
 
 const staff = ['Waiter', 'Chef','Waiter', 'Manager', 'Chef'];
@@ -780,7 +778,7 @@ console.log(new Set('Nez Mustafa').size);
 
 
 const rest = new Map();
-
+//restaurant
 //fill up the map
 rest.set('map', 'classico italiano');
 rest.set(1, 'Firsenze, italy');
@@ -811,8 +809,41 @@ rest.get(time > rest.get('open') && time < rest.get('close'));
 //is time greater than rest.get open and below rest.get close
 
 //will resolve to true or flase and map to one value
-//we are open
+//will return we are open
+console.log(rest.has('categories'));
+//check to see if included returns true
 
+rest.delete(2);
+//delete key 2 from the map
+console.log(rest)
+
+
+
+console.log(rest.size);
+//7
+rest.clear();
+//clear the whole thing
+
+//arrays, objects as mapkeys
+
+//rest.set([1,2], 'Test');
+//key is array
+
+//differeent objects in heap
+//rest.get([1,2]);
+
+
+
+//to get around it do this
+
+const arr = [1,2];
+
+rest.set(arr,'Test')
+
+//dom keys
+rest.set(document.querySelector('h1'), 'Heading');
+
+//will be an object
 
 
 
