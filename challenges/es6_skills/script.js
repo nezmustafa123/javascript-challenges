@@ -784,7 +784,7 @@ rest.set('map', 'classico italiano');
 rest.set(1, 'Firsenze, italy');
 console.log(rest.set(2, 'Lison, portugal'));
 //updates and returns the map
-
+//use set to add key and value to map
 //can chain the set method because the set method returns the updated map
 rest
     .set('categories', ['italian', 'pizzeria', 'vegetairan', 'organic'])
@@ -794,6 +794,7 @@ rest
 //use the get method to retrieve values from a set
 //pass in name of key
 
+//use get to retrieve values
 
 console.log(rest.get('name'));
 //classico italiano
@@ -844,6 +845,68 @@ rest.set(arr,'Test')
 rest.set(document.querySelector('h1'), 'Heading');
 
 //will be an object
+
+
+//create a new map and add values to it
+//pass in array
+//first position of each array key second is value
+const question = new Map([
+    ['question', 'What is the best programming language'],
+    [1, 'C'],
+    [2, 'Python'],
+    [3, 'Javascript'],
+    ['correct', 3],
+    [true, 'correct'],
+    [false, 'try again!'],
+    
+]);
+
+console.log(question);
+
+
+//familiar array of arrays inside
+//same as calling object .entries
+console.log(Object.entries(openingHours));
+//[['thu', {}],['fri',{}]]
+//array of arrays nested array first element key second value
+//use objec.entries in map
+const hoursMap = new Map(Object.ntries(openingHours));
+//create map with array of arrays
+
+
+console.log(hoursMap);
+
+//maps iterables use for of loop
+
+
+console.log(question.get('question'));
+
+for (const [key, value] of question) {
+    //each item of question will contain key and value
+    //destruct them just like using object.entries this time referenceing map
+    //only log the numbers
+    if(typeof key === 'number') {
+        console.log('Answer ${key}: ${value}'); 
+    }
+    
+};
+
+
+const answer = Number(prompt('Your answer'));
+
+//use boolean keys to either print success message or error message
+
+question.get('correct') === answer
+//the key of correct
+//will return true plug it into map
+
+question.get(question.get('correct') === answer)
+//expression inside prantheis will resolve to true so guestion.get(true) becomes correct
+
+
+
+
+
 
 
 
