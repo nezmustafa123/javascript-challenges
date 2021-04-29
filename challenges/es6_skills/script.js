@@ -910,10 +910,13 @@ question.get(question.get('correct') === answer)
 console.log([...question]);
 //build new array and unpack the map
 
+//can also use methods on maps 
 
+console.log([...question.keys()]);
+//gives keys
+console.log([...question.values()]);
 
-
-
+//gives values
 
 
 
