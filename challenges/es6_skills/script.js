@@ -905,7 +905,10 @@ question.get(question.get('correct') === answer)
 
 
 
+//convert map back to an array
 
+console.log([...question]);
+//build new array and unpack the map
 
 
 
