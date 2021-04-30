@@ -896,11 +896,11 @@ const answer = Number(prompt('Your answer'));
 
 //use boolean keys to either print success message or error message
 
-question.get('correct') === answer
+question.get('correct') === answer;
 //the key of correct
 //will return true plug it into map
 
-question.get(question.get('correct') === answer)
+question.get(question.get('correct') === answer);
 //expression inside prantheis will resolve to true so guestion.get(true) becomes correct
 
 
@@ -914,10 +914,11 @@ console.log([...question]);
 
 console.log([...question.keys()]);
 //gives keys
+//of map
 console.log([...question.values()]);
 
 //gives values
-
+//of map
 
 
 
