@@ -14,5 +14,7 @@ const gameEvents = new Map([
 
 
 
-const events = new Set(gameEvents.values());
+const events = [...new Set(gameEvents.values())];
+//create set unpack the values
+gameEvents.delete(64);
 
