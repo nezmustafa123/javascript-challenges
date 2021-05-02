@@ -760,7 +760,7 @@ const staffSet = [... new Set(staff)];
 console.log(staffSet);
 //set with unique values
 
-//convert from set to array
+//convert from set to array using spread operator
 
 //spread operator works on all iterables
 //create array around and unpack
@@ -915,6 +915,7 @@ console.log([...question]);
 console.log([...question.keys()]);
 //gives keys
 //of map
+//covert into array
 console.log([...question.values()]);
 
 //gives values
