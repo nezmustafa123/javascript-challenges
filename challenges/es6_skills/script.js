@@ -743,7 +743,7 @@ console.log(ordersSet);
 ordersSet.clear()
 
 
-//iterate and loop through
+//iterate and loop through with for of loop
 
 for(const order of ordersSet) {
     console.log(order);
@@ -805,7 +805,7 @@ console.log(rest.get(1));
 
 const time = 21;
 //use hypthetical time to get correct string
-    //use boolean operator inside get method will resolve to true or false
+    //use boolean operator inside get method expression will resolve to true or false
 rest.get(time > rest.get('open') && time < rest.get('close'));
 //is time greater than rest.get open and below rest.get close
 
@@ -830,7 +830,8 @@ rest.clear();
 //rest.set([1,2], 'Test');
 //key is array
 
-//differeent objects in heap
+//differeent objects in heap 
+//cant do this
 //rest.get([1,2]);
 
 

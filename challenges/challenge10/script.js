@@ -50,7 +50,7 @@ const [players1, players2] = game.players;
 const [gk, ...fieldPlayers] = players1;
 
 console.log(gk, fieldPlayers);
-
+//destruct all into single array
 const [allPlayers] = [...players1, ...players2];
 
 const players1Final = [...players1, 'Thiago', 'Cutinho', 'Perisic'];
@@ -82,7 +82,7 @@ team1 < team2 && console.log('Team 1 is more likely to win');
 //if odds of team 2 less team two more likely to win
 
 //destruct the nested arrays inside the larger game.scored.entries array
-
+//game scored entries returns key and entry
 for(const [i, player] of game.scored.entries()) {
     console.log(`Goal ${i + 1}: ${player}`);
 }

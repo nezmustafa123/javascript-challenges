@@ -56,9 +56,9 @@ console.log(airline.slice(1, -1));
 
 const checkMiddleSeat = function(seat) {
     //b and e are middle seats
-    //get last character of a string enter -1 as begin character
+    //get last character of a string enter -1 as begininng character
     //chuck it into a variable
-    const s = set.slice(-1);
+    const s = seat.slice(-1);
     if(s === 'B' || s === 'E') {
         console.log(`Sorry you got the middle seat`);
     } else {
@@ -81,3 +81,53 @@ console.log(typeof new String('Nez'));
 //javscript converts object back to string primitives
 console.log(typeof new String('Nez').slice(1));
 //string
+
+const airline = 'British Airways';
+
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+
+//can use directly on string
+
+console.log('British Airways'.toLowerCase());
+
+//for first letter capitlization in name
+
+const passenger = 'NeZ';
+//everything to lowercase first
+const passengerLower = passenger.toLowerCase();
+
+//take first letter in string and put parts together
+
+const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(1);
+//take from index one to the end of string
+
+
+
+//comparing emails
+
+const email = 'hello@nez.io';
+const loginEmail = 'Hello@NEz.Io \n'
+
+const lowerEmail = loginEmail.toLowerCase();
+//to lowercase
+//get rid of whitespace
+
+const trimmedEmail = lowerEmail.trim();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
