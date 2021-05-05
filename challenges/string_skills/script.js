@@ -108,26 +108,83 @@ const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(
 //comparing emails
 
 const email = 'hello@nez.io';
-const loginEmail = 'Hello@NEz.Io \n'
+const loginEmail = 'Hello@NEz.Io \n';
 
 const lowerEmail = loginEmail.toLowerCase();
 //to lowercase
-//get rid of whitespace
+//get rid of whitespace using trim
 
 const trimmedEmail = lowerEmail.trim();
 
 
+console.log(trimmedEmail);
+//will be normal
+
+//because methods return new string so can chain them
+
+const normalizeEmail = loginEmail.toLowerCase().trim();
+
+console.log(normalizedEmail);
+console.log(email === normalizedEmail);
 
 
 
+//replacing
+const priceGB = '288,97£';
+
+const priceUS = priceGB.replace('£', '$').replace(',', '.');
+//chain the methods replace comma with dot
+
+const announcement = 'All passengers come to boarding door 23. Boarding door23!';
+
+console.log(announcement.replace('door', 'gate'));
+//replaces the first instance only
+
+
+console.log(announcement.replaceAll('door', 'gate'))
+
+console.log(announcement.replace(/door/g, 'gate'))
+
+//can use regular expression instead 
+
+//booleans 
+
+const plane = 'A320neo';
+console.log(plane.includes('A320'));
+//true
+
+console.log(plane.includes('Boeing'));
+//false
+
+console.log(plane.startsWith('Air'));
+//true
+console.log(plane.startsWith('Arb'));
+//false
 
 
 
+if(plane.startsWith('Airbus')&& plane.endsWith('neo')) {
+    console.log('Part of new Airbus Family');
+    
+};
+
+//excercie
 
 
+const checkBaggage = function(items) {
+    //convert to lowercase first
+  const baggage = items.toLowerCase();
+    if(baggage.includes('knife') || baggage.includes('gun'));
+    {
+        console.log('You are NOT allowed on board');
+        
+    } else {
+        console.log('welcome aboard!');
+    }
+};
 
+checkBaggage('I have a Laptop, some Food and a pocket Knife');
 
+checkBaggage('Camera ');
 
-
-
-
+checkBaggage('Go some snacks and a pistol for protection');
