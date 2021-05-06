@@ -188,3 +188,40 @@ checkBaggage('I have a Laptop, some Food and a pocket Knife');
 checkBaggage('Camera ');
 
 checkBaggage('Go some snacks and a pistol for protection');
+
+
+
+//STRING split
+
+
+
+
+console.log('a+very+nice+string'.split('+'));
+//specify divider string split up string by the plus sign and put elements in array
+
+console.log('Nez Mustafa'.split(' '));
+
+//split string by the space put each elementin arrray
+
+
+//destructure to create variables direcly
+
+const [firstName, lastName] = 'Nez Mustafa'.split(' ');
+
+//creates array with two elements first one in first name second one in lastname
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
