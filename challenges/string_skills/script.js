@@ -129,11 +129,11 @@ console.log(email === normalizedEmail);
 
 
 
-//replacing
+//replacing with replace method
 const priceGB = '288,97£';
 
 const priceUS = priceGB.replace('£', '$').replace(',', '.');
-//chain the methods replace comma with dot
+//chain the methods replace comma with dot replace pound sign with dollar
 
 const announcement = 'All passengers come to boarding door 23. Boarding door23!';
 
@@ -222,7 +222,7 @@ const capitalizeName = function(name) {
     //split by space turn into array
     const namesUpper = [];
     for(const thename of names) {
-        namesUpper.push(thename[0].toUpperCase() + n.sclie(1));
+        namesUpper.push(thename[0].toUpperCase() + thename.slice(1));
         //capitalise the individual name first letter
         // then join it with the rest slice from position number one so everythign except first letter
         //push into namesUpper
@@ -244,15 +244,70 @@ const capitalizeName = function(name) {
     const nameArray = name.split(' ');
     //split by space turn into array
     const namesUpper = [];
-    for(const thename of names) {
-      namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
-        //capitalise the individual name first letter
+    for(const thename of nameArray) {
+      namesUpper.push(thename.replace(thename[0], thename[0].toUpperCase()));
+        //capitalise the individual name first letter/charachter
         // then join it with the rest slice from position number one so everythign except first letter
         //push into namesUpper
     }
     console.log(namesUpper.join(' '));
     //join the array back together to make it a string
 };
+
+
+
+//padding 
+//add a number of characters to a string until a string has desired length
+const message = 'Go to gate 23!'
+
+//
+console.log(message.padStart(25,'+'));
+//strig length 25 with plus at start
+console.log('Nez'.padStart(25,'+'));
+//string length 25 but with more stars in front because initial string is shorter
+
+
+console.log(message.padStart(25, '+').padEnd(35, '+'));
+
+//add plus at the end to make it length 35
+
+//credit card example
+//take out 4 numbers use pad start 
+
+const maskCreditCard = function(number) {
+    //can convert number to string with this String() method
+    
+    const str = number + '';
+    //convert to string because of type cooersion
+    const last = str.slice(-4);
+    //take out last 4 characters
+    
+    return last.padStart(str.length, '*');
+    //pad 'last' string at start till it matches length of original string length of original string with star
+}
+
+maskCreditCard(23423423987974354);
+maskCreditCard('234234239879743543567567548999');
+
+
+
+//repeat method
+
+const message2 = 'Bad weather...All Departures Delayed...'
+
+console.log(message2.repeat(5));
+
+
+const planesInLine = function(n) {
+    console.log(`There are ${n} planes in line ${'✈️'.repeat(n)}`);
+};
+
+
+
+planesInLine(5);
+planesinLine(10);
+planesInLine(25);
+
 
 
 
