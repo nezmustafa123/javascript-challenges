@@ -42,9 +42,9 @@ console.log(airline.slice(7, 13));
 console.log(airline.slice(0, airline.IndexOf(' ')));
 //extract from 0 to space
 //virgin 
-console.log(airline.slice(airline.lastIndexOf(' ')) + 1);
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
 //extract last word atlantic //if space is included just add + 1
-
+//to get rid of space slicing from space plus one index to the right
 console.log(airline.slice(-2));
 //start extracting from the end two from the end
 
@@ -191,7 +191,7 @@ checkBaggage('Go some snacks and a pistol for protection');
 
 
 
-//STRING split
+//STRING split and join
 
 
 
@@ -210,8 +210,49 @@ const [firstName, lastName] = 'Nez Mustafa'.split(' ');
 
 //creates array with two elements first one in first name second one in lastname
 
+const newName = ['Mr.', firstName, lastName.toUppercase().join(' ')];
+
+console.log(newName);
+//one string composed of three parts of array joined with joining string
 
 
+const capitalizeName = function(name) {
+    //create an array from string then loop over
+    const nameArray = name.split(' ');
+    //split by space turn into array
+    const namesUpper = [];
+    for(const thename of names) {
+        namesUpper.push(thename[0].toUpperCase() + n.sclie(1));
+        //capitalise the individual name first letter
+        // then join it with the rest slice from position number one so everythign except first letter
+        //push into namesUpper
+    }
+    console.log(namesUpper.join(' '));
+    //join the array back together to make it a string
+};
+
+
+//capitalise each first letter in  a name using replace and join with multiple names in there
+
+capitalizeName('nezih mustafa dogruer');
+capitalizeName('axel john landin');
+
+//can also do 
+
+const capitalizeName = function(name) {
+    //create an array from string then loop over
+    const nameArray = name.split(' ');
+    //split by space turn into array
+    const namesUpper = [];
+    for(const thename of names) {
+      namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+        //capitalise the individual name first letter
+        // then join it with the rest slice from position number one so everythign except first letter
+        //push into namesUpper
+    }
+    console.log(namesUpper.join(' '));
+    //join the array back together to make it a string
+};
 
 
 
