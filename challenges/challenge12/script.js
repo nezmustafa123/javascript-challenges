@@ -25,3 +25,35 @@ camelCase('underscore_case');
 //    console.log(namesUpper.join(' '));
 //    //join the array back together to make it a string
 //};
+
+
+document.querySelector('button').addEventListener('click', function(){
+   
+    //add eventlistener to button
+    
+    //get textarea value
+    const text = document.querySelector('textarea').value;
+    //split text into rows using new line split it by new line array with 5 elements
+    const rows = text.split('\n');
+    console.log(rows);
+    
+    for (const row of rows) {
+       //get array with two words two variables
+        //get rid of spaces trim convert to lowercase use trim method
+        const [first, second] = row.toLowerCase().trim().split('_');
+        console.log(first, second);
+        const output = `${first}${second[0].toUpperCase()}${second.slice(1)}`;
+        console.log(output);
+        //can also do 
+//         const output = `${first}${second.replace(second[0], second[0].toUpperCase)}`;
+//        console.log(output);
+    }
+
+});
+
+
+
+
+
+
+
