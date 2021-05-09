@@ -37,7 +37,8 @@ document.querySelector('button').addEventListener('click', function(){
     const rows = text.split('\n');
     console.log(rows);
     
-    for (const row of rows) {
+    for (const [i, row] of rows.entries()) {
+        //get index and element
        //get array with two words two variables
         //get rid of spaces trim convert to lowercase use trim method
         const [first, second] = row.toLowerCase().trim().split('_');
@@ -47,7 +48,15 @@ document.querySelector('button').addEventListener('click', function(){
         //can also do 
 //         const output = `${first}${second.replace(second[0], second[0].toUpperCase)}`;
 //        console.log(output);
+        
+    //output tickboxes start at same position
+    //pad end set to fixed length
+    //add padding to output ending make entire string 20 charachters get current index in loop and add tickbox depending on the index
+    console.log(`${output.padEnd(20)}${'✅'.repeat(i + 1)}`);
+    //repeat tick at the end of string commensurate the the number of the successive iteration the loop is currently on.
+    
     }
+   
 
 });
 
