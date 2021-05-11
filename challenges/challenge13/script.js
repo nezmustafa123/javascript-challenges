@@ -1,3 +1,5 @@
+'use strict'
+
 const flights ='_Delayed_Depature;fao93766109;txl2133758840;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Depature;fao93766109;list232639855;12:30';
 
 //transform one string into readable format
@@ -27,4 +29,4 @@ for (const flight of flights.split('+')){
 //replace colon in time with h using replace 
     
     console.log(output);
-}
+};
