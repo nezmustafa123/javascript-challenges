@@ -101,16 +101,27 @@ checkIn(flight, nez);
 
 
 
+//pass by reference value
+//in javascript pass reference to memory object
+//pass reference to function but not BY reference like other languages
 
 
 
 
 
+//first class and higher order functions
+
+//functions are first-class citizens/values
+
+//another type of object objects are values functions are values too
 
 
+//store them in variables and object properties
+//pass functions as arguments into other functions
+//can return function from another function
+//functions are objects so there are functions/methods on functions
 
-
-
+//function that recieves another function as an agument returns a new function or both is higer order function
 
 
 
