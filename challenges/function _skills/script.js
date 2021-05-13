@@ -122,6 +122,68 @@ checkIn(flight, nez);
 //functions are objects so there are functions/methods on functions
 
 //function that recieves another function as an agument returns a new function or both is higer order function
+//first class function feature that programming language has or doesn't 
+//there are higher order functions in practice
+
+
+
+
+
+
+//higher order functions example
+
+
+const oneword = function(str) {
+    return str.replace(/ /g, ''),toLowerCase();
+    //replace space with empty string
+}
+
+const upperFirstWord = function(str) {
+    const [first, ...others] = str.split(' ');
+    //destructure using rest to put it it into other variable
+    return [first.toUpperCase(), ...others].join(' ');
+    //spread
+};
+
+const transformer = function(str, fn) {
+    //takes in string and function
+//    fn = upperFirstWord
+    console.log(`Original string: ${str}`);
+    console.log(`Transformed string: ${fn(str)}`);
+    
+    //call function inside functiono with passed in string
+    
+    
+    console.log(`Transformed by: ${fn.name}`);
+    //name property available on functions name of the function
+    //Transformed by: upperFirstWord
+};
+
+
+
+
+transformer('Javascript is the best!', upperFirstWord);
+
+//pass in uppefirstword function  to transformer so it calls it
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
