@@ -133,10 +133,10 @@ checkIn(flight, nez);
 //higher order functions example
 
 
-const oneword = function(str) {
+const oneWord = function(str) {
     return str.replace(/ /g, ''),toLowerCase();
     //replace space with empty string
-}
+};
 
 const upperFirstWord = function(str) {
     const [first, ...others] = str.split(' ');
@@ -149,6 +149,7 @@ const transformer = function(str, fn) {
     //takes in string and function
 //    fn = upperFirstWord
     console.log(`Original string: ${str}`);
+    //callback function being called
     console.log(`Transformed string: ${fn(str)}`);
     
     //call function inside functiono with passed in string
@@ -163,15 +164,28 @@ const transformer = function(str, fn) {
 
 
 transformer('Javascript is the best!', upperFirstWord);
+transformer('Javascript is the best!', oneWord);
+//callback functions
+//pass in uppefirstword and oneWord functions  to transformer so it calls it
 
-//pass in uppefirstword function  to transformer so it calls it
+//callback function like addeventlistener
+
+//Javascript callbacks ALL the time
+//split up code into modular pieces of functionality create abstraction
+//hide details of some code implementation abstract code into other functions
+//transformer code delegates transformation to other lower level functions
+const high5 = function() {
+    console.log('✋');
+}
+
+document.body.addEventListener('click', high5);
+
+//will call callback as soon as body clicked on
+//addeventlistener higher order function
 
 
-
-
-
-
-
+['Nez', 'Sam', 'Emily'].forEach(high5);
+//foreach method on array taking callback
 
 
 
