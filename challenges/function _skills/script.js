@@ -186,18 +186,42 @@ document.body.addEventListener('click', high5);
 
 ['Nez', 'Sam', 'Emily'].forEach(high5);
 //foreach method on array taking callback
+//tell foreach what to do on each iteration
 
 
 
 
 
+//functions returning functions
+//outer function
+const greet = function(greeting) {
+    //inner function
+    return function(name) {
+        console.log(`${greeting} ${name}`);
+        
+    }
+};
+
+greet('Hey');
+//result of this function call is the inner function that was returned
+//can store it in a variable
+
+const greeterHey = greet('Hey');
+//value inside the variable is the function that's returned
+//can call greeterhey like it was any other function that has been defined
+
+greeterHey('Boy');
+greeterHey('Girl');
+//greeting still comes from greet function works because of closures
+
+//can immediately call it without storing because it's a function
+greet('Hello')('Jonas');
+//can use this in functional programming
 
 
 
-
-
-
-
-
-
-
+const greetArr = (greeting) => {
+    return (name) => {
+        consolel.log(`${greeting} ${name}`);
+    }
+}
