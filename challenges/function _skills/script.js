@@ -222,6 +222,61 @@ greet('Hello')('Jonas');
 
 const greetArr = (greeting) => {
     return (name) => {
-        consolel.log(`${greeting} ${name}`);
+        console.log(`${greeting} ${name}`);
     }
+};
+
+
+
+//bind call and apply methods
+
+
+
+
+
+const BritishAirways = {
+    airline: 'British Airways',
+    iataCode: 'BA',
+    bookings: [],
+    //book: function() {}
+    book: function (flightNum, name) {
+       console.log(
+           `${name} booked a seat on ${this.airline} flight ${this.iataCode} ${flightNum}`;
+       );
+        //push the object into the array flight code flight num and passenger array
+        
+     this.bookings.push({flight: `${this.iataCode} ${flightNum}`, name});
+   },
+    //will create a new 'name' key with value of name
+};
+
+BritishAirways.book(239, 'Nez Mustafa');
+BritishAirways.book(635, 'Jim bob');
+console.log(BritishAirways);
+
+
+const bmiFlybe = {
+    name: 'BMI',
+    iataCode: 'BMI',
+    bookings: [],
 }
+
+
+//copying method and pasting is bad practice can create the method and use it in different objects
+
+
+const book = BritishAirways.book;
+//store function in object in a new variable
+
+book(23, 'Sarah Williams')
+
+// now just a regular function call the this keyword points to undefined under strict mode
+//set this keyword explicitly to point at different objects
+
+
+
+
+
+
+
+
