@@ -275,7 +275,7 @@ book(23, 'Sarah Williams')
 
 
 //use call and apply to point this keyword to different objects function is just an object so has methods
-
+//call method
 //use call method first argument is the object you want this keyword to point to 
 book.call(bmiFlybe, 23, 'Sarah Williams');
 console.log(bmiFlybe):
@@ -299,9 +299,18 @@ book.call(TurkishAirlines, 993, 'Mary Cooper');
 
 
 
+//Apply method
 
+//doesn't recieve list of arguments after this keyword
+//takes array of arguments
 
+const flightData = [583, 'DB Cooper'];
+book.apply(BritishAirways, flightData);
+//pass in array of data
+console.log(BritishAirways);
+//can instead use call 
 
+book.call(BritishAirways, ...flightData);
 
 
 
