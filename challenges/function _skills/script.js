@@ -256,7 +256,7 @@ console.log(BritishAirways);
 
 
 const bmiFlybe = {
-    name: 'BMI',
+    airline: 'BMI',
     iataCode: 'BMI',
     bookings: [],
 }
@@ -270,8 +270,36 @@ const book = BritishAirways.book;
 
 book(23, 'Sarah Williams')
 
-// now just a regular function call the this keyword points to undefined under strict mode
+// now just a regular function call the this keyword points to undefined under strict mode it's not a method it's a regular function
 //set this keyword explicitly to point at different objects
+
+
+//use call and apply to point this keyword to different objects function is just an object so has methods
+
+//use call method first argument is the object you want this keyword to point to 
+book.call(bmiFlybe, 23, 'Sarah Williams');
+console.log(bmiFlybe):
+//call method sets this keyword to point to bmiFlybe calls book method
+//all other arguments regular functions
+console.log(bmiFlybe);
+
+
+book.call(BritishAirways. 239. 'James Smith')
+console.log(BritishAirways);
+//this keyword is set to point to British Airways again
+
+
+const TurkishAirlines = {
+    airline: 'Turkish Airlines',
+    iataCode: 'TK',
+    bookings: []
+};
+
+book.call(TurkishAirlines, 993, 'Mary Cooper');
+
+
+
+
 
 
 
