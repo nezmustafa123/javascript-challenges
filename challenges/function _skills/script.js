@@ -292,7 +292,7 @@ console.log(BritishAirways);
 const TurkishAirlines = {
     airline: 'Turkish Airlines',
     iataCode: 'TK',
-    bookings: []
+    bookings: [],
 };
 
 book.call(TurkishAirlines, 993, 'Mary Cooper');
@@ -305,14 +305,26 @@ book.call(TurkishAirlines, 993, 'Mary Cooper');
 //takes array of arguments
 
 const flightData = [583, 'DB Cooper'];
-book.apply(BritishAirways, flightData);
+book.apply(TurkishAirlines, flightData);
 //pass in array of data
 console.log(BritishAirways);
 //can instead use call 
 
-book.call(BritishAirways, ...flightData);
+book.call(TurkishAirlines, ...flightData);
 
 
+
+//bind method 
+//bind allows to manuall set the this keyword for any function call
+//doesnt; immedietley call function it returns new function to which the this keyword is bound
+//will not call book function will return a new one put it into a variable
+const bookTK = book.bind(TurkishAirlines);
+
+//bind the function to TurkishAirlines object, this will point to it
+//one booking function for each of the airlines
+const bookBa = book.bind(BritishAirways);
+const bookBMI = book.bind(bmiFlybe);
+bookTk(192, 'Nez Mustafa');
 
 
 
