@@ -16,7 +16,7 @@ camelCase('underscore_case');
 //    const nameArray = name.split(' ');
 //    //split by space turn into array
 //    const namesUpper = [];
-//    for(const thename of names) {
+//    for(const thename of nameArray) {
 //        namesUpper.push(thename[0].toUpperCase() + thename.slice(1));
 //        //capitalise the individual name first letter
 //        // then join it with the rest slice from position number one so everythign except first letter

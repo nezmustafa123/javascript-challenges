@@ -4,23 +4,16 @@ const bookings = [];
 //functions defualt parameters
 //don't have to pass them in manually
 //es6 defafults can contain any expresstion can also use value of other parameters set before it
-const createBooking = function (
- flightNum, 
- numPassengers = 1, 
- price = 199 * numPassengers
-){
+const createBooking = function (flightNum, numPassengers = 1, price = 199 * numPassengers){
     //old way short cuirting 
     //ES5
 //        numPassengers = numPassengers || 1;
 //        price = price || 199;
     //price and num passengers would be falsey 
-    
-    
-    
     const booking = {
+        //create object in the function
       //use advanced template literals to set property value from arguments
-     
-        flightNum,
+       flightNum,
         numPassengers,
         price,
     };
@@ -321,10 +314,25 @@ book.call(TurkishAirlines, ...flightData);
 const bookTK = book.bind(TurkishAirlines);
 
 //bind the function to TurkishAirlines object, this will point to it
-//one booking function for each of the airlines
-const bookBa = book.bind(BritishAirways);
+//one booking function for each of the airlines/objects
+//define the this keyword once
+const bookBA = book.bind(BritishAirways);
 const bookBMI = book.bind(bmiFlybe);
+//this keyeword already set in stone
 bookTk(192, 'Nez Mustafa');
+
+//pass multiple arguments that are 'set' in stone
+//function especially for TK%%
+const bookTK55 = book.bind(TurkishAirlines, 55);
+//flight number already preset function just needs the name
+
+bookTK55('Nez Mustafa');
+bookTK55('DB Cooper');
+
+
+
+
+
 
 
 
