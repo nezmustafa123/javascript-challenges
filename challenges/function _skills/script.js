@@ -227,7 +227,7 @@ const greetArr = (greeting) => {
 
 
 
-const BritishAirways = {
+const britishAirways = {
     airline: 'British Airways',
     iataCode: 'BA',
     bookings: [],
@@ -243,8 +243,8 @@ const BritishAirways = {
     //will create a new 'name' key with value of name
 };
 
-BritishAirways.book(239, 'Nez Mustafa');
-BritishAirways.book(635, 'Jim bob');
+britishAirways.book(239, 'Nez Mustafa');
+britishAirways.book(635, 'Jim bob');
 console.log(BritishAirways);
 
 
@@ -258,7 +258,7 @@ const bmiFlybe = {
 //copying method and pasting is bad practice can create the method and use it in different objects
 
 
-const book = BritishAirways.book;
+const book = britishAirways.book;
 //store function in object in a new variable
 
 book(23, 'Sarah Williams')
@@ -277,8 +277,8 @@ console.log(bmiFlybe):
 console.log(bmiFlybe);
 
 
-book.call(BritishAirways. 239. 'James Smith')
-console.log(BritishAirways);
+book.call(britishAirways. 239. 'James Smith')
+console.log(britishAirways);
 //this keyword is set to point to British Airways again
 
 
@@ -300,7 +300,7 @@ book.call(TurkishAirlines, 993, 'Mary Cooper');
 const flightData = [583, 'DB Cooper'];
 book.apply(TurkishAirlines, flightData);
 //pass in array of data
-console.log(BritishAirways);
+console.log(britishAirways);
 //can instead use call 
 
 book.call(TurkishAirlines, ...flightData);
@@ -316,7 +316,7 @@ const bookTK = book.bind(TurkishAirlines);
 //bind the function to TurkishAirlines object, this will point to it
 //one booking function for each of the airlines/objects
 //define the this keyword once
-const bookBA = book.bind(BritishAirways);
+const bookBA = book.bind(britishAirways);
 const bookBMI = book.bind(bmiFlybe);
 //this keyeword already set in stone
 bookTk(192, 'Nez Mustafa');
@@ -325,14 +325,74 @@ bookTk(192, 'Nez Mustafa');
 //function especially for TK%%
 const bookTK55 = book.bind(TurkishAirlines, 55);
 //flight number already preset function just needs the name
-
+//called partial application
 bookTK55('Nez Mustafa');
 bookTK55('DB Cooper');
 
 
+//With Event Listeners 
+britishAirways.planes = 300;
+//add new method
+britishAirways.buyPLane = function() {
+    (this);
+    this.planes++
+    console.log(this.planes);
+    //this.planes is not a number because this points to the button element
+};
+
+
+document.querySelector('.buy').addEventListener('click', britishAirways.buyPlane);
+
+//this keyword will point to the button element inside the handler function the this keyword points to the button element or element event handler is attached to
+
+
+//if called outside the this keyword would be britishAirways
+//bind will return new function specify the objecy
+
+
+document
+    .querySelector('.buy')
+    .addEventListener('click', britishAirways.buyPlane.bind(britishAirways));
+
+//bind this keyword to british airways
+
+//partial application
+
+const addTax = (rate, value) => {
+    value + value * rate;
+};
+
+console.log(addTax(0.1, 200));
+//use partial application with bind no this keyword
+//preset the rate to 23%
+//this keyword isn't in function so use null preset the rate
+//create a brand new specific function using more generatl function
+const addVAT = addTax.bind(null, 0.23);
+//0.23 is set in stone
+
+
+console.log(addVAT(100));
+console.log(addVAT(23));
+console.log(addVAT())
 
 
 
+
+
+//can do it using inner funtions
+//functions returning functions
+//outer function
+const calcVat = function(rate) {
+    //inner function
+    return function(value) {
+        return value + value * rate;
+        
+    }
+};
+
+const calcTax = calcVAT(0.17);
+
+calcTax(50);
 
 
 
