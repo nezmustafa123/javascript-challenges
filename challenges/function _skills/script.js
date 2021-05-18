@@ -18,7 +18,7 @@ const createBooking = function (flightNum, numPassengers = 1, price = 199 * numP
         price,
     };
     bookings.push(booking);
-}
+};
 
 console.log(bookings);
 
@@ -48,7 +48,7 @@ const nez = {
     name: 'Nez Mustafa',
     passport: 435389739487
 };
-
+//flight
 const checkIn = function(flightNum, passenger) {
     flightNum = 'LH999';
     //flightNum is different variable
