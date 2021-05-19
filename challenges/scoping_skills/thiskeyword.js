@@ -1,8 +1,8 @@
 'use strict';
 
 
-//this keyword speacial variable created for every execution context (function )
-//teakes value of the owner of the function in which the this keyword is used
+//this keyword special variable created for every execution context (function )
+//takes value of the owner of the function in which the this keyword is used
 
 //not static depends on how the function is called and its value is assigned when function is actually called
 //ways function can be called
@@ -20,8 +20,8 @@
 //nez.calcAge();
 //this points to nez object
 
-//calling functions as normal functions not attacked to functions
-//function call; this = undefined if not instrict mode this will point wo window object
+//calling functions as normal functions not attached to functions
+//function call; this = undefined in STRICT MODE if not instrict mode this will point wo window object
 
 
 //arrow functions; this = this of surrounding function lexical (this) do NOT get their own this keyword
