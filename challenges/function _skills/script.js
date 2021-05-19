@@ -272,8 +272,8 @@ book(23, 'Sarah Williams')
 //use call method first argument is the object you want this keyword to point to 
 book.call(bmiFlybe, 23, 'Sarah Williams');
 console.log(bmiFlybe):
-//call method sets this keyword to point to bmiFlybe calls book method
-//all other arguments regular functions
+//call method sets this keyword to point to bmiFlybe calls book method this keyword inside method points to bmiFlybe
+//all other arguments regular like function
 console.log(bmiFlybe);
 
 

@@ -11,6 +11,7 @@ registerNewAnswer () {
      typeof answer === 'number' && answer < this.answers.length && this.answers[answer]++;
     //short circuit using the and operator and increment by one instead of if statement
     
+    //call function at the end of registerNewAnwer
     this.displayResults();
     this.displayResults('string');
     
@@ -42,3 +43,13 @@ document
     .addEventListener('click', poll.registerNewAnswer.
     bind(poll));
 //bind method returns new function
+//doesn't call the function straight away calls it when button clicked on
+
+//use different array use call to set the this keyword to something else
+
+poll..displayResults.call({answers:[5, 2, 3]}, 'string');
+//set this keyword in display results to new object with one property (array) make this.answers equal to this array also use string option will log one large string
+
+
+poll..displayResults.call({answers:[1, 5, 3, 9, 6, 1]
+}, 'string');
