@@ -419,4 +419,13 @@ runOnce();
 //works with arrow function too
 (() => console.log('This will ALSO never run again'))();
 
-//do access 
+//variables created with let of const create own scope in block
+
+
+
+{
+    const isPrivate = 23;
+    //cant access isPrivate outside block
+    var notPrivate = 46;
+    //can access notPrivate outside the block
+}
