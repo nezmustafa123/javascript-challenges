@@ -397,3 +397,26 @@ calcTax(50);
 
 
 
+//IFFE immedietely invoked function
+
+const runOnce = function() {
+    console.log('This is will never run again');
+};
+
+runOnce();
+
+
+//turn statement into expression
+(function() {
+    console.log('This will never run again');
+    //global scope doesn't have access to private scope
+    const isPrivate = 23;
+    //encapsulated;
+    //data privacy
+})();
+//immediately call function
+
+//works with arrow function too
+(() => console.log('This will ALSO never run again'))();
+
+//do access 

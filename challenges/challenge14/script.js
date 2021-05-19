@@ -11,12 +11,12 @@ registerNewAnswer () {
      typeof answer === 'number' && answer < this.answers.length && this.answers[answer]++;
     //short circuit using the and operator and increment by one instead of if statement
     
-    //call function at the end of registerNewAnwer
+    //call function at the end of  eachregisterNewAnwer call call functions within functions
     this.displayResults();
     this.displayResults('string');
     
 },
-    
+//    display results function
     //use dfault parameters to set the type
  displayResults(type = 'array') {
      if(type === 'array') {
