@@ -429,3 +429,65 @@ runOnce();
     var notPrivate = 46;
     //can access notPrivate outside the block
 }
+
+
+
+//CLOSURES
+
+//happens automatically in certain situations need to recognise those situations
+
+
+
+//don't create closures manually
+const secureBooking = function() {
+    let passengerCount = 0;
+    
+    return function() {
+        //update passenger count variable defined in parent function
+        passengerCount++;
+        console.log(`${passengerCount} passengers`)
+    }
+    
+    
+}
+
+
+const booker = secureBooking();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
