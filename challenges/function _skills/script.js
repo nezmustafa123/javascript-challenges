@@ -481,7 +481,7 @@ booker();
 
 //closure makes function remember all variables being created at functions birth place
 
-//exxecutoin context of secureBooking no longer in call stack
+//execution context of secureBooking no longer in call stack
 
 //booker is funciton located in global scope variable environment is empty
 //booker is in global context child scope of global scopes
@@ -490,13 +490,21 @@ booker();
 
 //booker function closed over parent scope/VE will stay with it forever
 
-//closure has prority
+//closure has prority looks at closure before scope chain even if there is a vairable in global scope
 
 
 
+//closure closed over variable environment of execution context in which function was created
+
+//closure internal property of function
+
+//can look at a closure in the console
+
+console.dir(booker);
 
 
 
+//gives information on closure (internal property)
 
 
 
