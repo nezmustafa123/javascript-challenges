@@ -428,7 +428,7 @@ runOnce();
     //cant access isPrivate outside block
     var notPrivate = 46;
     //can access notPrivate outside the block
-}
+};
 
 
 
@@ -446,32 +446,51 @@ const secureBooking = function() {
         //update passenger count variable defined in parent function
         passengerCount++;
         console.log(`${passengerCount} passengers`)
-    }
+    };
     
     
-}
+};
 
-
+//call the function store it in variable function will be returned
 const booker = secureBooking();
 
 
+booker();
+booker();
+booker();
+
+//call three times
+
+//1 passengers 
+//2 passengers 
+//3 passengers
+//booker function (inner) has access to outer functions environment after it's been called
 
 
+//code running in global execution context
+
+//glocal scope has secure booking function
+
+//secure booking has own scope (variable environment)
 
 
+//when secure booking is executed new execution context is put on top of execution/call stack
 
+//secure booking function scope has access to global scope
+//after securebooking is called it pops off the execution stack and diappears
 
+//closure makes function remember all variables being created at functions birth place
 
+//exxecutoin context of secureBooking no longer in call stack
 
+//booker is funciton located in global scope variable environment is empty
+//booker is in global context child scope of global scopes
+//still has access to variable environment in the execution context in which it was createds
+//booker was created in execution context of secure booking which was popped off the call stack still has access to variable
 
+//booker function closed over parent scope/VE will stay with it forever
 
-
-
-
-
-
-
-
+//closure has prority
 
 
 
