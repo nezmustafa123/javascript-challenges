@@ -509,12 +509,42 @@ console.dir(booker);
 
 
 
+//closure examples 
+
+let f;
+
+const g = function() {
+    const a = 23;
+    f = function() {
+        console.log(a*2);
+        //f variable defined outside
+    };
+};
+
+g();
+f();
+
+//f function closed over variable environment in g function gives a result of 46 
+//even though the f variable was defined outside the g function
+//f variable closes over the outer functions variable environment
+
+//a variable inside the backpack of the function
 
 
+const h = function() {
+    const b = 777;
+    //reassugn b has access to outer scope
+    f = function () {
+        console.log(b* 2);
+    }
+};
 
 
+h();
 
+//assign f variable a second funciton
+//see what f does 
+f(); //f was reassigned
 
-
-
+//f function that was reassigned also closed over variable environment of h
 
