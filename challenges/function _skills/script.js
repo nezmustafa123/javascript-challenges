@@ -510,13 +510,15 @@ console.dir(booker);
 
 
 //closure examples 
+//don't need to return function from another function'
 
+//example 1
 let f;
 
 const g = function() {
     const a = 23;
     f = function() {
-        console.log(a*2);
+        console.log(a * 2);
         //f variable defined outside
     };
 };
@@ -535,7 +537,7 @@ const h = function() {
     const b = 777;
     //reassugn b has access to outer scope
     f = function () {
-        console.log(b* 2);
+        console.log( b * 2);
     }
 };
 
@@ -547,4 +549,53 @@ h();
 f(); //f was reassigned
 
 //f function that was reassigned also closed over variable environment of h
+
+console.dir(f);
+
+//f function has new closure 
+
+
+//example 2 
+//timer 
+
+const boardPassengers = function(n, wait) {
+    //boarding happens in groups divide passengers by three first class business economy
+    const perGroup = n / 3;
+    //callback function called after 1 second created in variable environment on outer function
+    setTimeout(function() {
+        //use n parameter
+        //callback executred independantly from the boardPassengers
+        console.log(`We are now boarding all ${n} passengers`);
+        
+        console.log(`There are 3 group, each with ${perGroup} passengers`);
+        
+    }, wait * 1000);
+    
+    console.log(`Will start boarding in ${wait} seconds`);
+};
+
+const perGroup = 1000;
+//if it wasn't for the clure t will use pergroup variable that's outside
+//closure has proprity over scope chain
+//closure has access to parameters and variables in outer function
+boardPassengers(180, 3);
+
+//180 passengers
+//per group variable will be created
+
+//set timeout will be called and reguster the callback which will be called after three seconds
+
+
+//console.log will be called immediately
+
+
+
+
+
+
+
+
+
+
+
 
