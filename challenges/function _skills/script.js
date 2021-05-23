@@ -419,7 +419,7 @@ runOnce();
 //works with arrow function too
 (() => console.log('This will ALSO never run again'))();
 
-//variables created with let of const create own scope in block
+//variables created with let of const also create own scope in block
 
 
 
@@ -589,6 +589,17 @@ boardPassengers(180, 3);
 //console.log will be called immediately
 
 
+(function () {
+const header = document.querySelector('h1');
+header.style.color = 'red';
+    document.querySelector('body').addEventListener('click', function() {
+        header.style.color = 'blue';
+    })
+})();
+
+//function runs immedietely 
+//data is private global scope or any other scope doesn't have access to the variables inside the funciton
+//the iffee executes but the callback still has access to the iffes variables
 
 
 
