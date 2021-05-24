@@ -600,7 +600,7 @@ header.style.color = 'red';
 //function runs immedietely 
 //data is private global scope or any other scope doesn't have access to the variables inside the funciton
 //the iffee executes but the callback still has access to the iffes variables
-
+//when the function is executed the environment in which it was crerated is gone
 
 
 

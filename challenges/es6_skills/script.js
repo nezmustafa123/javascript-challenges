@@ -30,7 +30,7 @@ const openingHours = {
             close: 23,
         },
     //compute using template literal day-6
-        [`day-${ 2 + 4 }`]: {
+        [weekdays[`${ 2 + 4 }`]]: {
             open: 12,
             close: 24,
         },

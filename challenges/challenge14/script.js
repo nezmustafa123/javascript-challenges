@@ -7,12 +7,12 @@ registerNewAnswer () {
     //put the answer from prompt into variable join options array by new line into one string
     //convert to number
         const answer = Number(prompt(`${this.question}\n${this.options.join('\n')}\n(write option number)`));  
-    //check type of answer and if it's less than answers length
+    //check type of the value in the answer variable and if it's less than answers length
      typeof answer === 'number' && answer < this.answers.length && this.answers[answer]++;
     //increment by one
     //short circuit using the and operator and increment by one instead of if statement
     
-    //call function at the end of  eachregisterNewAnwer call call functions within functions
+    //call function at the end of  eachregisterNewAnwer call, call functions within functions
     this.displayResults();
     this.displayResults('string');
     
