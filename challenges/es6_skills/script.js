@@ -151,6 +151,7 @@ for(const item of menu){
 };
 
 //get current index
+//entries method used on array
 for(const item of menu.entries()) {
     console.log(item);
     //menu entries is array of which each item is nested array
@@ -870,7 +871,7 @@ console.log(question);
 console.log(Object.entries(openingHours));
 //[['thu', {}],['fri',{}]]
 //array of arrays nested array first element key second value
-//use objec.entries in map
+//use object.entries in map
 const hoursMap = new Map(Object.ntries(openingHours));
 //create map with array of arrays
 

@@ -104,7 +104,7 @@ for (const movement of movements) {
 //FOREACH
 
 movements.forEach(function(movement){
-    //callback function inside for each and parameter inside function is the current elemet
+    //callback function inside for each and parameter inside function whcih is the current elemet
    //for each loops over array and calls function for each element 
     
     if(movement > 0) {
@@ -115,14 +115,33 @@ movements.forEach(function(movement){
 });
 
 
+//on each iteration should log one of the two strings 
+//for each element foreach given instructions
 
 
 
+//can also access index variable with entries method 
+
+for (const [i, movement] of movements.entries()) {
+    if(movement > 0) {
+        console.log(`Movement ${i + 1} You deposited ${movement}`);
+    } else {
+        console.log(`Movement ${i + 1} You withdrew ${Math.abs(movement)}`);
+        
+    }
+};
 
 
-
-
-
+//foreach passes in current element index of element and array looping through order matters order in which elements passed on to callback function
+movements.forEach(function(movement){
+    //callback function inside for each and parameter inside function whcih is the current elemet
+   //for each loops over array and calls function for each element 
+    
+    if(movement > 0) {
+        console.log(`You deposited ${movement}`);
+    } else {
+        console.log(`You withdrew ${Math.abs(movement)}`);
+    }
 
 
 
