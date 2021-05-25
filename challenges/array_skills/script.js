@@ -87,6 +87,35 @@ console.log(letters.join(' - '));
 
 
 
+const movements = [200, 450, -400, 3000, -650, 130, 70, 1300];
+
+for (const movement of movements) {
+    if(movement > 0) {
+        console.log(`You deposited ${movement}`);
+    } else {
+        console.log(`You withdrew ${Math.abs(movement)}`);
+        
+    }
+};
+
+//loop over mornally see if its deposit of wirthdrawl
+
+
+//FOREACH
+
+movements.forEach(function(movement){
+    //callback function inside for each and parameter inside function is the current elemet
+   //for each loops over array and calls function for each element 
+    
+    if(movement > 0) {
+        console.log(`You deposited ${movement}`);
+    } else {
+        console.log(`You withdrew ${Math.abs(movement)}`);
+    }
+});
+
+
+
 
 
 
