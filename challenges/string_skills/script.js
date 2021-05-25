@@ -163,7 +163,7 @@ console.log(plane.startsWith('Arb'));
 
 
 
-if(plane.startsWith('Airbus')&& plane.endsWith('neo')) {
+if(plane.startsWith('Airbus') && plane.endsWith('neo')) {
     console.log('Part of new Airbus Family');
     
 };
@@ -266,7 +266,7 @@ console.log(message.padStart(25,'+'));
 console.log('Nez'.padStart(25,'+'));
 //string length 25 but with more stars in front because initial string is shorter
 
-
+//can chain methods
 console.log(message.padStart(25, '+').padEnd(35, '+'));
 
 //add plus at the end to make it length 35

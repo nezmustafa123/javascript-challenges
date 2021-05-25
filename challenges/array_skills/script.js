@@ -55,6 +55,72 @@ console.log(arr);
 
 arr.splice(1,2);
 //start at index one and delete two elements
+//deletes b and c
 
 //second parameter is delete count not end parameter
+
+//REVERSE 
+
+let arr = ['a', 'b', 'c', 'd', 'e'];
+const arr2 = ['j', 'i', 'h', 'g', 'f'];
+
+console.log(arr2.reverse());
+
+console.log(arr);
+
+//CONTACT
+
+const letters = arr.contact(arr2);
+
+console.log(letters);
+//arrays concatenated
+//doesn't mutate original array
+
+
+//same as doing
+console.log([...arr, ...arr2]);
+
+//JOIN
+
+console.log(letters.join(' - '));
+//join by a dash delimiter
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
