@@ -102,6 +102,7 @@ for (const movement of movements) {
 
 
 //FOREACH
+//YOU CANNOT BREAK OUT OF A FOR EACH LOOP
 
 movements.forEach(function(movement){
     //callback function inside for each and parameter inside function whcih is the current elemet
@@ -123,6 +124,7 @@ movements.forEach(function(movement){
 //can also access index variable with entries method 
 
 for (const [i, movement] of movements.entries()) {
+    //first element index second value current array element
     if(movement > 0) {
         console.log(`Movement ${i + 1} You deposited ${movement}`);
     } else {
@@ -133,15 +135,18 @@ for (const [i, movement] of movements.entries()) {
 
 
 //foreach passes in current element index of element and array looping through order matters order in which elements passed on to callback function
-movements.forEach(function(movement){
+movements.forEach(function(mov, i, arr){
     //callback function inside for each and parameter inside function whcih is the current elemet
    //for each loops over array and calls function for each element 
     
-    if(movement > 0) {
-        console.log(`You deposited ${movement}`);
+    if(mov > 0) {
+        console.log(`Movement ${i + 1}: You deposited ${mov}`);
     } else {
-        console.log(`You withdrew ${Math.abs(movement)}`);
+        console.log(`Movement ${i+ 1}: You withdrew ${Math.abs(mov)}`);
     }
+    
+};
+                  
 
 
 
