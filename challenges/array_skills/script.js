@@ -151,10 +151,44 @@ movements.forEach(function(mov, i, arr){
 
 
 
+//FOREACH available on maps and sets
+                  
+   
+
+const currencies = new Map([
+    ['USD','United States Dollar'],
+    ['EUR', 'Euro'],
+    ['GBP', 'Pound sterling'],
+                  
+]);
+//call for each on map takes three parameters first current value in iteration
+//second is the key third one entire map being looped over
+currencies.forEach(function(value, key, map) {
+    console.log(`${key}: ${value}`);
+});
+
+                                 
+//set 
+
+const currienciesUnique = new Set(['USD', 'GBP', 'USD', 'EUR', 'EUR']);
+
+console.log(currenciesUnique);
+
+currenciesUnique.forEach(function(value,key, map){
+    console.log(`${key}: ${value}`);
+    //for each for sets as same three parameters but sets don't have keys
+});
 
 
-
-
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
 
 
 
