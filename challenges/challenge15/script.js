@@ -21,18 +21,38 @@
 //§ Data 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
 
 
-const checkDogs = function(dogsjulia, dogsKate) {
+
+
+const checkDogs = function(dogsJulia, dogsKate) {
     let dogsJuliaCopy = dogsJulia.slice();
     dogsJuliaCopy = dogsJuliaCopy.splice(1, 2);
     console.log(dogsJuliaCopy);
     
-    let dogsJuliaKate = dogsJuliaCopy.contact(dogsKate);
+    let dogsJuliaKate = dogsJuliaCopy.concat(dogsKate);
     
     for(const [i, dog] of dogsJuliaKate.entries()) {
-        if(dog > 3) {
+        if(dog >= 3) {
             console.log(`Dog number ${i + 1} is an adult and is ${dog} years old`);
         } else {
             console.log(`Dog number ${i + 1} is a puppy and is ${dog} years old`);
         }
     }
+    
+    //can also do 
+     
+    dogsJuliaKate.forEach(function(dog, i)) {
+        if(dog >= 3) {
+            console.log(`Dog number ${i + 1} is an adult and is ${dog} years old`);
+        } else {
+            console.log(`Dog number ${i + 1} is a puppy and is ${dog} years old`);
+        }
+    }
+    
+    
+    
+    
+    
+    
 };
+
+checkDogs([3, 5, 2, 12, 7],[3, 5, 2, 12, 7]);
