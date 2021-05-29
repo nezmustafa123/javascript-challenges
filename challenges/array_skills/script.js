@@ -28,7 +28,7 @@ arr.slice(-1);
 
 //extract at position 1 and minus -2
 //etracts from index up to but not including the last two 
-arr.slice(-1);
+arr.slice(1, -2);
 
 arr.slice();
 //creates shallow copy of original array use slice method
@@ -180,7 +180,17 @@ currenciesUnique.forEach(function(value,key, map){
 });
 
 
-                  
+                   
+
+
+
+
+//use _ as throwaway variable
+currenciesUnique.forEach(function(value, _ , map){
+    console.log(`${value}: ${value}`);
+    //for each for sets as same three parameters but sets don't have keys
+});
+                 
                   
                   
                   
