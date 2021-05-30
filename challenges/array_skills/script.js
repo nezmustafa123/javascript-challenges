@@ -180,9 +180,6 @@ currenciesUnique.forEach(function(value,key, map){
 });
 
 
-                   
-
-
 
 
 //use _ as throwaway variable
@@ -190,7 +187,31 @@ currenciesUnique.forEach(function(value, _ , map){
     console.log(`${value}: ${value}`);
     //for each for sets as same three parameters but sets don't have keys
 });
-                 
+
+
+
+
+//array methods
+//data transformation tools
+//new arrays from old arrays
+
+//map 
+//filter 
+//reduce
+
+//map creates new array based off original array on each iteration applies callback function to current array element eg each element should be multiplied by two
+
+//maps values of original array to new array
+
+
+//filter for elements in original array which satisfy a certain condition e.g elements greater than two
+
+//elements for which condition is true will be included in array filter method returns
+
+//reduce boil down all elements of original array into single value
+
+//add all elements of an array together 
+//specify operation have accumulator then as loop over array add current element onto accumulator like a snowmball
                   
                   
                   
