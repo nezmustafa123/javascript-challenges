@@ -214,7 +214,9 @@ currenciesUnique.forEach(function(value, _ , map){
 //specify operation have accumulator then as loop over array add current element onto accumulator like a snowmball
                   
                   
-                  
+               
+
+
                   
                   
                   
