@@ -214,7 +214,74 @@ currenciesUnique.forEach(function(value, _ , map){
 //specify operation have accumulator then as loop over array add current element onto accumulator like a snowmball
                   
                   
-               
+   
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+
+//map method create new array based off function
+
+
+//convert from pound to dollars
+
+const poundToUsd = 1.4;
+//map through array and call callback function on each element
+//multiply each element in movements by one point one call back takes current array element
+//store new array in new variable
+const movementsUSD = movments.map(function(mov){
+    //return value new array should have current position
+    return mov * poundToUsd;
+    //mov * 1.4 each element
+    
+    //could also have returned 23 at same position for each element
+});
+
+
+
+
+//for of loop 
+const movementsUSDfor = [];
+//define new array
+for(const mov of movements) {
+    movementsUSDfor.push(move * poundToUsd);
+};
+
+console.log(movementsUSDfor);
+
+//arrow function
+
+const movementsUSD = movments.map(mov =>
+    mov * poundToUsd;
+    //one line can take the return function and curly braaces
+);
+
+
+
+//map method has access to current element index and whole array
+const movementsDescription = movements.map((mov, i) => {
+    //pass callback function in map method that gets called by map for each element
+    //each time map calls function passes in current element and index
+    //return string gets put into new array results from map method instead of console.log
+    //ternary operator  to build string nothing to do with map method don't need if statement
+    //access to parameters from map 
+    `Movement ${i + 1}: You ${mov > 0 ? 'desposited': 'withdrew'} ${Math.abs(mov)}`
+    
+//    if(mov > 0) {
+//        
+//        //have to return values
+//        return (`Movement ${i = 1}: You deposited ${mov}`);
+//    } else {
+//        //have to return values
+//        return (`Movement ${i + 1}: You withdrew ${Math.abs(mov)}`);
+//    }
+});
+
+console.log(movementDescriptions);
+//can have two return statements ore more in function as long as only one is executed
+
+
+
+
+            
 
 
                   
