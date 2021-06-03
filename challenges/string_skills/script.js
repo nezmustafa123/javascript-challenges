@@ -197,11 +197,11 @@ checkBaggage('Go some snacks and a pistol for protection');
 
 
 console.log('a+very+nice+string'.split('+'));
-//specify divider string split up string by the plus sign and put elements in array
+//specify divider/delimiter string split up string by the plus sign and put elements in array
 
 console.log('Nez Mustafa'.split(' '));
 
-//split string by the space put each elementin arrray
+//split string by the space put each element in an arrray
 
 
 //destructure to create variables direcly
