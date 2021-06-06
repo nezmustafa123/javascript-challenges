@@ -8,9 +8,9 @@ console.log(plane[1]);
 console.log(plane[2]);
 //works with string
 console.log('B747'[0]);
-
+//strings have length property
 console.log(airline.length);
-//
+//13
 console.log('B747'.length);
 
 //strings are also 0 based

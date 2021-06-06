@@ -11,7 +11,7 @@ let arr = ['a', 'b', 'c', 'd', 'e'];
 //slice method similiar to string slice method
 
 arr.slice(2);
-//start at index all the way to end end, returns new array with extracted parts doesn't change original 
+//start at index 2 all the way to end, returns new array with extracted parts doesn't change original DOES NOT MUTATE ORIGINAL ARRAY
 
 //define end parameter
 
@@ -44,7 +44,7 @@ arr.slice();
 console.log(arr.splice(2));
 //splice deletes from index two in original array and returns the rest
 //the original loses the deleted part
-//all we are interested in it do delete elements using splice
+//all we are interested in is to delete elements using splice
 
 //remove last element in array
 
@@ -227,6 +227,7 @@ const poundToUsd = 1.4;
 //map through array and call callback function on each element
 //multiply each element in movements by one point one call back takes current array element
 //store new array in new variable
+//create new array based off original
 const movementsUSD = movments.map(function(mov){
     //return value new array should have current position
     return mov * poundToUsd;
@@ -279,6 +280,76 @@ console.log(movementDescriptions);
 //can have two return statements ore more in function as long as only one is executed
 
 
+
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+// LECTURES
+
+//const currencies = new Map([
+//  ['USD', 'United States dollar'],
+//  ['EUR', 'Euro'],
+//  ['GBP', 'Pound sterling'],
+//]);
+//
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+/////////////////////////////////////////////////
+
+
+
+//FILTER METHOD
+
+const deposits = movements.filter(function (mov) {
+    //create array of deposits above zero.
+    return mov > 0;
+    //return boolean all elements for which this condition is true get filtered out
+
+});
+////can chain these methods together
+//for one final result
+
+
+//using a regular for loop 
+
+const depositsFor = [];
+
+for(const mov of movements) {
+    if (mov > 0) {
+        depositsFor.push(mov);
+    }
+};
+const withdrawals = movements.filter(function(mov){
+    return mov < 0;
+});
+
+//REDUCE METHOD
+
+//
+//reduce method boil doing all elements in to one single value
+//parameters available to callback in reduce method is accumulator current element index and array
+//accumulator is like snowbball callback called on each iteration
+const balanace = movements.reduce(function (acc, cur, i, arr) {
+    console.log(`Iteration ${i}: ${acc}`);
+
+    //acc sum of all previous
+    return acc + cur;
+
+    // on each loop iteration update the value of accumulator plus new current value
+}, 0);
+//initial value of acc start adding at 0
+console.log(balance);
+//3840
+//
+
+//using for loop 
+
+let balance2 = 0;
+//external variable
+for (const mov of movements) {
+    balance2 += mov;
+};
+//using one of the methods you don't need extra variable
+//return value right away
 
 
             

@@ -31,7 +31,7 @@ const calcTempAmplitude = function (temps) {
         if(typeof curTemp !== 'number') continue;
         //skip current iteration
         if(curTemp > max) {
-            //if current position is greater than maximum value it will be maximum
+            //if current position is greater than maximum value it will be new maximum
             max = curTemp;
         } 
         if(curTemp < min) {

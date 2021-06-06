@@ -211,7 +211,7 @@ greeterHey('Girl');
 greet('Hello')('Jonas');
 //can use this in functional programming
 
-
+//written in arrow function
 
 const greetArr = (greeting) => {
     return (name) => {
@@ -221,10 +221,7 @@ const greetArr = (greeting) => {
 
 
 
-//bind call and apply methods
-
-
-
+//BIND CALL AND APPLY METHODS
 
 
 const britishAirways = {
