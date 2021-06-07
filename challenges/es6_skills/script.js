@@ -809,7 +809,7 @@ const time = 21;
     //use boolean operator inside get method expression will resolve to true or false
 rest.get(time > rest.get('open') && time < rest.get('close'));
 //is time greater than rest.get open and below rest.get close
-
+//WILL RESOLVE TO TRUE
 //will resolve to true or flase and map to one value
 //will return we are open
 console.log(rest.has('categories'));
