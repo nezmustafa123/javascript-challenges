@@ -352,7 +352,92 @@ for (const mov of movements) {
 //return value right away
 
 
-            
+
+//const username = user
+//.toLowerCase()
+//.split(' ') //split string into words by space
+//.map(function(name){
+//    return name[0];
+//    //iterate through take first latter in each iteration
+//    //letter at position 0 array with three names
+//    //name at first character
+//})
+//.join(''); //turn into string again
+////chain map method on to the end of split
+////array containing three names 
+//
+////loop over array take first letter on each iteration
+//return username;
+//    //return username
+//};
+////each function should recievet array it wants to work with instead of using global variable
+
+//compute one username for each account holder in users array
+
+
+//filter method 
+
+//const deposits = movements.filter(function (mov) {
+//    //create array of deposits above zero.
+//    return mov > 0;
+//    //return boolean all elements for which this condition is true get filtered out
+//
+//});
+////can chain these methods together
+//for one final result
+
+
+//using a regular for loop 
+
+//const depositsFor = [];
+
+//for(const mov of movements) {
+//    if (mov > 0) {
+//        depositsFor.push(mov);
+//    }
+//};
+//const withdrawals = movements.filter(function(mov){
+//    return mov < 0;
+//});
+
+
+
+
+//reduce method boil doing all elements in to one single value
+//parameters available to callback in reduce method is accumulator current element index and array
+//accumulator is like snowbball callback called on each iteration
+//const balanace = movements.reduce(function (acc, cur, i, arr) {
+//    console.log(`Iteration ${i}: ${acc}`);
+//
+//    //acc sum of all previous
+//    return acc + cur;
+//
+//    // on each loop iteration update the value of accumulator plus new current value
+//}, 0);
+//initial value of acc start adding at 0
+//console.log(balance);
+//3840
+
+
+//using for loop 
+//
+//let balance2 = 0;
+////external variable
+//for (const mov of movements) {
+//    balance2 += mov;
+//};
+//using one of the methods you don't need extra variable
+//return value right away       
+
+
+
+
+
+
+
+
+
+
 
 
                   
