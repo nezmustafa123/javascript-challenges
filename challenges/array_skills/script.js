@@ -377,28 +377,28 @@ for (const mov of movements) {
 
 //filter method 
 
-//const deposits = movements.filter(function (mov) {
-//    //create array of deposits above zero.
-//    return mov > 0;
-//    //return boolean all elements for which this condition is true get filtered out
-//
-//});
-////can chain these methods together
+const deposits = movements.filter(function (mov) {
+    //create array of deposits above zero.
+    return mov > 0;
+    //return boolean all elements for which this condition is true get filtered out
+
+});
+//can chain these methods together
 //for one final result
 
 
 //using a regular for loop 
 
-//const depositsFor = [];
+const depositsFor = [];
 
-//for(const mov of movements) {
-//    if (mov > 0) {
-//        depositsFor.push(mov);
-//    }
-//};
-//const withdrawals = movements.filter(function(mov){
-//    return mov < 0;
-//});
+for(const mov of movements) {
+    if (mov > 0) {
+        depositsFor.push(mov);
+    }
+};
+const withdrawals = movements.filter(function(mov){
+    return mov < 0;
+});
 
 
 
@@ -406,26 +406,26 @@ for (const mov of movements) {
 //reduce method boil doing all elements in to one single value
 //parameters available to callback in reduce method is accumulator current element index and array
 //accumulator is like snowbball callback called on each iteration
-//const balanace = movements.reduce(function (acc, cur, i, arr) {
-//    console.log(`Iteration ${i}: ${acc}`);
-//
-//    //acc sum of all previous
-//    return acc + cur;
-//
-//    // on each loop iteration update the value of accumulator plus new current value
-//}, 0);
+const balanace = movements.reduce(function (acc, cur, i, arr) {
+    console.log(`Iteration ${i}: ${acc}`);
+
+    //acc sum of all previous
+    return acc + cur;
+
+    // on each loop iteration update the value of accumulator plus new current value
+}, 0);
 //initial value of acc start adding at 0
-//console.log(balance);
-//3840
+console.log(balance);
+3840
 
 
-//using for loop 
-//
-//let balance2 = 0;
-////external variable
-//for (const mov of movements) {
-//    balance2 += mov;
-//};
+using for loop 
+
+let balance2 = 0;
+//external variable
+for (const mov of movements) {
+    balance2 += mov;
+};
 //using one of the methods you don't need extra variable
 //return value right away       
 
@@ -434,13 +434,59 @@ for (const mov of movements) {
 
 
 
+//FIND METHOD
+//find element of array based off condition
+//doesn't return new array returns first element in array that satisfies this condition
+//returns first withdrawal
+const firstWithdrawal = movements.find((mov => mov < 0));
+
+console.log(movements);
+console.log(first);
+
+//similar to filter find method only returns first element matching condition 
+//find only returns element itself and not new array
+
+console.log(accounts);
 
 
 
+//find object in array based off a property on that object
+
+const account = accounts.find((acc => acc.owner ==='Sarah Smith'));
+//get account whose owner is Sarah smith use find on array of multiple oebjects search array using find to get object with property that matches condition find method only used for one element
+//if owner names unique condition will match one account name property
 
 
+const accounts = [account1, account2, account3, account4];
 
-                  
+
+  const account1 = {
+    owner: 'Nez Mustafa',
+    movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+    interestRate: 1.2, // %
+    pin: 4563,
+};
+
+const account2 = {
+    owner: 'Sarah Smith',
+    movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+    interestRate: 1.5,
+    pin: 7309,
+};
+
+const account3 = {
+    owner: 'Axel Landin',
+    movements: [200, -200, 340, -300, -20, 50, 400, -460],
+    interestRate: 0.7,
+    pin: 5177,
+};
+
+const account4 = {
+    owner: 'Olivia Jones',
+    movements: [430, 1000, 700, 50, 90],
+    interestRate: 1,
+    pin: 8692,
+};                
                   
                   
                   
