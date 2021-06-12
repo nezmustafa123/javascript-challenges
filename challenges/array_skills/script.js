@@ -242,7 +242,7 @@ const movementsUSD = movments.map(function(mov){
 //for of loop 
 const movementsUSDfor = [];
 //define new array
-for(const mov of movements) {
+for(const move of movements) {
     movementsUSDfor.push(move * poundToUsd);
 };
 
@@ -419,7 +419,7 @@ console.log(balance);
 3840
 
 
-using for loop 
+//using for loop 
 
 let balance2 = 0;
 //external variable
@@ -430,6 +430,40 @@ for (const mov of movements) {
 //return value right away       
 
 
+
+//reduce for maximum value sum multiplication or string object
+find max value of movments
+const max = movements.reduce((acc, mov) => {
+   //usee acc to keep track of current maximum
+    //acc in this case starts as the first value in array
+    if (acc > mov) {
+        return acc; //have to return acc on next iteration don't change
+    } else {
+        //return movement as next iteration
+        return mov
+    }
+},movements[0]); //put first value of array
+
+
+
+const euroToGBP = 1.3;
+//chain all the array methods into one
+movements.filter(function(mov){
+    //filter for movements positive
+    return mov > 0;
+}).map(function(mov, i, arr){
+    console.log(arr); //console.log arr to debug checkout current array in next array method call map method on result of filter this callback is called 5 times 
+    //chain map
+    //convert Euros into pounds
+   return  mov => mov * euroToGBP; 
+}).reduce(function(acc, mov){
+    //chain reduce add all values together accumulator mov
+    //add all values together
+    return acc + mov;
+},0);
+//could chain other methods oo as long as they return arrays can't chain map or filter after reduce
+//data pipline processing
+console.log(eurToGBP);
 
 
 
