@@ -522,7 +522,28 @@ const account4 = {
     pin: 8692,
 };                
                   
-                  
+    
+
+
+
+
+
+//some and every some takes callback function tests for condition not jsut //equality 
+
+//check for equality using includes
+console.log(movements.includes(-130));
+
+const anyDesposits = movements.some(mov => mov > 0);
+//rewrite includes method using some
+console.log(movements.some(mov => mov === -130));
+
+console.log(anyDeposits);
+//true more than just one anyDesposit
+
+//check if there is movements above 1500
+//if there's any value for which this condition is true then this method is true.
+const anyDesposits = movements.some(mov => mov > 1500); 
+        
                   
                   
 
