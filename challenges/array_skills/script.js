@@ -524,10 +524,6 @@ const account4 = {
                   
     
 
-
-
-
-
 //some and every some takes callback function tests for condition not jsut //equality 
 
 //check for equality using includes
@@ -540,20 +536,33 @@ console.log(movements.some(mov => mov === -130));
 console.log(anyDeposits);
 //true more than just one anyDesposit
 
+//SOME method
 //check if there is movements above 1500
 //if there's any value for which this condition is true then this method is true.
 const anyDesposits = movements.some(mov => mov > 1500); 
         
                   
                   
+//EVERY method
+
+//returns true if ALL elements in array passes test in callback function 
+
+console.log(movements.every(mov => mov > 0));
+//false
+console.log(account4.movements.every(mov => mov > 0));
+//true
 
 
 
+//can write function seperately 
 
+const deposit = mov => mov > 0;
 
+console.log(movements.some(deposit));
+console.log(movements.every(deposit));
+console.log(movements.filter(deposit));
 
-
-
+//can reuse same function on methods that require callbacks
 
 
 
