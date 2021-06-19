@@ -432,7 +432,7 @@ for (const mov of movements) {
 
 
 //reduce for maximum value sum multiplication or string object
-find max value of movments
+// find max value of movments
 const max = movements.reduce((acc, mov) => {
    //usee acc to keep track of current maximum
     //acc in this case starts as the first value in array
@@ -566,14 +566,47 @@ console.log(movements.filter(deposit));
 
 
 
+//flat and flatmap
+
+const arr = [[1,2,3], [4,5,6], 7, 8];
+
+console.log(arr.flat());
+
+//flatten array 
+
+//nested arrays inside nested arrays
+
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+
+console.log(arrDeep.flat(2));
+//will only go one level deep can add parameter to specify number of nested  levels
+//two levels deep
+
+const accountMovements = accounts.map(acc => {
+    //create new array with same length that contains the arrays of movements
+   return acc.movements;
+});
+
+//nexted array of arrays
+const allMovements = accountMovements.flat();
+//return flat array
+
+const overallBalance = allMovements.reduce((acc, mov) => acc + mov, 0);
+
+console.log(overallBalance);
+
+//aggreagate all the elements in the flattened array with reduce 
+
+//use chaining 
+
+const overallBalance = account
+.map(acc => acc.movements)
+.flat()
+.reduce((acc, mov) => acc + mov, 0);
 
 
+//can use flatmap to combine map and flat
 
-
-
-
-
-
-
-
-
+const overallBalance = account
+.flatMap(acc => acc.movements) //map method that flattens result one level deep
+.reduce((acc, mov) => acc + mov, 0);
