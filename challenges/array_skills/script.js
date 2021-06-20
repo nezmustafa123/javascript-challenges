@@ -587,7 +587,7 @@ const accountMovements = accounts.map(acc => {
    return acc.movements;
 });
 
-//nexted array of arrays
+//nested array of arrays
 const allMovements = accountMovements.flat();
 //return flat array
 
@@ -610,3 +610,104 @@ const overallBalance = account
 const overallBalance = account
 .flatMap(acc => acc.movements) //map method that flattens result one level deep
 .reduce((acc, mov) => acc + mov, 0);
+
+
+
+
+//SORTING ARRAYS
+
+//strings
+const owners = ['Nez', 'Jim', 'Axel', 'George'];
+owners.sort();
+//sorts in alphabetical order but MUTATES original array
+
+
+
+//Numbers 
+console.log(movements);
+movements.sort();
+//will convert to string then orders them
+
+
+//pass in compare callback function
+//current value and next value two consecutive  numbers in array
+
+
+
+//return < 0 A, B (keep order)
+//return > 0, B, A (switch order put b before a)
+
+
+movements.sort((a, b) => {
+    //if return less than 0 value a will be sorted before value b 
+    //if return positive b will be before a 
+    if (a > b) {
+        return 1; //switch order
+    }
+    else if (a < b) {
+        return -1; //keep order
+    }
+
+//sort in ascending order sory will loop through array and sory it in ascending order
+});
+
+console.log(movements);
+
+movements.sort((a, b) => {
+    //if return less than 0 value a will be sorted before value b 
+    //if return positive b will be before a 
+    if (a > b) {
+        return 1; //switch order if a bigger than b a -b will be positive
+    }
+    else if (a < b) {
+        return -1; //keep order
+    }
+
+//sort in ascending order sort will loop through array and sory it in ascending order
+});
+
+
+movements.sort((a, b) => {
+    //if return less than 0 value a will be sorted before value b 
+    //if return positive b will be before a 
+    if (a > b) {
+        return -1; //if a greater than b keep order
+    }
+    else if (a < b) {
+        return 1; //if a less than b swith order 
+    }
+
+//sort in descending order sort will loop through array and sory it in ascending order
+});
+
+console.log(movements);
+
+
+
+//can write shorthand 
+//ascending order
+movements.sort((a, b) => a - b);
+//if a greater than b then will return any positive number and siwtch the order if b greater than a will keep the order
+console.log(movements);
+//descending order
+
+movements.sort((a, b) => b - a); //return value
+//descending order
+console.log(movements);
+//if 0 returned position remains unchanged
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
