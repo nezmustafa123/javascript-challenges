@@ -6,7 +6,7 @@
 
 
 
-//SPLICE
+//SLICE
 let arr = ['a', 'b', 'c', 'd', 'e'];
 //slice method similiar to string slice method
 
@@ -31,7 +31,7 @@ arr.slice(-1);
 arr.slice(1, -2);
 
 arr.slice();
-//creates shallow copy of original array use slice method
+//creates SHALLOW copy of original array use slice method
 //use it when chaining multiple methods together
 //like doing 
 [...arr];
@@ -328,7 +328,7 @@ const withdrawals = movements.filter(function(mov){
 //reduce method boil doing all elements in to one single value
 //parameters available to callback in reduce method is accumulator current element index and array
 //accumulator is like snowbball callback called on each iteration
-const balanace = movements.reduce(function (acc, cur, i, arr) {
+const balanace = movements.reduce(function (acc, cur, i, arr) { //acc is accumulator
     console.log(`Iteration ${i}: ${acc}`);
 
     //acc sum of all previous
@@ -697,17 +697,48 @@ console.log(movements);
 //if 0 returned position remains unchanged
 
 
+//new ways of writing arrays
+
+
+const arr = [1,2,3,4,5,6,7];
+console.log(new Array(1, 2, 3, 4, 5, 6,7 ));
 
 
 
+const x = new Array(7);
+//creates new array 7 empty elements in there 
+
+console.log(x);
+//when passing in one argument creates array of that length 
+//console.log(x.map(() => 5));
+
+//can't use map method to fill it up 
 
 
+//can use fill method to fill up entire array with specific value
+
+x.fill(1);
+console.log(x);
+//can also specifiy where you want it to start to fill
+
+x.fill(1, 3); //will fill up till end unless specify end paramter
+console.log(x);
+
+//like splice
+
+x.fill(1, 3, 5);
+
+console.log([1,2,3,4,5,6,7]);
+
+//can use on full array 
+
+arr.fill(23, 2, 6);
+
+//put number 23 in positions 2 to 6
 
 
-
-
-
-
-
-
-
+//array.from 
+//use Array constructor same as new Array()
+//first argument object with length second argument mapping function 
+//no arguments array of length 8 of all 1s
+Array.from({length: 8}, () => 1);
