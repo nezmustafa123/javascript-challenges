@@ -630,7 +630,7 @@ movements.sort();
 
 
 //pass in compare callback function
-//current value and next value two consecutive  numbers in array
+//current value and next value two consecutive numbers in array
 
 
 
@@ -700,12 +700,12 @@ console.log(movements);
 //new ways of writing arrays
 
 
-const arr = [1,2,3,4,5,6,7];
-console.log(new Array(1, 2, 3, 4, 5, 6,7 ));
+const arr = [1,2,3,4,5,6,7,8];
+console.log(new Array(1, 2, 3, 4, 5, 6, 7, 8));
 
 
-
-const x = new Array(7);
+//empty arrays + fill method
+const x = new Array(8);
 //creates new array 7 empty elements in there 
 
 console.log(x);
@@ -720,13 +720,13 @@ console.log(x);
 x.fill(1);
 console.log(x);
 //can also specifiy where you want it to start to fill
-
+//fill will MUTATE original array
 x.fill(1, 3); //will fill up till end unless specify end paramter
 console.log(x);
 
 //like splice
 
-x.fill(1, 3, 5);
+x.fill(1, 3, 5); //fills from 3rd index up to but not including 5th index 
 
 console.log([1,2,3,4,5,6,7]);
 
@@ -741,4 +741,20 @@ arr.fill(23, 2, 6);
 //use Array constructor same as new Array()
 //first argument object with length second argument mapping function 
 //no arguments array of length 8 of all 1s
-Array.from({length: 8}, () => 1);
+const y = Array.from({length: 8}, () => 1);
+//create array 1 - 8 
+//acess to current element and index
+const z = Array.from({length: 8}, (el, i) => i + 1);
+
+//length 8 returns index plus one so pronts 1 - 8 index varies from 0-7 like calling map method on emply array
+//can use throwaay prameter to denore not using el parameter
+
+const z = Array.from({length: 8}, (_, i) => i + 1);
+
+
+const diceRolls = Array.from({length: 100}, (_, i) => Math.floor(Math.random() * 6) + 1);
+
+console.log(diceRolls);
+
+
+//create arrays from other things like query selector all
