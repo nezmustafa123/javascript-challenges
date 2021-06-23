@@ -758,3 +758,17 @@ console.log(diceRolls);
 
 
 //create arrays from other things like query selector all
+
+//EG select all the elements that have this class
+const movementsUI = Array,from(document.querySelectorAll('.movementsvalue'));
+
+
+
+
+
+//ARRAY EXCERCISES
+//total deposits
+const bankDepositSum = accounts.map(acc => acc.movements).flat();
+
+console.log(bankDepositSum);
+

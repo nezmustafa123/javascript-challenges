@@ -74,7 +74,7 @@ console.log(friendsNew);
 
 //REMOVE ELEMENTS
 
-//pop doesn't return length just element
+//pop doesn't return length just the element itself
 
 friendsNew.pop();
 const popped = friendsNew.pop();
