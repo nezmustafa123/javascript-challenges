@@ -768,7 +768,29 @@ const movementsUI = Array,from(document.querySelectorAll('.movementsvalue'));
 
 //ARRAY EXCERCISES
 //total deposits
-const bankDepositSum = accounts.map(acc => acc.movements).flat();
-
+//const bankDepositSum = accounts.map(acc => acc.movements).flat();
+const bankDepositum = accounts
+.flatMap(acc => acc.movements) //get movements out of accounts
+.filter(mov => mov > 0)
+.reduce((sum, cur) => sum + cur, 0);
 console.log(bankDepositSum);
+
+
+
+//how many deposits with at least 1000 pounds
+//advanced reduce
+const numDeposits1000 = account
+.flatMap(acc => acc.movements)
+.filter(mov >= 1000).length; //length at the end
+
+
+
+//using reduce
+//accumulator will be the number of movements greater than thousand
+
+const numDeposits1000 = account
+.flatMap(acc => acc.movements)
+.reduce((count, cur) cur >= 1000 ? count + 1 : count, 0);
+//initial accumulator like haveing external variavle outside loop
+//if current value over 1000 then reutrn count 
 
