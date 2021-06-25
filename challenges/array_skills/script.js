@@ -760,7 +760,7 @@ console.log(diceRolls);
 //create arrays from other things like query selector all
 
 //EG select all the elements that have this class
-const movementsUI = Array,from(document.querySelectorAll('.movementsvalue'));
+const movementsUI = Array.from(document.querySelectorAll('.movementsvalue'));
 
 
 
@@ -797,10 +797,10 @@ const numDeposits1000 = accounts
 //on each iteration if over 1000 add one to count
 
 
-//cant use ++ in reduce
+//cant use ++ in reduce use the prefixed operator instead
 const numDeposits1000 = accounts
 .flatMap(acc => acc.movements)
-.reduce((count, cur) cur >= 1000 ? count ++ : count, 0);
+.reduce((count, cur) cur >= 1000 ? ++count : count, 0);
 //initial accumulator like haveing external variavle outside loop
 //if current value over 1000 then reutrn count plus one if not return count
 
@@ -818,15 +818,20 @@ console.log(++a);
 
 
 //use reduce to return new object contains sum of deposits and withdrawals
-
-const sums = accounts
+//destructure the object straight away
+const {deposits, withdrawals} = accounts
 .flatMap(acc => acc.movements)
-.reduce((sums, cur) => {
+.reduce((sums, cur) => { //sums is the object object is the initial value of sums explicitly return from function
     
-}, {})
+//   cur > 0 ? sums.deposits += cur : sums.withdrawals += cur;
+    sums[cur > 0 ? 'depsits' : 'withdrawals'] += cur;
+        //conditionally select deposits or withdrawals using bracket notation expression
+    return sums //have toexplicitly return accumulator
+}, {deposits: 0, withdrawals: 0}
+);
 
 
-
+console.log(deposits, withdrawals);
 
 
 
