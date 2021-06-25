@@ -60,9 +60,9 @@ const restaurant = {
 //            close: 24,
 //        },
 //    },
-    //property name set to object variable
+    //property can be name set to be object variable
 //    openingHours: openingHours,
-    //with enhanced object literals can do this 
+    //with enhanced object literals can also do this 
     openinghours,
     mainMenu: ['Pizza', 'Pasta', 'Risotto'],
     //two parameters one index for starter menu one index for main menu person will order giving index for each menu
