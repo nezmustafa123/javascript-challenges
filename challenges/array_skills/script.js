@@ -770,7 +770,7 @@ const movementsUI = Array,from(document.querySelectorAll('.movementsvalue'));
 //total deposits
 //const bankDepositSum = accounts.map(acc => acc.movements).flat();
 const bankDepositum = accounts
-.flatMap(acc => acc.movements) //get movements out of accounts
+.flatMap(acc => acc.movements) //get movements out of accounts array of arrays
 .filter(mov => mov > 0)
 .reduce((sum, cur) => sum + cur, 0);
 console.log(bankDepositSum);
@@ -779,18 +779,83 @@ console.log(bankDepositSum);
 
 //how many deposits with at least 1000 pounds
 //advanced reduce
-const numDeposits1000 = account
+const numDeposits1000 = accounts
 .flatMap(acc => acc.movements)
-.filter(mov >= 1000).length; //length at the end
+.filter(mov => mov >= 1000).length; //length at the end
 
 
 
 //using reduce
 //accumulator will be the number of movements greater than thousand
 
-const numDeposits1000 = account
+const numDeposits1000 = accounts
 .flatMap(acc => acc.movements)
 .reduce((count, cur) cur >= 1000 ? count + 1 : count, 0);
 //initial accumulator like haveing external variavle outside loop
-//if current value over 1000 then reutrn count 
+//if current value over 1000 then reutrn count plus one if not return count
+
+//on each iteration if over 1000 add one to count
+
+
+//cant use ++ in reduce
+const numDeposits1000 = accounts
+.flatMap(acc => acc.movements)
+.reduce((count, cur) cur >= 1000 ? count ++ : count, 0);
+//initial accumulator like haveing external variavle outside loop
+//if current value over 1000 then reutrn count plus one if not return count
+
+//on each iteration if over 1000 add one to count
+//0 is returned by plus plus on next iteration
+
+let a = 10;
+
+console.log(a++);
+//will give 10 is actually 11 but returns previous value
+
+console.log(++a);
+//use prefixed ++ operator to return straight away
+
+
+
+//use reduce to return new object contains sum of deposits and withdrawals
+
+const sums = accounts
+.flatMap(acc => acc.movements)
+.reduce()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
