@@ -821,7 +821,9 @@ console.log(++a);
 
 const sums = accounts
 .flatMap(acc => acc.movements)
-.reduce()
+.reduce((sums, cur) => {
+    
+}, {})
 
 
 
