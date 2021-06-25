@@ -835,9 +835,25 @@ console.log(deposits, withdrawals);
 
 
 
+//convert to title case 
 
+const convertTitleCase = function(title) {
+    const capitalize = str => str[0].toUpperCase() + str.slice(1);
+    //stand alone function
+    const exceptions = ['a', 'an', 'and', 'the', 'but', 'or', 'on', 'in', 'with'];
+    //convert array work on each word
+    const titleCase = title
+    .toLowerCase()
+    .split(' ')
+    .map(word => exceptions.includes(word) ? word : capitalize(word).join(' ')); //can't use filter use includes if current word is included in exceptions array then capitalize it if not  just return word 
+    console.log(titleCase);
+    //capitalize each word
+  return capitalize(titleCase);
+};
 
-
+console.log(convertTitleCase('this is a nice title'));
+console.log(convertTitleCase('this is a LONG title but not too long'));
+console.log(convertTitleCase('and here is another title with an EXAMPLE'));
 
 
 
