@@ -98,7 +98,7 @@ for (const movement of movements) {
     }
 };
 
-//loop over mornally see if its deposit of wirthdrawl
+//loop over mornally see if its deposit of withdrawl
 
 
 //FOREACH

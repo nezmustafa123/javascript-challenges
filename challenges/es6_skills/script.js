@@ -134,7 +134,7 @@ console.log(restaurant.order?.(0,1) ?? 'Method does not exist');
 console.log(restaurant.orderRisotto?.(0,1) ?? 'Method does not exist');
             
 //optional chaining arrays 
- const users = [{name: 'Jonas', email: 'hello"nez.com'}];
+ const users = [{name: 'Nez', email: 'hello"nez.com'}];
  console.log(users[0]?.name?? 'User array empty');
 //does value on left exist
 //if users array empty then user array empty would appear
