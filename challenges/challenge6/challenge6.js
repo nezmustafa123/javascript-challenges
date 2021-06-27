@@ -35,7 +35,7 @@ const calcAge = function (birthYear) {
 
 const years = [1990, 1967, 2002, 2010, 2018];
 
-//use calcage function on individual elements by passing in the index
+//use calcage function on individual elements by passing in the index and put into array
 const ages = [calcAge(years[0]), calcAge(years[1]), calcAge(years[2]), calcAge(years[3]), calcAge(years[years.length -1])];
 
 
@@ -65,7 +65,7 @@ const arrLength = friends.push('Jay');
 console.log(arrLength);
 
 //unshift adds to the front of the array
-//returns lenth of array too
+//returns length of array too
 friendsNew.unshift('John');
 
 
@@ -79,7 +79,7 @@ console.log(friendsNew);
 friendsNew.pop();
 const popped = friendsNew.pop();
 
-//doesn't take in andy parameters
+//doesn't take in any parameters
 
 console.log(friendsNew);
 
@@ -89,9 +89,9 @@ console.log(popped);
 //returns element that was removed
 friendsNew.shift(); //first
 
-const shited = friendsNew.shift(); //first
+const shifted = friendsNew.shift(); //Michael
 
-//position of element
+//position of element indexOf
 
 console.log(friendsNew.indexOf('Steven'));
 
@@ -103,22 +103,25 @@ console.log(friendsNew.indexOf('Bob'));
 
 //-1
 
-//includes method returns true if it exists faslse if it doesn't
-//uses strict equality
+
 console.log(friendsNew.indexOf('Steven'));
 console.log(friendsNew.indexOf('Bob'));
+
+
+//includes method returns true if element exists faslse if it doesn't
+//uses strict equality
 
 //if array includes peter it's executed
 
 if (friends.includes('Peter')) {
     console.log(`You hsve s friend called Peter`);
-}
+};
 
 
 
 //challenge
 
-const calcTip = (bill) => {
+const calcTip = (bill) => {//ternary operator
     const tip = bill <= 300 && bill >= 50 ? (bill * 0.2) : (bill * 0.15);
     return tip;
 }
@@ -132,7 +135,7 @@ const bill3 = calcTip(44);
 
 
 const bills = [125, 555, 44];
-
+//call function with different array elements inside bill array
 const tips = [calcTip(bills[0]),calcTip(bills[1]),calcTip(bills[2])];
 
 console.log(tips);

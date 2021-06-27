@@ -1,6 +1,6 @@
 //objects
 
-//give elements a name as opposed to an array
+//give elements a name as opposed to using an array
 
 //key/property value pairs
 const nezObject = {
@@ -17,9 +17,9 @@ const nezObject = {
 
 //retrieve data from objects and change data using dot and bracket notation
 
-//console.log(nezObject);
+console.log(nezObject);
 
-//console.log(nezObject.surname);
+console.log(nezObject.surname);
 
 //will give the surname the dot is an operator
 
@@ -32,64 +32,64 @@ const nezObject = {
 //store recurring part of key in a variable and create a new expression 
 
 
-//console.log(nezObject.firstName);
+console.log(nezObject.firstName);
 
-//const nameKey = 'Name';
+const nameKey = 'Name';
+//recurring part of key
+console.log(nezObject['first' + nameKey]);
 
-//console.log(nezObject['first' + nameKey]);
-
-//console.log(nezObject['sur' + nameKey]);
+console.log(nezObject['sur' + nameKey]);
 
 //execute the plus operation in the brackets then retrieve the property
 
 //use final property name not computed one when using dot notation
 
 
-//when having to computer something use the braacket notation
+//when having to compute something use the braacket notation
 
-//get something from user interface
+//get something from user interface using prompt
 
-//const interestedIn = prompt("What do you want to know about Nez? Choose between firstName, lastName, age, job, and friends");
+const interestedIn = prompt("What do you want to know about Nez? Choose between firstName, lastName, age, job, and friends");
 
 //display input in the console
 
-//nezObject.interestedIn wont work
+//nezObject.interestedIn wont work theres no key called interestedIn
 
 
-//use brackets notation javascript will conert the variable to the valueOf
+//use brackets notation javascript will convert the variable to the valueOf
 
 //expression evaluated inside the bracket
 
 
-//handle undefine/falsy values
+//handle undefined/falsy values
 
-//if(nezObject[interestedIn]) {
-//    console.log(nezObject[interestedIn])
-//} else {
-//    console.log('Wring request! Choose between firstName, lastName, age, job and friends');
-//}
+if(nezObject[interestedIn]) {//if true
+    console.log(nezObject[interestedIn])
+} else {
+    console.log('Wrong request! Choose between firstName, lastName, age, job and friends');
+};
 
-//add properties values using 
+//add properties values using dot and bracket notation
 
-//nezObject.location = 'London';
-//nezObject['twitter'] ='@nezmustafa';
+nezObject.location = 'London';
+nezObject['twitter'] ='@nezmustafa';
 
 //challenge 
-//
-//
-//console.log(`${nezObject.firstName} has ${nezObject.friends.length} friends and his best friend is ${nezObject.friends[0]}`);
+
+
+console.log(`${nezObject.firstName} has ${nezObject.friends.length} friends and his best friend is ${nezObject.friends[0]}`);
 
 
 
 
-//OBJECT MOETHODS
+//OBJECT METHODS
 //OBJECTS HOLDING ARRAYS AND OBJECTS IN OBJECTS
 //functions are just a value
 //key value pairs add functions to objects 
 
 
 const nezObject = {
-   firstName: 'Nez',
+    firstName: 'Nez',
     surName: 'Mustafa',
     birthYear: 1990,
     job: 'Developer',
@@ -112,9 +112,9 @@ const nezObject = {
 //property is equal to function value
 
 
-//console.log(nezObject.calcAge(1990));
-//access using brackets notation enclose it in brackets and string
-//console.log(nezObject['calcAge'](1991));
+console.log(nezObject.calcAge(1990));
+//can access using brackets notation enclose it in brackets and string
+console.log(nezObject['calcAge'](1991));
 
 
 //use this keyword to use property value directly dry principle
