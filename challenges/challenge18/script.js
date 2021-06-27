@@ -36,7 +36,7 @@ const dogs = [
 
 //1.
 dogs.forEach(dog => (dog.recPortion = Math.trunc(dog.weight ** 0.75 * 28)));
-
+//each element add new property
 console.log(dogs);
 
 
@@ -45,9 +45,53 @@ console.log(dogs);
 const sarahDog = dogs.find(dog => dog.owners.includes('Sarah'));
 console.log(sarahDog);
 
-console.log(dogSarah);
-console.log( //if curfood greater than recfood mucn if not little
+console.log(sarahDog);
+console.log( //if curfood greater than recfood much if not little
     `Sarah's dog is eating too ${
-    dogSarah.curFood > dogSarah.recFood ? 'much' : 'little'
+    sarahDog.curFood > sarahDog.recFood ? 'much' : 'little'
 }`
 );
+
+//3.  first returns array of two object
+const dogOwnersTooMuch = dogs.filter(dog => dog.curFood > dog.recPortion).flatMap(dog => dog.owners);
+
+console.log(dogOwnersTooMuch);
+
+const dogOwnersTooLittle = dogs.filter(dog => dog.curFood < dog.recPortion).flatMap(dog => dog.owners);
+
+console.log(dogOwnersTooLittle);
+
+
+
+
+
+//4. take arrays and join them with seperator string 'and'
+console.log(`${dogOwnersTooMuch.join(' and ')}'s  dogs eat too much!`);
+console.log(`${dogOwnersTooLittle.join ('and')}'s dogs eat too little!`);
+
+//5. see if any dog is eating exactly rec food
+
+console.log(dogs.some(dog => dog.curFood === dog.recFood));
+
+//6. 
+
+const checkEatingOkay = dog => dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1;
+
+console.log(dogs.some(checkEatingOkay));
+
+
+//7 use filter method create new array
+
+console.log(dogs.filter(checkEatingOkay));
+
+//8
+
+//sort by ascending order
+
+const dogsSorted = dogs.slice().sort((a,b) => {
+    a.recFood - b.recFood
+    //have numbers in objects get them out of there
+});
+
+console.log(dogsSorted);
+
