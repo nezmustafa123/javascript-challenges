@@ -16,7 +16,7 @@ console.log('B747'.length);
 //strings are also 0 based
 
 console.log(airline.indexOf('n'));
-//gives five, the first occurence of n
+//gives index five, the first occurence of n
 console.log(airline.lastIndexOf('n'));
 //second occurence of n spaces also count as characters
 console.log(airline.indexOf('Atlantic'));
@@ -26,13 +26,13 @@ console.log(airline.indexOf('Atlantic'));
 //needs arguments
 
 console.log(airline.slice(7));
-//position from which is starts to subtract returns a new string
-//sub string doesn't change the underlying string
+//first parameter is position from which is starts to subtract returns a new substring
+//sub string doesn't change the underlying string DOES NOT MUTATE ORIGINAL
 //strigs are primitives so cannot mure them
 //have to store it in a variable or data structure
 
 //specify end parameter
-//STOPS before the end value
+//STOPS before the end value does not include it
 console.log(airline.slice(7, 13));
 //gives Atlantic
 //length of string is end minus beginning
@@ -42,7 +42,7 @@ console.log(airline.slice(7, 13));
 console.log(airline.slice(0, airline.IndexOf(' ')));
 //extract from 0 to space
 //virgin 
-console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+console.log(airline.slice(airline.IndexOf(' ') + 1));
 //extract last word atlantic //if space is included just add + 1
 //to get rid of space slicing from space plus one index to the right
 console.log(airline.slice(-2));

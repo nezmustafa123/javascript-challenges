@@ -130,7 +130,7 @@ console.log(friendsNew.indexOf('Steven'));
 console.log(friendsNew.indexOf('Bob'));
 
 
-//includes method returns true if element exists faslse if it doesn't
+//INCLUDES method returns true if element exists faslse if it doesn't
 //uses strict equality
 
 //if array includes peter it's executed

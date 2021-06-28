@@ -9,8 +9,7 @@
 //little. Hint: Some dogs have multiple owners, so you first need to find Sarah in
 //the owners array, and so this one is a bit tricky (on purpose) 🤓
 //3. Create an array containing all owners of dogs who eat too much
-//('ownersEatTooMuch') and an array with all owners of dogs who eat too little
-//('ownersEatTooLittle').
+// and an array with all owners of dogs who eat too little
 //4. Log a string to the console for each array created in 3., like this: "Matilda and
 //Alice and Bob's dogs eat too much!" and "Sarah and John and Michael's dogs eat
 //too little!"
@@ -26,10 +25,10 @@
 
 
 const dogs = [
-{ weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
-{ weight: 8, curFood: 200, owners: ['Matilda'] },
-{ weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
-{ weight: 32, curFood: 340, owners: ['Michael'] },
+{ weight: 22, curPortion: 250, owners: ['Alice', 'Bob'] },
+{ weight: 8, curPortion: 200, owners: ['Matilda'] },
+{ weight: 13, curPortion: 275, owners: ['Sarah', 'John'] },
+{ weight: 32, curPortion: 340, owners: ['Michael'] },
 ];
 
 
@@ -48,16 +47,20 @@ console.log(sarahDog);
 console.log(sarahDog);
 console.log( //if curfood greater than recfood much if not little
     `Sarah's dog is eating too ${
-    sarahDog.curFood > sarahDog.recFood ? 'much' : 'little'
+    sarahDog.curPortion > sarahDog.recPortion ? 'much' : 'little'
 }`
 );
 
-//3.  first returns array of two object
-const dogOwnersTooMuch = dogs.filter(dog => dog.curFood > dog.recPortion).flatMap(dog => dog.owners);
-
+//3.  new array from existing array based off condition
+const dogOwnersTooMuch = dogs.filter(dog => dog.curPortion > dog.recPortion).flatMap(dog => dog.owners);
+//first returns array of objects so have to use flat map afterwards to get array of owners
 console.log(dogOwnersTooMuch);
 
-const dogOwnersTooLittle = dogs.filter(dog => dog.curFood < dog.recPortion).flatMap(dog => dog.owners);
+
+
+//const dogTooLittle = dogs.filter(dog => dog.curFood < dog.recPortion).flatMap(dog => dog.owners);
+
+const dogOwnersTooLittle = dogs.filter(dog => dog.curPortion < dog.recPortion).flatMap(dog => dog.owners);
 
 console.log(dogOwnersTooLittle);
 
@@ -65,17 +68,17 @@ console.log(dogOwnersTooLittle);
 
 
 
-//4. take arrays and join them with seperator string 'and'
-console.log(`${dogOwnersTooMuch.join(' and ')}'s  dogs eat too much!`);
+//4. take arrays and join them with seperator string 'and' so put and between each name
+console.log(`${dogOwnersTooMuch.join('and')}'s  dogs eat too much!`);
 console.log(`${dogOwnersTooLittle.join ('and')}'s dogs eat too little!`);
 
 //5. see if any dog is eating exactly rec food
 
-console.log(dogs.some(dog => dog.curFood === dog.recFood));
+console.log(dogs.some(dog => dog.curPortion === dog.recPortion));
 
 //6. 
 
-const checkEatingOkay = dog => dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1;
+const checkEatingOkay = dog => dog.curPortion > dog.recPortion * 0.9 && dog.curPortion < dog.recPortion * 1.1;
 
 console.log(dogs.some(checkEatingOkay));
 
@@ -89,7 +92,7 @@ console.log(dogs.filter(checkEatingOkay));
 //sort by ascending order
 
 const dogsSorted = dogs.slice().sort((a,b) => {
-    a.recFood - b.recFood
+    a.recPortion - b.recPortion
     //have numbers in objects get them out of there
 });
 
