@@ -66,8 +66,6 @@ console.log(dogOwnersTooLittle);
 
 
 
-
-
 //4. take arrays and join them with seperator string 'and' so put and between each name
 console.log(`${dogOwnersTooMuch.join('and')}'s  dogs eat too much!`);
 console.log(`${dogOwnersTooLittle.join ('and')}'s dogs eat too little!`);
@@ -77,24 +75,30 @@ console.log(`${dogOwnersTooLittle.join ('and')}'s dogs eat too little!`);
 console.log(dogs.some(dog => dog.curPortion === dog.recPortion));
 
 //6. 
-
+//some will return true or false
 const checkEatingOkay = dog => dog.curPortion > dog.recPortion * 0.9 && dog.curPortion < dog.recPortion * 1.1;
 
+
 console.log(dogs.some(checkEatingOkay));
+//dogs.some(dog => dog.curPortion > dog.recPortion * 0.9 && dog.curPortion < dog.recPortion * 1.1);
 
-
-//7 use filter method create new array
-
+//7. use filter method create new array
+//use the same function as a callback
 console.log(dogs.filter(checkEatingOkay));
 
 //8
 
-//sort by ascending order
-
-const dogsSorted = dogs.slice().sort((a,b) => {
-    a.recPortion - b.recPortion
-    //have numbers in objects get them out of there
+//sort by recommended foodportion in ascending order
+//use slice to create shallow copy 
+const dogsSortedRec = dogs.slice().sort((a,b) => {
+  return a.recPortion - b.recPortion;
+    //have numbers in objects get them out of there using the dot notation
 });
+
+const dogsSortedCur = dogs.slice().sort((a, b) => {
+    return a.curPortion - b.curPortion
+    //a and b are now objects have to use dot notation to take out number
+})
 
 console.log(dogsSorted);
 
