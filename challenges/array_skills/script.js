@@ -903,7 +903,7 @@ const movementsUI = Array.from(document.querySelectorAll('.movementsvalue'));
 //ARRAY EXCERCISES
 //total deposits
 //const bankDepositSum = accounts.map(acc => acc.movements).flat();
-const bankDepositum = accounts
+const bankDepositSum = accounts
 .flatMap(acc => acc.movements) //get movements out of accounts array of arrays
 .filter(mov => mov > 0)
 .reduce((sum, cur) => sum + cur, 0);
@@ -989,6 +989,21 @@ console.log(convertTitleCase('this is a nice title'));
 console.log(convertTitleCase('this is a LONG title but not too long'));
 console.log(convertTitleCase('and here is another title with an EXAMPLE'));
 
+
+labelBalance.addEventListener("click", function () {
+  const movementsUI = Array.from(
+    document.querySelectorAll(".movements__value"),
+    (el) => Number(el.textContent.replace("£", ""))
+  );
+  // console.log(movementsUI.map((el) => Number(el.textContent.replace("£", ""))));
+  //CAN also use map method now that it is converted into an array
+  //create array from movements values dynamically added on screen using array from then use callback functoin to get rid of poiund sign
+  console.log(movementsUI);
+
+  ///can also do this
+
+  movementsUI2 = [...documents.querySelectorAll(".movements__value")];
+});
 
 
 
