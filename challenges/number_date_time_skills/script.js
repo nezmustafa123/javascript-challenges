@@ -7,6 +7,7 @@ console.log(23 === 23.0);
 
 //base 10 - 0 to 9  1/10 = 0.1 3/10 = -.3333333333
 //binary base 2 - 0 1
+//binary can't represent 0,1
 
 console.log(0.1 + 0.2);
 //0.3000000000000004
@@ -54,13 +55,26 @@ console.log(Number.isNaN(23/0));
 //check if value is a number not a string
 console.log(Number.isFinite(20));//true
 console.log(Number.isFinite('20'));//false
+console.log(Number.isFinite(+'20X'))
 console.log(Number.isFinite(23/ 0)); //false
 
+//is integer check
+console.log(Number.isInteger(23)); //true
+console.log(Number.isInteger(23.0)); //true
+console.log(Number.isInteger(23/6)); //false
 
 
 
 
+//MATHS and rounding
 
+console.log(Math.sqrt(25));
+//5 square
+
+console.log(25 ** (1/2));
+//25 to the power of 1/2
+
+console.log(8 ** (1/3));
 
 
 
@@ -84,7 +98,7 @@ console.log(Number.isFinite(23/ 0)); //false
 
 
 const account1 = {
-  owner: 'Jonas Schmedtmann',
+  owner: 'Jim Bob',
   movements: [200, 455.23, -306.5, 25000, -642.21, -133.9, 79.97, 1300],
   interestRate: 1.2, // %
   pin: 1111,
@@ -104,7 +118,7 @@ const account1 = {
 };
 
 const account2 = {
-  owner: 'Jessica Davis',
+  owner: 'David Cameron',
   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
   interestRate: 1.5,
   pin: 2222,
