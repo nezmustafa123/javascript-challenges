@@ -32,7 +32,7 @@ console.log(Number.parseInt('e23', 10));
 //parseFloat for floating points
 
 console.log(Number.parseInt('  2.5rem  ')); //only integer 2
-console.log(Number.parseFloat(' 2.5rem '));
+console.log(Number.parseFloat(' 2.5rem '));// parse the decimal/floating number
 //will give the decimal number from the string
 //white space doesn't affect it
 
@@ -76,14 +76,40 @@ console.log(25 ** (1/2));
 
 console.log(8 ** (1/3));
 
+console.log(Math.max(5,,18,23,11,2)); //23
+console.log(Math.max(5,18,'23',11,2)); //23
+console.log(Math.max(5,18,'23px', 11, 2)); //NAN
+
+
+console.log(Math.min(5,18,23,11,2));
+
+
+console.log(Math.PI * Number.parseFloat('10px') ** 2);
+
+//random dice roll calculation math.random 0-1 * 6 remove decimal part
+console.log(Math.trunc(Math.random() * 6) + 1);
+//add one at the end 1 to 6
+
+//generalise the formula to generate random integers between two values
+
+const randomInt = (min, max) => Math.trunc(Math.random() * (max - min) + 1) + min;
+//x math.random * (max - min) then add min to both sides
+//math.random 0....1 -> 0...(max-min) -> min...(max-min + min)
+//cancel (-min + min)
+//min...
+console.log(randomInt(10, 20));
 
 
 
+//Rounding integers
 
+console.log(Math.trunc(23.3));//23
 
+console.log(Math.round(25.4));//25
+console.log(Math.round(56.3));//56
 
-
-
+console.log(Math.ceil(12.2));//12
+console.log(Math.ceil(95.3));//96
 
 
 
