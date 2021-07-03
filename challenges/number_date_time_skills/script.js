@@ -92,7 +92,7 @@ console.log(Math.trunc(Math.random() * 6) + 1);
 
 //generalise the formula to generate random integers between two values
 
-const randomInt = (min, max) => Math.trunc(Math.random() * (max - min) + 1) + min;
+const randomInt = (min, max) => Math.floor(Math.random() * (max - min) + 1) + min;
 //x math.random * (max - min) then add min to both sides
 //math.random 0....1 -> 0...(max-min) -> min...(max-min + min)
 //cancel (-min + min)
@@ -110,6 +110,22 @@ console.log(Math.round(56.3));//56
 
 console.log(Math.ceil(12.2));//12
 console.log(Math.ceil(95.3));//96
+
+console.log(Math.floor(23.4)); //23
+console.log(Math.floor('34.5'))// 34 dies type corecion
+
+//with negative numbers rounding works otherway around
+console.log(Math.trunc(-23.3));//-23
+console.log(Math.floor(-23.3));//-24
+//floor works with negative too
+
+
+//rounding decimials 
+
+console.log((2.7).toFixed(0));//3 to fixed RETURNS STRING round it to 3
+console.log(2.7).toFixed(3); //2.700 3 decimal places
+console.log(2.345).toFixed(2)); //2.35 2 decimal places
+console.log(+(2.345).toFixed(2)); //convert the to fixed string to a number
 
 
 
