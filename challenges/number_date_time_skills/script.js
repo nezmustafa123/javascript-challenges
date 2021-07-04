@@ -112,7 +112,7 @@ console.log(Math.ceil(12.2));//12
 console.log(Math.ceil(95.3));//96
 
 console.log(Math.floor(23.4)); //23
-console.log(Math.floor('34.5'))// 34 dies type corecion
+console.log(Math.floor('34.5'))// 34 DOES TYPE COOERCION
 
 //with negative numbers rounding works otherway around
 console.log(Math.trunc(-23.3));//-23
@@ -126,6 +126,37 @@ console.log((2.7).toFixed(0));//3 to fixed RETURNS STRING round it to 3
 console.log(2.7).toFixed(3); //2.700 3 decimal places
 console.log(2.345).toFixed(2)); //2.35 2 decimal places
 console.log(+(2.345).toFixed(2)); //convert the to fixed string to a number
+
+//primitaves don't have methods javascript does boxing covert into object then perform method
+
+
+
+//REMAINDER of an operator 
+
+console.log(5 % 2); //1  remainder
+console.log(5 / 2); //2 * 2 is 4 plus remainder 1
+
+console.log(8 % 3); //remainder 2
+console.log(8 / 3); // 2 * 3 is 6 8-6 is 2
+
+
+
+
+//can check whether a number is even or odd#
+//even is divisible by 2 and the remainder is 0
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
