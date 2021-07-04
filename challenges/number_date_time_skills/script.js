@@ -146,9 +146,20 @@ console.log(8 / 3); // 2 * 3 is 6 8-6 is 2
 //even is divisible by 2 and the remainder is 0
 
 
+console.log(6 % 2); // 0
+console.log(6 / 2); // 3 no remainder
 
 
+console.log(7 % 2);
+console.log(7 / 2);
 
+const isEven = n => n % 2 === 0;
+//function to check if even if remainder n mod 2 is zero will return true if not then false 
+
+console.log(isEven(8));
+console.log(isEven(23));//odd
+console.log((isEven(545)));//odd
+console.log((isEven(940)));//true
 
 
 
