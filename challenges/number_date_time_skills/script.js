@@ -183,7 +183,7 @@ console.log(Number.MAX_SAFE_INTEGER); //same number
 //put n at the end of number
 console.log(93945873498572304986987123495873453n);
 
-//write BigInt in front of number constructor function
+//can write BigInt in front of number constructor function
 
 console.log(BigInt(93545924759238572398572395823));
 
@@ -192,19 +192,31 @@ console.log(BigInt(93545924759238572398572395823));
 console.log(1000n + 1000n)
 //add two big int numbers
 console.log(3459837459238479871032487543958n + 1000000000n);
-
+//can't do square root on bug int number
+console.log(Math.sqrt(16n));
 //can't mix big int with regular numbers
 const huge = 234298798753948739n;
 const num = 23;
 
-
+//have to convert it using bigint function first 
 console.log(huge + BigInt(num));
 
 
 //can use type coercion using comparison operator and plus operator 
-
+//to convert into number or string
 console.log(20n > 15);// true
-console.log
+console.log(20n === 20);// false
+//different primative types
+
+console.log(typeof 20n); //bigInt
+console.log(20n == 20); //true, coerces into regular number 
+
+console.log(huge + 'is REALLY big!!!');
+//will convert number to string even though has big int
+
+//Divisions 
+console.log(10 / 3); //will give floating point
+console.log(11n/ 3n); //will give 3n
 
 
 
