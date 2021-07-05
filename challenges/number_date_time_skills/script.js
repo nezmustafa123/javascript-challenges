@@ -162,16 +162,49 @@ console.log((isEven(545)));//odd
 console.log((isEven(940)));//true
 
 
+//check if any number is disible by another number if remainder is 0 
+
+//select movements row 
 
 
+//BIG INT is a primative
+//numbers represented in 64 bits 
+//only 53 used to store digit themselves rest used for sign and decimal point
+
+console.log(2 ** 53 -1);
+//2 power of 53 - 1 because number starts at 0 
+//biggest number javascript can represent 
+
+console.log(Number.MAX_SAFE_INTEGER); //same number 
+
+//may get a number from api larger than this
+
+//use big int to get around it 
+//put n at the end of number
+console.log(93945873498572304986987123495873453n);
+
+//write BigInt in front of number constructor function
+
+console.log(BigInt(93545924759238572398572395823));
+
+//Operations with big int
+
+console.log(1000n + 1000n)
+//add two big int numbers
+console.log(3459837459238479871032487543958n + 1000000000n);
+
+//can't mix big int with regular numbers
+const huge = 234298798753948739n;
+const num = 23;
 
 
+console.log(huge + BigInt(num));
 
 
+//can use type coercion using comparison operator and plus operator 
 
-
-
-
+console.log(20n > 15);// true
+console.log
 
 
 
