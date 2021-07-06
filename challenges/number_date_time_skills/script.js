@@ -220,75 +220,6 @@ console.log(11n/ 3n); //will give 3n
 
 
 
-//DATES AND TIMES
-
-
-const now = new Date(); // create a date object can take parameter
-console.log(now);
-
-console.log(new Date('Aug 02 2020 18:05:41'));
-
-//can pass in new string to parse the time based off the string
-
-console.log(new Date('December 24, 2021'));
-//will give the dat of the week too
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 const account1 = {
   owner: 'Jim Bob',
@@ -331,3 +262,24 @@ const account2 = {
 };
 
 const accounts = [account1, account2];
+
+
+//DATES AND TIMES
+
+
+const now = new Date(); // create a date object can take parameter
+console.log(now);
+
+console.log(new Date('Aug 02 2020 18:05:41'));
+
+//can pass in new string to parse the time based off the string
+
+console.log(new Date('December 24, 2021'));
+//will give the dat of the week too
+
+console.log(new Date(account1.movementsDate[0]));
+//reference value inside array inside object to parse it
+//drill into object get array movementsDate and first element
+
+console.log(new Date(2815, 10, 18, 15, 22, 6));
+
