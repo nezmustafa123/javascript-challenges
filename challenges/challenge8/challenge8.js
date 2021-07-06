@@ -63,12 +63,12 @@ console.log(types);
 
 const years = [1991, 2007, 1969, 2020];
 const ages = [];
-//ca;culate age and populate using new loop
+//calculate age and populate using new loop
 for (let i = 0; i < years.length; i++) {
   ages.push(2037 - years[i]);
     //can also do
 //    2037-years[i] = ages[i];
-}
+};
 console.log(ages);
 
 //continue and break

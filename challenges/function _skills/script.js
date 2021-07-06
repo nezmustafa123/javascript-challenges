@@ -12,7 +12,7 @@ const createBooking = function (flightNum, numPassengers = 1, price = 199 * numP
     //price and num passengers would be falsey 
     const booking = {
         //create object in the function
-      //use advanced template literals to set property value from arguments
+      //use advanced template literals to set property value from arguments so property values become the same as arguments passed in
        flightNum,
         numPassengers,
         price,

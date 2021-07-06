@@ -189,7 +189,7 @@ console.log(BigInt(93545924759238572398572395823));
 
 //Operations with big int
 
-console.log(1000n + 1000n)
+console.log(1000n + 1000n);
 //add two big int numbers
 console.log(3459837459238479871032487543958n + 1000000000n);
 //can't do square root on bug int number
@@ -217,6 +217,70 @@ console.log(huge + 'is REALLY big!!!');
 //Divisions 
 console.log(10 / 3); //will give floating point
 console.log(11n/ 3n); //will give 3n
+
+
+
+//DATES AND TIMES
+
+
+const now = new Date(); // create a date object can take parameter
+console.log(now);
+
+console.log(new Date('Aug 02 2020 18:05:41'));
+
+//can pass in new string to parse the time based off the string
+
+console.log(new Date('December 24, 2021'));
+//will give the dat of the week too
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
