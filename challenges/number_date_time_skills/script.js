@@ -267,7 +267,7 @@ const accounts = [account1, account2];
 //DATES AND TIMES
 
 
-const now = new Date(); // create a date object can take parameter
+const now = new Date(); // create a new date object can take parameter
 console.log(now);
 
 console.log(new Date('Aug 02 2020 18:05:41'));
@@ -280,6 +280,45 @@ console.log(new Date('December 24, 2021'));
 console.log(new Date(account1.movementsDate[0]));
 //reference value inside array inside object to parse it
 //drill into object get array movementsDate and first element
+// z is cordinated universal time
+console.log(new Date(2015, 10, 18, 15, 22, 6));
 
-console.log(new Date(2815, 10, 18, 15, 22, 6));
+console.log(new Date(2037, 10, 31));
+//will will auto correct to december the first
 
+console.log(new Date(0));
+//Unix time jan 1st 1970
+
+console.log(new Date(3 * 24 * 60 * 60 * 1000));
+
+//days to milliseconds 3 days after the unix start time
+
+//will give time stamp of day number three
+//dates are special type of object
+//have methods on them set components of date
+
+
+
+//working with dates
+
+const future = new Date(2035, 10, 18, 15, 22);
+console.log(future);
+
+console.log(future.getFullYear());
+//2015 never use get gear
+console.log(future.getMonth()); //zero based 10 = November
+console.log(future.getDate()); //day of the month = 18
+console.log(future.getDay()); //gets day of the week 
+console.log(future.getHours()); // gets hours
+console.log(future.getMinutes()); //gets minute
+console.log(future.seconds()); //gets seconds
+console.log(future.toISOString()); //converts date into string
+console.log(future.getTime()); //time passed since since jan 1st 1970 to the date passed in mili seconds
+
+
+console.log(new Date(2142500000));
+
+console.log(Date.now()); //curent timestamp for this date, milli seconds since 1970
+
+future.setFullYear(2040); //set versions of all of these methods
+//sets year and ccan also set month etc
