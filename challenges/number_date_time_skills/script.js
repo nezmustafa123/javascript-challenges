@@ -322,3 +322,21 @@ console.log(Date.now()); //curent timestamp for this date, milli seconds since 1
 
 future.setFullYear(2040); //set versions of all of these methods
 //sets year and ccan also set month etc
+
+//calculations with dates
+console.log(Number(future)); //timestamp milliseconds
+console.log(+future);
+
+
+const calcDaysPassed = (date1, date2) => (date2 - date1) /(1000 * 60 * 60 * 24);
+//convert to days
+const daysPassed1 = calcDaysPassed(new Date(2035, 3, 14), new Date(3037, 3, 25));
+//gives milli-seconds have to convert them
+
+console.log(DaysPassed1);
+
+
+
+
+
+
