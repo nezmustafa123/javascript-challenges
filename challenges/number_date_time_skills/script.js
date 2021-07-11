@@ -323,20 +323,30 @@ console.log(Date.now()); //curent timestamp for this date, milli seconds since 1
 future.setFullYear(2040); //set versions of all of these methods
 //sets year and ccan also set month etc
 
-//calculations with dates
+//CALCULATING DATES 
 console.log(Number(future)); //timestamp milliseconds
-console.log(+future);
+console.log(+future); //convert to number
+//gives millisecond timestamp can convert back
 
-
+//takes two days returns number of days passed between two days
 const calcDaysPassed = (date1, date2) => (date2 - date1) /(1000 * 60 * 60 * 24);
-//convert to days
+//convert to days hours minutes seconds milliseconds
 const daysPassed1 = calcDaysPassed(new Date(2035, 3, 14), new Date(3037, 3, 25));
 //gives milli-seconds have to convert them
 
 console.log(DaysPassed1);
 
 
+const daysPassed2 = calcDaysPassed(new Date(2035, 3, 4), new Date(3037, 3, 14));
+
+//will return -10 can alter the function to get absolute value
 
 
+const calcDaysPassed = (date1, date2) => Math.abs((date2 - date1)) /(1000 * 60 * 60 * 24);
+//convert to days hours minutes seconds milliseconds
 
 
+const daysPassed3 = calcDaysPassed(new Date(2035, 3, 4), new Date(3037, 3, 14));
+//if add time and minute can use math round
+
+//reformat and display dates
