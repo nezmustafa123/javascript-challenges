@@ -350,3 +350,31 @@ const daysPassed3 = calcDaysPassed(new Date(2035, 3, 4), new Date(3037, 3, 14));
 //if add time and minute can use math round
 
 //reformat and display dates
+
+
+//internationalising numbers
+//call numberformar argument put localse and then call format method with number
+const num = 388474.23;
+
+//create options object to add as second arugment
+const options = {
+    style: 'unit', //unit
+    unit: 'mile-per-hour', //options for this unit
+};
+console.log('US:     ',new Intl.NumberFormat('en-US').format(num));
+//pass in what to format 
+console.log('Germany:     ',new Intl.NumberFormat('de-DE').format(num));
+console.log('Syria:     ',new Intl.NumberFormat('ar-SY').format(num));
+console.log('UK:     ',new Intl.NumberFormat('en-UK').format(num));
+console.log(
+    navigator.language,   
+    new Intl.NumberFormat(navigator.language, options).format(num));
+//getlocale from browser using navigator.language
+
+
+
+
+
+
+
+
