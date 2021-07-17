@@ -118,7 +118,7 @@ const addArrow = (a, b) => a + b;
 if(!numProducts) deleteShoppingCart();
 //if no product delete shopping card
 //at this point product number is undefined
-//falsy value variable var gets hoisted
+//falsy value variable var gets hoisted shopping cart is undefined
 var numProducts = 10;
 
 function deleteCartItems() {
