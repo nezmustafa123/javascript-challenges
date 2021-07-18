@@ -47,3 +47,13 @@ if(ingredients.includes('spinach')) clearTimeout(pizzaTimer);
 
 //because ingredients include spinach won't run the function or timer.
 
+
+
+// setInterval 
+//call over and over again
+
+setInterval(function(){
+   const now = new Date();
+    console.log(now);
+} 1000);
+//display current time every second
