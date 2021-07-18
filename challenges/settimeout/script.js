@@ -27,3 +27,23 @@ setTimeout(
 
 //olives becomes first parameter of first function passed in ing1
 //spinach becomes second parameter ing2
+
+//cancel timer before delay has passed
+
+const ingredients = ['olives', 'spinach']
+//put ingredients into array
+const pizzaTimer = setTimeout( //store result of set timeout function in variable
+    (ing1, ing2) => console.log(`Here is your pizza with ${ing1} and ${ing2}`),
+    3000, 
+    ...ingredients
+    //spread elements from array and comma seperate them automatically
+);
+console.log('Waiting...');
+
+if(ingredients.includes('spinach')) clearTimeout(pizzaTimer);
+//if includes spinach then cleartimeout 
+//have to assign timer to variable pass in name of the timer
+//use clearTimeout to clear the timeout pizzatimer variable
+
+//because ingredients include spinach won't run the function or timer.
+
