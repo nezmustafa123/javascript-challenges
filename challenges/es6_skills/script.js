@@ -807,7 +807,7 @@ console.log(rest.get(1));
 const time = 21;
 //use hypthetical time to get correct string
     //use boolean operator inside get method expression will resolve to true or false
-rest.get(time > rest.get('open') && time < rest.get('close'));
+rest.get(time > rest.get('open') && time < rest.get('close')); //HERE
 //is time greater than rest.get open and below rest.get close
 //WILL RESOLVE TO TRUE
 //will resolve to true or flase and map to one value
