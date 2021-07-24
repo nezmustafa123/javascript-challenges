@@ -33,3 +33,35 @@
 
 //node type called event target which is parent of node type and window node type
 //allows inheriting of addeventListener and removeEventListener()
+
+
+//METHODS
+
+//selecting elements
+//selecting the document entire document of any webpage document is not enough
+//apply css styles to entire page
+//entire html
+console.log(document.documentElement);
+
+//select the head and body
+console.log(document.head);
+console.log(document.body);
+
+document.querySelector('.header');
+//first element that matches selector here
+//every element
+const allSections = document.querySelectorAll('.section');
+console.log(allSections);
+//returns node list containing all the elements with the class selection
+
+//most used ways of selecting elements
+//also available on all the elements
+
+document.getElementById('section--1');//don't need selector
+const allButtons = document.getElementsByTagName('button'); //get element by tag name all elements with tagname button
+
+console.log(allButtons);  //html collection live collection
+
+//if dom changes the html collection is updated automatically
+//eg remove in inspector
+
