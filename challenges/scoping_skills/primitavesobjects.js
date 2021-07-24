@@ -44,7 +44,8 @@ console.log(age); //31
 console.log(oldAge); //30
 
 
-declare variavle age = 30;
+//declare variavle 
+age = 30;
 //javascript will create so called unique identifier with variable name 
 //memory with certain address will be allocated like 0001 value will be stored in specific address
 //30 will be specified with memory address 0001 
