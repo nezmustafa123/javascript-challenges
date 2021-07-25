@@ -42,6 +42,7 @@
 //apply css styles to entire page
 //entire html
 console.log(document.documentElement);
+//select the whole document
 
 //select the head and body
 console.log(document.head);
@@ -55,13 +56,35 @@ console.log(allSections);
 //returns node list containing all the elements with the class selection
 
 //most used ways of selecting elements
-//also available on all the elements
+//also available on all the elements to use
 
 document.getElementById('section--1');//don't need selector
 const allButtons = document.getElementsByTagName('button'); //get element by tag name all elements with tagname button
 
-console.log(allButtons);  //html collection live collection
+console.log(allButtons);  //tag name returns html collection instead of nodelist live collection
 
 //if dom changes the html collection is updated automatically
-//eg remove in inspector
+//eg remove element in inspector
+
+//node list doesn't update itself in the console when deleted
+
+console.log(document.getElementsByClassName('btn'));
+//no dot will also return a live html collection 
+
+
+//creating and inserting elements
+
+//.insertAdjacentHTML
+//creating dom element programatically 
+const message = document.createElement('div');
+//creates dom element stores it into message
+//not yet in the dom itself
+//add class eg when selecting element
+message.classList.add('cookie-message'); //add class
+message.textContent = 'We use cookies for improved functionality and analytics';
+//
+message.innerHTML = 'We use cookies for imporved functionality and analytics'
+
+
+
 
