@@ -48,7 +48,7 @@ console.log(document.documentElement);
 console.log(document.head);
 console.log(document.body);
 
-document.querySelector('.header');
+const header = document.querySelector('.header');
 //first element that matches selector here
 //every element
 const allSections = document.querySelectorAll('.section');
@@ -83,7 +83,31 @@ const message = document.createElement('div');
 message.classList.add('cookie-message'); //add class
 message.textContent = 'We use cookies for improved functionality and analytics';
 //
-message.innerHTML = 'We use cookies for imporved functionality and analytics'
+message.innerHTML = 'We use cookies for imporved functionality and analytics. <button class = "btn btn-close-cookie"> Got it!</button>';
+
+header.prepend(message);
+//new message element to dom after header
+//first child of header element
+heder.append(message);
+//last child at the bottom
+
+//only inserted once can't be in two places simultaneously moved the element didn't insert it was already inserted by prepend
+//dom element is unique
+
+//copy element
+
+header.append(message.cloneNode(true));
+//clone element and add it to the bottom
+
+//before as a sibling
+//after as a sibling
+
+header.append(message);
+
+header.before(message);
+
+
+
 
 
 
