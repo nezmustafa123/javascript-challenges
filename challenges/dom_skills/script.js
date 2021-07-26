@@ -106,7 +106,14 @@ header.append(message);
 
 header.before(message);
 
+//delete elements 
+//remove element when button clicked
 
+document.querySelector('.btn--close-choke').addEventListener('click',function() {
+    message.remove();
+    //before could only do 
+//    message.parentElement.removeChild(message);
+});
 
 
 
