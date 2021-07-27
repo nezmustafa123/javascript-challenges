@@ -117,5 +117,25 @@ document.querySelector('.btn--close-choke').addEventListener('click',function() 
 
 
 
+//CSS STYLES
+
+
+//styles on element element style and property name using camel case
+
+//select element and style property and property name set it to string with value
+message.style.backgroundColor = '#37383d';
+message.style.width = '120px'; //have to write the css value in a string the same way you'd write it in normal css
+
+//in style attribute of element inline styles
+//can't read properties unless you set them
+console.log(message.style.height);
+//will work with background color because was set manually
+
+console.log(message.style.backgroundColor);
+//will return rgb color because was one that was set manually
+
+console.log(getComputedStyle(message).color); //real style as it appears in page
+//get object with all the properties with all values then take certain 
+console.log(getComputedStyle(message).height);//can get the computed style even if didn't set it in css
 
 
