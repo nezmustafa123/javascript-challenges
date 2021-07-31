@@ -25,7 +25,7 @@ console.log(+'23');
 console.log(Number.parseInt('30px', 10));
 //number is function/object has method on it
 //remove the px at the end has to start with a number
-//have to pass in the base aswell
+//have to pass in the base aswell base 10
 console.log(Number.parseInt('e23', 10));
 //wont work
 

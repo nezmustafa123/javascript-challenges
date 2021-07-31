@@ -22,8 +22,8 @@ console.log(nezObject);
 console.log(nezObject.surname);
 
 //will give the surname the dot is an operator
-
-
+nezObject['FirstName']
+nezObject['SurName'];
 //can also use bracket notation have to insert an expression into the bracket
 //specify string with property key
 
@@ -36,7 +36,7 @@ console.log(nezObject.firstName);
 
 const nameKey = 'Name';
 //recurring part of key
-console.log(nezObject['first' + nameKey]);
+console.log(nezObject['first' + nameKey]); //firstName
 
 console.log(nezObject['sur' + nameKey]);
 
