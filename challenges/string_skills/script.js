@@ -1,24 +1,24 @@
 const airline = 'Virgin Atlantic';
 const plane = 'B747';
 
-//get charachter string certain position
+//get charachter string certain position can use brackets notation just like array
 
 console.log(plane[0]);
 console.log(plane[1]);
 console.log(plane[2]);
 //works with string
-console.log('B747'[0]);
-//strings have length property
+console.log('B747'[0]); //B
+//strings have length property like arrays
 console.log(airline.length);
 //13
 console.log('B747'.length);
 
-//strings are also 0 based
+//strings are also 0 based like arrays
 
 console.log(airline.indexOf('n'));
 //gives index five, the first occurence of n
 console.log(airline.lastIndexOf('n'));
-//second occurence of n spaces also count as characters
+//second occurence of n, spaces also count as characters
 console.log(airline.indexOf('Atlantic'));
 //case sensitive //if spelled wrong will return -1
 
@@ -41,7 +41,7 @@ console.log(airline.slice(7, 13));
 //slice up to space get the first word
 console.log(airline.slice(0, airline.IndexOf(' ')));
 //extract from 0 to space
-//virgin 
+//virgin
 console.log(airline.slice(airline.IndexOf(' ') + 1));
 //extract last word atlantic //if space is included just add + 1
 //to get rid of space slicing from space plus one index to the right
@@ -49,7 +49,7 @@ console.log(airline.slice(-2));
 //start extracting from the end two from the end
 
 console.log(airline.slice(1, -1));
-//begins and the start cuts off last character 
+//begins and the start cuts off last character
 
 //function that recieves seat and returns whether it's a middle set or not
 
@@ -145,9 +145,9 @@ console.log(announcement.replaceAll('door', 'gate'))
 
 console.log(announcement.replace(/door/g, 'gate'))
 
-//can use regular expression instead 
+//can use regular expression instead
 
-//booleans 
+//booleans
 
 const plane = 'A320neo';
 console.log(plane.includes('A320'));
@@ -165,7 +165,7 @@ console.log(plane.startsWith('Arb'));
 
 if(plane.startsWith('Airbus') && plane.endsWith('neo')) {
     console.log('Part of new Airbus Family');
-    
+
 };
 
 //excercie
@@ -177,7 +177,7 @@ const checkBaggage = function(items) {
     if(baggage.includes('knife') || baggage.includes('gun'));
     {
         console.log('You are NOT allowed on board');
-        
+
     } else {
         console.log('welcome aboard!');
     }
@@ -237,7 +237,7 @@ const capitalizeName = function(name) {
 capitalizeName('nezih mustafa dogruer');
 capitalizeName('axel john landin');
 
-//can also do 
+//can also do
 
 const capitalizeName = function(name) {
     //create an array from string then loop over
@@ -256,7 +256,7 @@ const capitalizeName = function(name) {
 
 
 
-//padding 
+//padding
 //add a number of characters to a string until a string has desired length
 const message = 'Go to gate 23!'
 
@@ -272,16 +272,16 @@ console.log(message.padStart(25, '+').padEnd(35, '+'));
 //add plus at the end to make it length 35
 
 //credit card example
-//take out 4 numbers use pad start 
+//take out 4 numbers use pad start
 
 const maskCreditCard = function(number) {
     //can convert number to string with this String() method
-    
+
     const str = number + '';
     //convert to string because of type cooersion
     const last = str.slice(-4);
     //take out last 4 characters
-    
+
     return last.padStart(str.length, '*');
     //pad 'last' string at start till it matches length of original string length of original string with star
 }
@@ -307,17 +307,3 @@ const planesInLine = function(n) {
 planesInLine(5);
 planesinLine(10);
 planesInLine(25);
-
-
-
-
-
-
-
-
-
-
-
-
-
-

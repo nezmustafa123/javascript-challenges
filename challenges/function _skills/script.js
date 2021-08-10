@@ -9,7 +9,7 @@ const createBooking = function (flightNum, numPassengers = 1, price = 199 * numP
     //ES5
 //        numPassengers = numPassengers || 1;
 //        price = price || 199;
-    //price and num passengers would be falsey 
+    //price and num passengers would be falsey if nothing entered
     const booking = {
         //create object in the function
       //use advanced template literals to set property value from arguments so property values become the same as arguments passed in
@@ -23,7 +23,7 @@ const createBooking = function (flightNum, numPassengers = 1, price = 199 * numP
 console.log(bookings);
 
 createBooking('BA225');
-//passengers and price not specified in calling of function
+//passengers and price not specified in calling of function so argument is flight itself
 createBooking('LH123', 2, 800);
 //can ovveride default values
 
@@ -231,7 +231,7 @@ const britishAirways = {
     //book: function() {}
     book: function (flightNum, name) {
        console.log(
-           `${name} booked a seat on ${this.airline} flight ${this.iataCode} ${flightNum}`;
+           `${name} booked a seat on ${this.airline} flight ${this.iataCode} ${flightNum}`
        );
         //push the object into the array flight code flight num and passenger array
         
