@@ -1,28 +1,27 @@
-'use strict';
+"use strict";
 
 //code finished compiling
 //ready to be executed global execution context (top level code) not inside function
 
-
-const name = 'Nez';
+const name = "Nez";
 
 const first = () => {
-    let a = 1;
-    const b = second();
-    a = a + b;
-    return a;
+  let a = 1;
+  const b = second();
+  a = a + b;
+  return a;
 };
 
 function second() {
-    var c = 2;
-    return c
-    //function body only executed when called!
+  var c = 2;
+  return c;
+  //function body only executed when called!
 }
 
 //execution context environment where javascript is executed
 //javascript always runs inside execution context
 
-//one gloval execution context default context  not inside any function 
+//one gloval execution context default context  not inside any function
 //once global execution context executed functions executed and callbacks waited for
 //one execution contecxt per function all together make the call stack
 //inside execution context is cariables functions and arguments object
@@ -42,99 +41,91 @@ function second() {
 //lexical scoping  is controlled by placement of functions and blocks in the code
 // functton that is written inside other function has access to variables written inside parent function
 //scrop space or environment in which a certain variable is declared
-//global scope, function scop and block scope 
-//in functions variable enviornment which is stored in functions execution context 
+//global scope, function scop and block scope
+//in functions variable enviornment which is stored in functions execution context
 //scope of a variable reigion of code where certain variable can be accessed
 
 //building scope/scope chain
 
 //global scope only variable declartion
 //first function counts as variable in global scope too
-const myName = 'Nez';
+const myName = "Nez";
 
-function first(){
-    //first scope (function)
-    const age = 30;
-    
-    if(age >= 30) {
-        const decade = 3;
-        //only const is block scoped 
-        //var isn't block scoped so it's available in first function scope
-        //var is funciton scoped
-        var millenial = true; 
-        //the if scope has access to all variables in outer scopes
-        //if block dosn't get access to second functions scope
-        //same the other way around, inside first functions scope lexical
-    }
-    function second() {
-        //second scope (function)
-        const job = 'teacher';
-        //variables not in current scope
-        //every scope has access to variabes of all outer scopes 
-        //can access variable defined in first function
-        //fist function accesses global scope so second function can access global scope too because first scope accesss globbal scope
-        //scope goes up not down
-        //also functions have access to function arguments in the outer scope
-        console.log(`${myName} is a ${age} year old ${job}`);
-    }
-    
-    second();
+function first() {
+  //first scope (function)
+  const age = 30;
+
+  if (age >= 30) {
+    const decade = 3;
+    //only const is block scoped
+    //var isn't block scoped so it's available in first function scope
+    //var is funciton scoped
+    var millenial = true;
+    //the if scope has access to all variables in outer scopes
+    //if block dosn't get access to second functions scope
+    //same the other way around, inside first functions scope lexical
+  }
+  function second() {
+    //second scope (function)
+    const job = "teacher";
+    //variables not in current scope
+    //every scope has access to variabes of all outer scopes
+    //can access variable defined in first function
+    //fist function accesses global scope so second function can access global scope too because first scope accesss globbal scope
+    //scope goes up not down
+    //also functions have access to function arguments in the outer scope
+    console.log(`${myName} is a ${age} year old ${job}`);
+  }
+
+  second();
 }
 
 first();
-
-
-
 
 //call stack(order in which functions are called) one execution context for each functoin in order they are called
 //order in which fuctions are called doesn't matter to scope chain
-const a = 'Jonas';
+const a = "Nez";
 first();
 
 function first() {
-    const b = 'Hello!';
-    second();
-    
-    function second() {
-        const c = 'H1!';
-        third();
-    }
+  const b = "Hello!";
+  second();
+
+  function second() {
+    const c = "H1!";
+    third();
+  }
 }
 
 function third() {
-    const d = 'Hey!';
-    console.log(d + c + b + a);
+  const d = "Hey!";
+  console.log(d + c + b + a);
 }
 
-
-
-
-
-'use strict';
+("use strict");
 
 //code finished compiling
 //ready to be executed global execution context (top level code) not inside function
 
-
-const name = 'Nez';
+const name = "Nez";
 
 const first = () => {
-    let a = 1;
-    const b = second();
-    a = a + b;
-    return a;
+  let a = 1;
+  const b = second();
+  a = a + b;
+  return a;
 };
 
 function second() {
-    var c = 2;
-    return c
-    //function body only executed when called!
+  var c = 2;
+  return c;
+  //function body only executed when called!
 }
 
 //execution context environment where javascript is executed
 //javascript always runs inside execution context
 
-//one gloval execution context default context  not inside any function 
+//one gloval execution context default context  not inside any function
 //once global execution context executed functions executed and callbacks waited for
 //one execution contecxt per function all together make the call stack
 //inside execution context is cariables functions and arguments object
@@ -154,118 +145,63 @@ function second() {
 //lexical scoping  is controlled by placement of functions and blocks in the code
 // functton that is written inside other function has access to variables written inside parent function
 //scrop space or environment in which a certain variable is declared
-//global scope, function scop and block scope 
-//in functions variable enviornment which is stored in functions execution context 
+//global scope, function scop and block scope
+//in functions variable enviornment which is stored in functions execution context
 //scope of a variable reigion of code where certain variable can be accessed
 
 //building scope/scope chain
 
 //global scope only variable declartion
 //first function counts as variable in global scope too
-const myName = 'Nez';
+const myName = "Nez";
 
-function first(){
-    //first scope (function)
-    const age = 30;
-    
-    if(age >= 30) {
-        const decade = 3;
-        //only const is block scoped 
-        //var isn't block scoped so it's available in first function scope
-        //var is funciton scoped
-        var millenial = true; 
-        //the if scope has access to all variables in outer scopes
-        //if block dosn't get access to second functions scope
-        //same the other way around, inside first functions scope lexical
-    }
-    function second() {
-        //second scope (function)
-        const job = 'teacher';
-        //variables not in current scope
-        //every scope has access to variabes of all outer scopes 
-        //can access variable defined in first function
-        //fist function accesses global scope so second function can access global scope too because first scope accesss globbal scope
-        //scope goes up not down
-        //also functions have access to function arguments in the outer scope
-        console.log(`%{myName} is a ${age} year old ${job}`);
-    }
-    
-    second();
+function first() {
+  //first scope (function)
+  const age = 30;
+
+  if (age >= 30) {
+    const decade = 3;
+    //only const is block scoped
+    //var isn't block scoped so it's available in first function scope
+    //var is funciton scoped
+    var millenial = true;
+    //the if scope has access to all variables in outer scopes
+    //if block dosn't get access to second functions scope
+    //same the other way around, inside first functions scope lexical
+  }
+  function second() {
+    //second scope (function)
+    const job = "teacher";
+    //variables not in current scope
+    //every scope has access to variabes of all outer scopes
+    //can access variable defined in first function
+    //fist function accesses global scope so second function can access global scope too because first scope accesss globbal scope
+    //scope goes up not down
+    //also functions have access to function arguments in the outer scope
+    console.log(`%{myName} is a ${age} year old ${job}`);
+  }
+
+  second();
 }
 
 first();
-
-
-
 
 //call stack(order in which functions are called) one execution context for each functoin in order they are called
 //order in which fuctions are called doesn't matter to scope chain
-const a = 'Jonas';
+const a = "Nez";
 first();
 
 function first() {
-    const b = 'Hello!';
-    second();
-    
-    function second() {
-        const c = 'H1!';
-        third();
-    }
+  const b = "Hello!";
+  second();
+
+  function second() {
+    const c = "H1!";
+    third();
+  }
 }
 
 function third() {
-    const d = 'Hey!';
-    console.log(d + c + b + a);
+  const d = "Hey!";
+  console.log(d + c + b + a);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
