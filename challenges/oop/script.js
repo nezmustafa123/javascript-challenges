@@ -71,3 +71,32 @@ new User('mary')
 //polymorphism - child class can overwire method it inherited from a parent class write own methods in child classes
 
 
+//objects are instances instantiated from a class which functions like a blue print (classical)
+//javascript has protoype all objects are linked to certain prototype object
+//each object has prototype prototype has objects and methods linked to that prototype all objects can use
+//prototypal inheritance objects inherit properties and methods from prototype, different from classical oop
+//objects delegate behaviour to linked prorotype object
+//can use array methods like map because of prototypal inheritance
+
+const num = [1, 2, 3];
+num.map(v => v * 2);
+//can use array method because of prorotypal inheritance
+
+Array.prototype.map();
+//Array.protoype is the prototype of all array objects in javascript
+//all arrays have access to the map method
+//array inherites map method or delegates the method to its protoype
+
+//ways to create prototypes
+
+//1.constructor functions
+//technique to create objects from a function how built in objects like arrays, maps and sets implemented
+
+//2.es6 classes
+//modern alernative to constructor function syntax
+//syntactic sugar behind the scences work exactly like constructor functions
+//do not behave like classess in classical oop
+
+//3.object.create()
+//the easiest and most straightoward way of linking an object to a prototype object
+
