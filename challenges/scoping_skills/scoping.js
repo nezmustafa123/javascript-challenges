@@ -7,7 +7,7 @@ function calcAge(birthYear) {
     //scope reaches out and prints variable
     
     function printAge() {
-        //finds name from global scope
+        //finds name from global scope variable lookip
         let output = `${firstName}, You are ${age}, born in ${birthYear}`
 //        console.log(output);
         //scope reaches out and finds parameter or outer function just like variable

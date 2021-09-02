@@ -108,7 +108,7 @@ function third() {
 //ready to be executed global execution context (top level code) not inside function
 
 const name = "Nez";
-
+first():
 const first = () => {
   let a = 1;
   const b = second();
