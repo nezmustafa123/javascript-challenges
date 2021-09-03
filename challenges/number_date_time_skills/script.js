@@ -5,9 +5,9 @@ console.log(23 === 23.0);
 //true
 //64 base 2 format 0 and 1
 
-//base 10 - 0 to 9  1/10 = 0.1 3/10 = -.3333333333
+//base 10 - 0 to 9  1/10 = 0.1 3/10 = .3333333333
 //binary base 2 - 0 1
-//binary can't represent 0,1
+//binary can't represent 0.1
 
 console.log(0.1 + 0.2);
 //0.3000000000000004

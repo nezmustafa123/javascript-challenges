@@ -100,7 +100,7 @@ num.map((v) => v * 2);
 //arrow function won't work with constructor as it doesn;t have its own this keyword
 
 const Person = function (firstName, birthYear) {
-  console.log(this);
+  // console.log(this);
   //Person {}
   //object of the type person
   //take parameters and create properties on the object created with same name and equate them
@@ -108,15 +108,15 @@ const Person = function (firstName, birthYear) {
   this.birthYear = birthYear;
   //properties are instance properties
   //will be available on instances created through constructor function
-  this.calcAge = function () {
-    console.log(2021 - this.birthYear);
-  }; //shouldn't create method using constructor function each instance would carry this function otherwise use prototypal inheritance instead
+  // this.calcAge = function () {
+  //   console.log(2021 - this.birthYear);
+  // }; //shouldn't create method using constructor function each instance would carry this function otherwise use prototypal inheritance instead
 };
 
 //call with NEW KEYWORD at end the end of function this keyword will be returned
 //whatever add to function will be returned at the end, the object created will be returned by function
 const nez = new Person("Nez", 1990);
-console.log(nez); //person object first name and birthyear passed in
+//console.log(nez); //person object first name and birthyear passed in
 //1. New {} is created
 //2. Function is called, this = {} this points to new object
 //3. {} linked to prototype
@@ -129,4 +129,30 @@ const jim = new Person("Jim", 1967);
 
 //js doesn't have classes in the sense that classical oop has
 
-console.log(nez instanceof Person); //true
+//console.log(nez instanceof Person); //true
+
+//protoypes
+// all objects created through this constructor will get access to all properties and methods defined on prototype property on constructor
+//prototype is an object itself
+
+Person.prototype.calcAge = function () {
+  //add function to prorotype one copy of function this keyword set to object
+  console.log(2021 - this.birthYear); //this set to object created through constructor function
+};
+console.log(Person.prototype);
+//eacj object created with person will get access to a;; methods on protoype property
+// {calcAge: ƒ, constructor: ƒ}calcAge: ƒ ()constructor: ƒ (firstName, birthYear)[[Prototype]]: Object
+
+nez.calcAge();
+sarah.calcAge();
+//all other objects created through constructor function can use the method themselves
+
+// any object has access to methods on its prototype
+//prorotype of nez and sarah is person.prorotype
+
+console.log(nez.__proto__);
+//not prototype property but simply the prototype
+//prototype of instance object is prototype property of constructor
+console.log(nez.__proto__ === Person.prototype);
+//true
+// Person.prototype is prototype of every object instance created with person constructor function
