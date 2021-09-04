@@ -151,8 +151,29 @@ sarah.calcAge();
 //prorotype of nez and sarah is person.prorotype
 
 console.log(nez.__proto__);
-//not prototype property but simply the prototype
+//not prototype property but simply the prototype of nez object = prototype property of constructor function
 //prototype of instance object is prototype property of constructor
 console.log(nez.__proto__ === Person.prototype);
 //true
 // Person.prototype is prototype of every object instance created with person constructor function
+
+console.log(Person.prototype.isPrototypeOf(nez)); //true
+//person prototype is protoype of nez
+console.log(Person.prototype.isPrototypeOf(sarah)); //true
+console.log(Person.prototype.isPrototypeOf(Person)); //false
+//.prototypeOfLinkedObjects
+
+//step 3 linking {} to prototype creates 'proto' property on new object and sets value of it to prorotoype property of constructor function
+
+Person.prototype.species = "Sahelanthropus tchadensis";
+//set property on constructor protoype
+
+console.log(nez, sarah);
+//species is on __proto__ property
+
+console.log(nez.species, matilda.species);
+//both objects will inherit property from prototype
+// property not in Object, not "own" but inherited
+
+console.log(nez.hasOwnProperty("firstName"));
+console.log(nez.hasOwnProperty("species"));
