@@ -17,7 +17,7 @@ const nezObject = {
 
 console.log(nezObject);
 
-console.log(nezObject.surname);
+console.log(nezObject.surName);
 
 //will give the surname the dot is an operator
 nezObject["FirstName"];
@@ -68,7 +68,7 @@ if (nezObject[interestedIn]) {
 }
 
 //add properties values using dot and bracket notation
-
+//ADD PROPERTIES
 nezObject.location = "London";
 nezObject["twitter"] = "@nezmustafa";
 
@@ -96,7 +96,7 @@ const nezObject = {
   //    no need for parameter
 
   calcAge: function () {
-    //tjhis points to object
+    //this points to object
     console.log(this);
     return 2021 - this.birthYear;
   },

@@ -177,3 +177,33 @@ console.log(nez.species, matilda.species);
 
 console.log(nez.hasOwnProperty("firstName"));
 console.log(nez.hasOwnProperty("species"));
+
+//prototypal inheritance
+//constructor function
+//prototype property which is an object with method calcage
+//Person.prototype has link back to constructor through .constructor property
+
+//1 new empty object created
+//2 this keyword set to new empty object function execution context in function code set name and birth properties to this keyword
+//3 new object linked to constructor functions prototype property
+//4 new object returned from function unless explicitly return something usually never do it
+//__proto__:Person.prototype
+
+
+const Person2 = function(occupation, dob) {
+  this.name = name;
+  this.birthYear = birthYear;
+};
+
+Person2.prototype.calcAge = function() {
+  console.log(2021 - this.birthYear);
+}
+
+
+
+const nez = new Person('Developer', 1990){
+  nez.calcAge(); //javascript can't find function in object
+}
+
+//so looks into prototype
+//inherited method from prototype
