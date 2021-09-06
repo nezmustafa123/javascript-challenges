@@ -191,8 +191,8 @@ console.log(nez.hasOwnProperty("species"));
 
 
 const Person2 = function(occupation, dob) {
-  this.name = name;
-  this.birthYear = birthYear;
+  this.occupation = occupation
+  this.birthYear = dob;
 };
 
 Person2.prototype.calcAge = function() {
@@ -207,3 +207,25 @@ const nez = new Person('Developer', 1990){
 
 //so looks into prototype
 //inherited method from prototype
+//call calcage method on all objects created through constructor
+
+//prototype chain prototype lookup
+//.prototype is also an object its prototype is Object.prototype
+//person.prorotype made with built in object constructor function its prototype is Object.protoype
+//objcect constructor called behind scenes when using object literat
+
+// {}=== new Object ()
+// Object.prototype is root prototype
+// __proto__: null
+
+//javascript looks up in the scope chain
+
+//prototype chain similar to scope chain but with prototypes
+
+// method lookup
+
+nez.hasOwnProperty('occupation')
+
+//can't find has own property on nez looks into prototype person.prototype
+//won't find it there, will move up in the chain look into object.prototype which has a bunch of built in methods
+//inherits method through prototype chain
