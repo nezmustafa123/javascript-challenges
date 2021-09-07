@@ -275,3 +275,19 @@ Array.prototype.unique = function () {
 //all arrays will inherit this method
 
 console.log(arr.unique());
+
+const h1 = document.querySelector("h1");
+
+console.dir(h1);
+//all methods and properties visible
+//protoype is a htmlheadingelement
+//going up prorotype chain
+//htmlheadingelement
+//htmlheading
+//element
+//node
+
+
+const.dir(x => x + 1);
+//random function
+//also an object contains methods used on functions
