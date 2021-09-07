@@ -171,7 +171,7 @@ Person.prototype.species = "Sahelanthropus tchadensis";
 console.log(nez, sarah);
 //species is on __proto__ property
 
-console.log(nez.species, matilda.species);
+console.log(nez.species, sarah.species);
 //both objects will inherit property from prototype
 // property not in Object, not "own" but inherited
 
@@ -189,21 +189,19 @@ console.log(nez.hasOwnProperty("species"));
 //4 new object returned from function unless explicitly return something usually never do it
 //__proto__:Person.prototype
 
-
-const Person2 = function(occupation, dob) {
-  this.occupation = occupation
+const Person2 = function (occupation, dob) {
+  this.occupation = occupation;
   this.birthYear = dob;
 };
 
-Person2.prototype.calcAge = function() {
-  console.log(2021 - this.birthYear);
-}
+Person2.prototype.calcAge2 = function () {
+  const age = 2021 - this.birthYear;
+  return age;
+};
 
+const nez2 = new Person2("Developer", 1990);
 
-
-const nez = new Person('Developer', 1990){
-  nez.calcAge(); //javascript can't find function in object
-}
+console.log(nez2.calcAge2()); //javascript can't find function in object
 
 //so looks into prototype
 //inherited method from prototype
@@ -224,8 +222,56 @@ const nez = new Person('Developer', 1990){
 
 // method lookup
 
-nez.hasOwnProperty('occupation')
+nez2.hasOwnProperty("occupation");
 
 //can't find has own property on nez looks into prototype person.prototype
 //won't find it there, will move up in the chain look into object.prototype which has a bunch of built in methods
 //inherits method through prototype chain
+
+console.log(nez.__proto__);
+//prorotype of nez = prototype property of person has the calc age function
+
+console.log(nez.__proto__.__proto__); //moving up the prorotype chain
+//object.prototype
+//prorotype property of object constructor
+
+//can call hasOwnProperty method because of the prototype chain
+
+console.log(nez.__proto__.__proto__.__proto__);
+//null
+//object.prototype top of the scop chain
+
+console.dir(Person.prototype.constructor);
+//points back to person itself
+//have to use dir to inspect function
+
+//prorotype of a function function is also an object it also has a prototype
+
+const arr = [4, 5, 6, 7, 3, 2, 5, 3]; //new Array === []
+console.log(arr.__proto__);
+//prototype of array is Array.prototype
+//has all the methods
+//map filter etc each array inherits methods from prototype
+console.log(arr.__proto__ === Array.prototype); //true
+//prototype of all objects created by array constructor
+
+console.log(arr.__proto__.__proto__);
+//object prototype root constructor
+//prototype istelf is an object
+//all methods available
+
+//see arr diretly in console with proto property
+
+//Array.prototype.filter(); //lives in prototype propery of Array constructor
+
+//any array inherits methods from its prototype
+Array.prototype.unique = function () {
+  //new method to prototye property of array constructor
+  //create a new set pass array in there
+  return [...new Set(this)];
+  //this is array on which method is called
+};
+
+//all arrays will inherit this method
+
+console.log(arr.unique());

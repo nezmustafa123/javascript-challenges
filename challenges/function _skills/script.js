@@ -53,7 +53,7 @@ const nez = {
 const checkIn = function (flightNum, passenger) {
   flightNum = "LH999";
   //flightNum is different variable
-  passenger.name = "Mr. " + passenger.name;
+  passenger.name = "Mr." + passenger.name;
 
   if (passenger.passport === 435389739487) {
     alert("Check in ");
@@ -114,7 +114,7 @@ checkIn(flight, nez);
 //higher order functions example
 
 const oneWord = function (str) {
-  return str.replace(/ /g, ""), toLowerCase();
+  return str.replace(/ /g, "").toLowerCase();
   //replace space with empty string
 };
 
