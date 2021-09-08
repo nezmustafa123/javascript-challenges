@@ -104,7 +104,7 @@ const Person = function (firstName, birthYear) {
   //Person {}
   //object of the type person
   //take parameters and create properties on the object created with same name and equate them
-  this.firstName = firstName; //set value equal to paremeter
+  this.firstName = firstName; //set value equal to paremeter have to have colon at end of each
   this.birthYear = birthYear;
   //properties are instance properties
   //will be available on instances created through constructor function
