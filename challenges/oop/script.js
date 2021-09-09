@@ -287,7 +287,54 @@ console.dir(h1);
 //element
 //node
 
-
-const.dir(x => x + 1);
+console.dir((x) => x + 1);
 //random function
 //also an object contains methods used on functions
+
+//ES6 classes
+//just syntactic sugar implements prototypal inheritance like usual
+
+//class decleration
+class PersonCl {
+  //constructor is method for this class works like constructor function
+  constructor(firstName, birthYear) {
+    //pass in arguments for properties want object to have
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+    //constructor returns new object stores in PersonCl
+  }
+  //methods written outside constructor no commas between methods
+  calcAge() {
+    console.log(2021 - this.birthYear);
+    //all methods will be on PROtotype of object NOT object itself like prortypal inheritance
+  }
+
+  greet() {
+    console.log(`He`);
+  }
+}
+
+//class expression
+// const PersonCl = class {
+// }
+//use the new keyword constructor will automatically be called
+//this keyword set to point to object created
+const joanne = new PersonCl("Joanne", 1999);
+
+console.log(joanne);
+joanne.calcAge();
+
+console.log(joanne.__proto__ === PersonCl.prototype);
+//true
+//person cl is like constructor function
+
+//add method manually to ptotoype
+
+PersonCl.prorotype.greet = function () {
+  console.log(`Hey ${this.firstName}`);
+};
+joanne.greet();
+
+//1. Classes are NOT hoisted
+//2. Class are first-class citizens pass them into functions and return them from functions
+//3. Always executed in strict mode
