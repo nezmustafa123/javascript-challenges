@@ -338,3 +338,32 @@ joanne.greet();
 //1. Classes are NOT hoisted
 //2. Class are first-class citizens pass them into functions and return them from functions
 //3. Always executed in strict mode
+
+//GETTERS AND SETTERS
+//every object setter and getter properties assessor properties
+//get and set a value
+
+const account = {
+  owner: "Nez",
+  movements: [200, 530, 120, 200],
+
+  get latest() {
+    //function as getter
+    return this.movements.slice(-1).pop();
+    //returns new array with last element take it out with pop method
+  },
+  set latest(mov) {
+    //add new movement to array needs at least on parameter
+    this.movements.push(mov); //just getter and setter is enough
+  },
+};
+
+//use getter as if it is a property
+console.log(account.latest);
+
+//use setter like this
+account.latest = 100;
+//setter is like a property
+//use it like a property
+
+console.log(account.movements);
