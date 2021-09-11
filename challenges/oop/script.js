@@ -297,9 +297,9 @@ console.dir((x) => x + 1);
 //class decleration
 class PersonCl {
   //constructor is method for this class works like constructor function
-  constructor(firstName, birthYear) {
+  constructor(fullName, birthYear) {
     //pass in arguments for properties want object to have
-    this.firstName = firstName;
+    this.fullName = fullName;
     this.birthYear = birthYear;
     //constructor returns new object stores in PersonCl
   }
@@ -310,7 +310,29 @@ class PersonCl {
   }
 
   greet() {
-    console.log(`He`);
+    console.log(`Hey`);
+  }
+
+  get age() {
+    //add getter for class too
+    //same as method inside object
+    return 2021 - this.birthYear;
+  }
+
+  //set a property that already exists
+  set fullName(name) {
+    //setter to check for the fullname whether it contains space
+    //whenever fullName is set to fullname property the setter method is executed
+    if (name.includes(" ")) {
+      //setter will run whenever the property fullname is set because of this.fullName (use setter with dot notation) and FullName becomes name
+      this._fullName = name; //set fullname to name that was received add underscore before property to avoid errors (new property)
+    } else {
+      alert(`${name} is not a full name`);
+    }
+  }
+  get fullName() {
+    return this._fullName; //create getter to get new property created
+    //oerson.getFullname
   }
 }
 
@@ -319,18 +341,19 @@ class PersonCl {
 // }
 //use the new keyword constructor will automatically be called
 //this keyword set to point to object created
-const joanne = new PersonCl("Joanne", 1999);
+const joanne = new PersonCl("Joanne Smith", 1999);
 
 console.log(joanne);
 joanne.calcAge();
-
+console.log(joanne.age);
+//like a method on the prototype
 console.log(joanne.__proto__ === PersonCl.prototype);
 //true
 //person cl is like constructor function
 
 //add method manually to ptotoype
 
-PersonCl.prorotype.greet = function () {
+PersonCl.prototype.greet = function () {
   console.log(`Hey ${this.firstName}`);
 };
 joanne.greet();
@@ -340,30 +363,37 @@ joanne.greet();
 //3. Always executed in strict mode
 
 //GETTERS AND SETTERS
-//every object setter and getter properties assessor properties
+//every object setter and getter properties 'assessor' properties
 //get and set a value
 
 const account = {
+  //normal properties are called data properties
   owner: "Nez",
   movements: [200, 530, 120, 200],
 
   get latest() {
-    //function as getter
+    //create function as getter
     return this.movements.slice(-1).pop();
     //returns new array with last element take it out with pop method
   },
   set latest(mov) {
-    //add new movement to array needs at least on parameter
-    this.movements.push(mov); //just getter and setter is enough
+    //add new movement to array setter needs at least one parameter
+    this.movements.push(mov); //just getter or setter is enough
   },
 };
 
-//use getter as if it is a property
+//use getter as if it is a property don't call the method
 console.log(account.latest);
 
 //use setter like this
-account.latest = 100;
+account.latest = 100; //100 gets passed in as an argument
+//instead of like this
+//account.latest(100);
 //setter is like a property
 //use it like a property
 
 console.log(account.movements);
+
+const david = new PersonCl("David Cameron", 1966);
+//access full name with getter
+david.fullName;
