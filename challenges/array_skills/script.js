@@ -458,7 +458,6 @@ const withdrawals = movements.filter(function(mov){
 
 //REDUCE METHOD
 
-//
 //reduce method boil doing all elements in to one single value
 //parameters available to callback in reduce method is accumulator current element index and array
 //accumulator is like snowbball callback called on each iteration
@@ -553,7 +552,7 @@ console.log(balance);
 3840
 
 
-//using for loop 
+//using for of loop 
 
 let balance2 = 0;
 //external variable
@@ -576,7 +575,7 @@ const max = movements.reduce((acc, mov) => {
         //return movement as next iteration
         return mov
     }
-},movements[0]); //put first value of array
+},movements[0]); //put first value of array as acc
 
 
 
@@ -881,11 +880,11 @@ const y = Array.from({length: 8}, () => 1);
 const z = Array.from({length: 8}, (el, i) => i + 1);
 
 //length 8 returns index plus one so pronts 1 - 8 index varies from 0-7 like calling map method on emply array
-//can use throwaay prameter to denore not using el parameter
+//can use throwaway prameter to denote not using el parameter
 
 const z = Array.from({length: 8}, (_, i) => i + 1);
 
-
+//100 dice rolls
 const diceRolls = Array.from({length: 100}, (_, i) => Math.floor(Math.random() * 6) + 1);
 
 console.log(diceRolls);

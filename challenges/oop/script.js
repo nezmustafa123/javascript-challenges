@@ -319,7 +319,7 @@ class PersonCl {
     return 2021 - this.birthYear;
   }
 
-  //set a property that already exists
+  //set a property that already exists of the same name
   set fullName(name) {
     //setter to check for the fullname whether it contains space
     //whenever fullName is set to fullname property the setter method is executed
@@ -397,3 +397,78 @@ console.log(account.movements);
 const david = new PersonCl("David Cameron", 1966);
 //access full name with getter
 david.fullName;
+
+//Static methods
+
+Array.from(document.querySelectorAll("h1"));
+//from method attached to array constructor
+
+//can't use it on an array like this
+//[1,2.3].from()
+//attached to  array constructor directly not prototype property of array constructor
+//arrays don't inherit it
+//in array name space
+//name space Number.parseFloat(12)
+//12
+
+//create static method that's NOT inherited
+
+Person2.hey = function () {
+  console.log("Hey there");
+  console.log(this);
+  //this keyword is the constructor function
+  //the object calling the method
+};
+
+Person2.hey();
+
+//create static method in class
+
+//class decleration
+class PersonCl {
+  //constructor is method for this class works like constructor function
+  constructor(fullName, birthYear) {
+    //pass in arguments for properties want object to have
+    this.fullName = fullName;
+    this.birthYear = birthYear;
+    //constructor returns new object stores in PersonCl
+  }
+  //INSTANCE all instances with have access methods written outside constructor no commas between methods
+  calcAge() {
+    console.log(2021 - this.birthYear);
+    //all methods will be on PROtotype of object NOT object itself like prortypal inheritance
+  }
+
+  greet() {
+    console.log(`Hey`);
+  }
+
+  get age() {
+    //add getter for class too
+    //same as method inside object
+    return 2021 - this.birthYear;
+  }
+
+  //set a property that already exists of the same name
+  set fullName(name) {
+    //setter to check for the fullname whether it contains space
+    //whenever fullName is set to fullname property the setter method is executed
+    if (name.includes(" ")) {
+      //setter will run whenever the property fullname is set because of this.fullName (use setter with dot notation) and FullName becomes name
+      this._fullName = name; //set fullname to name that was received add underscore before property to avoid errors (new property)
+    } else {
+      alert(`${name} is not a full name`);
+    }
+  }
+  get fullName() {
+    return this._fullName; //create getter to get new property created
+    //oerson.getFullname
+  }
+  //static methods
+  static hey() {
+    console.log("Hey there");
+    consol;
+  }
+}
+PersonCl.hey();
+//this keyword points to whole class
