@@ -134,7 +134,7 @@ const nezObject = {
 
   calcAge: function () {
     // calculate age create new property on object called age and set it equal
-    this.age = 2021 - this.birthYear;
+    this.age = 2021 - this.birthYear; //expressions end in semi colon
     return this.age;
     //return the age property
     console.log(this);

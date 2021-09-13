@@ -2,7 +2,7 @@ const airline = 'Virgin Atlantic';
 const plane = 'B747';
 
 //get charachter string certain position can use brackets notation just like array
-
+//BRACKETS NOTATION LIKE ARRAY
 console.log(plane[0]);
 console.log(plane[1]);
 console.log(plane[2]);

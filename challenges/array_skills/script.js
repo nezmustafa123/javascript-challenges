@@ -970,7 +970,7 @@ console.log(deposits, withdrawals);
 
 //convert to title case 
 
-const convertTitleCase = function(title) {
+const convertTitleCase = function(title) {//arrow function
     const capitalize = str => str[0].toUpperCase() + str.slice(1);
     //stand alone function
     const exceptions = ['a', 'an', 'and', 'the', 'but', 'or', 'on', 'in', 'with'];

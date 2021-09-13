@@ -324,7 +324,7 @@ class PersonCl {
     //setter to check for the fullname whether it contains space
     //whenever fullName is set to fullname property the setter method is executed
     if (name.includes(" ")) {
-      //setter will run whenever the property fullname is set because of this.fullName (use setter with dot notation) and FullName becomes name
+      //setter will run whenever the property fullname is set because of this.fullName (use setter with dot notation) and FullName becomes name this.fullName = fullName so fullname becomes name argument
       this._fullName = name; //set fullname to name that was received add underscore before property to avoid errors (new property)
     } else {
       alert(`${name} is not a full name`);
@@ -422,53 +422,97 @@ Person2.hey = function () {
 
 Person2.hey();
 
-//create static method in class
+// //create static method in class
 
-//class decleration
-class PersonCl {
-  //constructor is method for this class works like constructor function
-  constructor(fullName, birthYear) {
-    //pass in arguments for properties want object to have
-    this.fullName = fullName;
-    this.birthYear = birthYear;
-    //constructor returns new object stores in PersonCl
-  }
-  //INSTANCE all instances with have access methods written outside constructor no commas between methods
+// //class decleration
+// class PersonCl {
+//   //constructor is method for this class works like constructor function
+//   constructor(fullName, birthYear) {
+//     //pass in arguments for properties want object to have
+//     this.fullName = fullName;
+//     this.birthYear = birthYear;
+//     //constructor returns new object stores in PersonCl
+//   }
+//   //INSTANCE all instances with have access methods written outside constructor no commas between methods
+//   calcAge() {
+//     console.log(2021 - this.birthYear);
+//     //all methods will be on PROtotype of object NOT object itself like prortypal inheritance
+//   }
+
+//   greet() {
+//     console.log(`Hey`);
+//   }
+
+//   get age() {
+//     //add getter for class too
+//     //same as method inside object
+//     return 2021 - this.birthYear;
+//   }
+
+//   //set a property that already exists of the same name
+//   set fullName(name) {
+//     //setter to check for the fullname whether it contains space
+//     //whenever fullName is set to fullname property the setter method is executed
+//     if (name.includes(" ")) {
+//       //setter will run whenever the property fullname is set because of this.fullName (use setter with dot notation) and FullName becomes name
+//       this._fullName = name; //set fullname to name that was received add underscore before property to avoid errors (new property)
+//     } else {
+//       alert(`${name} is not a full name`);
+//     }
+//   }
+//   get fullName() {
+//     return this._fullName; //create getter to get new property created
+//     //oerson.getFullname
+//   }
+//   //static methods
+//   static hey() {
+//     console.log("Hey there");
+//     consol;
+//   }
+// }
+// PersonCl.hey();
+// //this keyword points to whole class
+
+// //object.create
+// //manually set prototype to any object required
+
+//prototype object prorotype of all person objects
+//create object that acts as prototype to all instances
+const PersonProto = {
+  //simple object literal
+  //methods written outside constructor no commas between methods
   calcAge() {
+    //like adding calcage method to prototype property person
     console.log(2021 - this.birthYear);
     //all methods will be on PROtotype of object NOT object itself like prortypal inheritance
-  }
+  },
+  init(firstName, birthYear) {
+    //method inside prorotype object
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
 
-  greet() {
-    console.log(`Hey`);
-  }
+//create person object with personproto as prototype of james
 
-  get age() {
-    //add getter for class too
-    //same as method inside object
-    return 2021 - this.birthYear;
-  }
+const james = Object.create(PersonProto); //links james to PersonProto which will be its prototype
+console.log(james);
+james.name = "James";
+james.birthYear = 2002;
+james.calcAge();
+//method added to prototype
 
-  //set a property that already exists of the same name
-  set fullName(name) {
-    //setter to check for the fullname whether it contains space
-    //whenever fullName is set to fullname property the setter method is executed
-    if (name.includes(" ")) {
-      //setter will run whenever the property fullname is set because of this.fullName (use setter with dot notation) and FullName becomes name
-      this._fullName = name; //set fullname to name that was received add underscore before property to avoid errors (new property)
-    } else {
-      alert(`${name} is not a full name`);
-    }
-  }
-  get fullName() {
-    return this._fullName; //create getter to get new property created
-    //oerson.getFullname
-  }
-  //static methods
-  static hey() {
-    console.log("Hey there");
-    consol;
-  }
-}
-PersonCl.hey();
-//this keyword points to whole class
+//set the prototype of oebject manually to any object you want
+
+//proto: PersonProto in object.create
+//using constructor function
+
+//_proto__: Person.prototype
+
+console.log(james.__proto__ === PersonProto); //true
+//prorotype is PersonProto
+
+const sarah = Object.create(PersonProto);
+//create object programatically
+
+//implement function
