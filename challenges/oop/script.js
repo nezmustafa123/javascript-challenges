@@ -107,7 +107,7 @@ const Person = function (firstName, birthYear) {
   this.firstName = firstName; //set value equal to paremeter have to have colon at end of each
   this.birthYear = birthYear;
   //properties are instance properties
-  //will be available on instances created through constructor function
+  //will be available on INSTANCES created through constructor function
   // this.calcAge = function () {
   //   console.log(2021 - this.birthYear);
   // }; //shouldn't create method using constructor function each instance would carry this function otherwise use prototypal inheritance instead
@@ -166,7 +166,7 @@ console.log(Person.prototype.isPrototypeOf(Person)); //false
 //step 3 linking {} to prototype creates 'proto' property on new object and sets value of it to prorotoype property of constructor function
 
 Person.prototype.species = "Sahelanthropus tchadensis";
-//set property on constructor protoype
+//set property on constructor protoype property
 
 console.log(nez, sarah);
 //species is on __proto__ property
@@ -311,6 +311,7 @@ class PersonCl {
 
   greet() {
     console.log(`Hey`);
+    console.log(this);
   }
 
   get age() {
@@ -351,7 +352,7 @@ console.log(joanne.__proto__ === PersonCl.prototype);
 //true
 //person cl is like constructor function
 
-//add method manually to ptotoype
+//add method manually to ptotoype property
 
 PersonCl.prototype.greet = function () {
   console.log(`Hey ${this.firstName}`);
@@ -494,7 +495,7 @@ const PersonProto = {
 };
 
 //create person object with personproto as prototype of james
-
+//prototype of object is object passed in
 const james = Object.create(PersonProto); //links james to PersonProto which will be its prototype
 console.log(james);
 james.name = "James";
@@ -512,7 +513,11 @@ james.calcAge();
 console.log(james.__proto__ === PersonProto); //true
 //prorotype is PersonProto
 
-const sarah = Object.create(PersonProto);
+const anya = Object.create(PersonProto);
 //create object programatically
 
-//implement function
+//call inherited function that's in the personproto object
+anya.init("Anya", 1991);
+anya.calcAge();
+//30
+//this keyword points to anya object that method
