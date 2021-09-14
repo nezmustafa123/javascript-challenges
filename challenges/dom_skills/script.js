@@ -47,7 +47,7 @@ console.log(document.head);
 console.log(document.body);
 
 const header = document.querySelector(".header");
-//first element that matches selector here
+//first element that matches selector header
 //every element
 const allSections = document.querySelectorAll(".section");
 console.log(allSections);

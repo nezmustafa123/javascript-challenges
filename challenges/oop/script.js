@@ -468,7 +468,7 @@ Person2.hey();
 //   //static methods
 //   static hey() {
 //     console.log("Hey there");
-//     consol;
+//     console;
 //   }
 // }
 // PersonCl.hey();
@@ -482,15 +482,15 @@ Person2.hey();
 const PersonProto = {
   //simple object literal
   //methods written outside constructor no commas between methods
-  calcAge() {
-    //like adding calcage method to prototype property person
-    console.log(2021 - this.birthYear);
-    //all methods will be on PROtotype of object NOT object itself like prortypal inheritance
-  },
   init(firstName, birthYear) {
     //method inside prorotype object
     this.firstName = firstName;
     this.birthYear = birthYear;
+  },
+  calcAge() {
+    //like adding calcage method to prototype property person
+    console.log(2021 - this.birthYear);
+    //all methods will be on PROtotype of object NOT object itself like prortypal inheritance
   },
 };
 
