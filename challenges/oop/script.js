@@ -274,7 +274,7 @@ Array.prototype.unique = function () {
 
 //all arrays will inherit this method
 
-console.log(arr.unique());
+console.log(arr.unique());//this keyword is whatever the function is being called on
 
 const h1 = document.querySelector("h1");
 
@@ -521,3 +521,37 @@ anya.init("Anya", 1991);
 anya.calcAge();
 //30
 //this keyword points to anya object that method
+
+//INHERITANCE BETWEEN CLASSES
+//real inheritance between classes not just with the prototype property
+//real classes do not exist in javascrit
+//create new student class and make it inherit from person class
+
+//student is substype of person
+//sutdent is more specific person
+//inherit between classes using constructor functions
+//inherit between prototype proerties of two differenct constructor functions
+
+
+
+const Person3 = function (name, dob) {
+  this.name = name;
+  this.birthYear = dob;
+};
+
+Person3.prototype.calcAge2 = function () {
+  const age = 2021 - this.birthYear;
+  return age;
+};
+
+const Student = function(name, dob. course){
+  this.name = name;
+  this.dob = dob;
+  this.course = course;
+  //same features with added functionality
+}
+
+
+const robert = new Student('Robert', 1990, 'Computer Science');
+
+console.log(robert);

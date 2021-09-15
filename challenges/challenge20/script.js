@@ -19,11 +19,13 @@ class CarCl {
   get speedUS() {
     //return speed in mph
     return this.speed / 1.6;
+    //get the speed property to mph by diving 1.6
   }
 
   set speedUS(speed) {
     this.speed = speed * 1.6;
     //convert to kmph
+    //set speed property to kmph again like the oriinal
   }
 }
 
