@@ -274,7 +274,7 @@ Array.prototype.unique = function () {
 
 //all arrays will inherit this method
 
-console.log(arr.unique());//this keyword is whatever the function is being called on
+console.log(arr.unique()); //this keyword is whatever the function is being called on
 
 const h1 = document.querySelector("h1");
 
@@ -384,7 +384,7 @@ const account = {
 };
 
 //use getter as if it is a property don't call the method
-console.log(account.latest);
+// console.log(account.latest);
 
 //use setter like this
 account.latest = 100; //100 gets passed in as an argument
@@ -393,7 +393,7 @@ account.latest = 100; //100 gets passed in as an argument
 //setter is like a property
 //use it like a property
 
-console.log(account.movements);
+// console.log(account.movements);
 
 const david = new PersonCl("David Cameron", 1966);
 //access full name with getter
@@ -497,7 +497,7 @@ const PersonProto = {
 //create person object with personproto as prototype of james
 //prototype of object is object passed in
 const james = Object.create(PersonProto); //links james to PersonProto which will be its prototype
-console.log(james);
+// console.log(james);
 james.name = "James";
 james.birthYear = 2002;
 james.calcAge();
@@ -532,11 +532,10 @@ anya.calcAge();
 //inherit between classes using constructor functions
 //inherit between prototype proerties of two differenct constructor functions
 
-
-
 const Person3 = function (name, dob) {
   this.name = name;
   this.birthYear = dob;
+  //maual changed won't be duplicated in student
 };
 
 Person3.prototype.calcAge2 = function () {
@@ -544,14 +543,21 @@ Person3.prototype.calcAge2 = function () {
   return age;
 };
 
-const Student = function(name, dob. course){
-  this.name = name;
-  this.dob = dob;
-  this.course = course;
+const Student = function (name, dob, course) {
+  //instead of duplicate code call person constructor
+  Person3.call(this, name, dob); //regular function call this keyword is set to undefined have to manually set this keyword
+  this.course = course; //not using the 'new' operator to call Person3 constructor
+  //call method sets this keyword inside Person3 to be this keyword in student
   //same features with added functionality
-}
+  //set this keyword in first argument
+};
 
+Student.prototype = Object.create(Person.prototype); //link two proprotype objects
+//inherits from person.protoype object create returns empty object has to be in this point of code
+Student.prototype.introduce = function () {
+  console.log(`My name is ${this.name} and I study ${this.course}`);
+};
 
-const robert = new Student('Robert', 1990, 'Computer Science');
-
+const robert = new Student("Robert", 1990, "Computer Science");
+robert.introduce();
 console.log(robert);
