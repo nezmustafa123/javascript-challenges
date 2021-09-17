@@ -338,8 +338,7 @@ class PersonCl {
 }
 
 //class expression
-// const PersonCl = class {
-// }
+// const PersonCl = class {}
 //use the new keyword constructor will automatically be called
 //this keyword set to point to object created
 const joanne = new PersonCl("Joanne Smith", 1999);
@@ -538,20 +537,20 @@ const Person3 = function (name, dob) {
   //maual changed won't be duplicated in student
 };
 
-Person3.prototype.calcAge2 = function () {
+Person3.prototype.calcAge = function () {
   const age = 2021 - this.birthYear;
   return age;
 };
 
 const Student = function (name, dob, course) {
-  //instead of duplicate code call person constructor
+  //instead of duplicating code by writing this.name etc call person constructor
   Person3.call(this, name, dob); //regular function call this keyword is set to undefined have to manually set this keyword
   this.course = course; //not using the 'new' operator to call Person3 constructor
   //call method sets this keyword inside Person3 to be this keyword in student
   //same features with added functionality
   //set this keyword in first argument
 };
-
+//setting prototype of student.protype to be person.prototype
 Student.prototype = Object.create(Person.prototype); //link two proprotype objects
 //inherits from person.protoype object create returns empty object has to be in this point of code
 Student.prototype.introduce = function () {
@@ -561,3 +560,20 @@ Student.prototype.introduce = function () {
 const robert = new Student("Robert", 1990, "Computer Science");
 robert.introduce();
 console.log(robert);
+robert.calcAge();
+//works because of prorotype chain method lookup
+
+//calcage not on robert object or roberts prototype javascript looks up even further in prototype chain
+
+//Object.prorotype is on top of the prototype chain
+//can call has own property on robert too
+
+console.log(robert.__proto__); //says person instead of student
+console.log(robert.__proto__.__proto__); //prototype which contains calc age funciton (person)
+
+console.log(robert instanceof Student); //true
+console.log(robert instanceof Person); //true
+console.log(robert instanceof Object); //true
+
+Student.prototype.constructor = Student;
+console.dir(Student.prototype.constructor); //person because manually set student.prototype to person.prorotype

@@ -77,7 +77,7 @@ console.log(nez);
 const passenger = nez;
 //copying refernce to object in memory heap
 
-//when passing primitive into function its same as creating a copty outside the function
+//when passing primitive into function its same as creating a copy outside the function
 //when passing object to a function it's same as copying object
 
 //new passport function
@@ -88,7 +88,7 @@ const newPassport = function (person) {
 newPassport(nez);
 //manipulates the same object reference so number gets changed
 checkIn(flight, nez);
-//will give wrong passport
+//will give wrong passport num
 //two functions acting on same object
 //newPassport manipulates object then checkin function sees the number isn't samme as original one
 

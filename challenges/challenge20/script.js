@@ -4,6 +4,8 @@ class CarCl {
   constructor(make, speed) {
     this.make = make;
     this.speed = speed; //speed in kmph
+
+    console.log(this);
   }
 
   accelerate() {
