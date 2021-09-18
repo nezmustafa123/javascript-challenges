@@ -473,7 +473,7 @@ Person2.hey();
 // PersonCl.hey();
 // //this keyword points to whole class
 
-// //object.create
+// OBJECT CREATE
 // //manually set prototype to any object required
 
 //prototype object prorotype of all person objects
@@ -577,3 +577,63 @@ console.log(robert instanceof Object); //true
 
 Student.prototype.constructor = Student;
 console.dir(Student.prototype.constructor); //person because manually set student.prototype to person.prorotype
+
+//INHERITANCE BETWEEN ES6 CLASSES
+
+class PersonCl {
+  //constructor is method for this class works like constructor function
+  constructor(fullName, birthYear) {
+    //pass in arguments for properties want object to have
+    this.fullName = fullName;
+    this.birthYear = birthYear;
+    //constructor returns new object stores in PersonCl
+  }
+  //INSTANCE all instances with have access methods written outside constructor no commas between methods
+  calcAge() {
+    console.log(2021 - this.birthYear);
+    //all methods will be on PROtotype of object NOT object itself like prortypal inheritance
+  }
+
+  greet() {
+    console.log(`Hey`);
+  }
+
+  get age() {
+    //add getter for class too
+    //same as method inside object
+    return 2021 - this.birthYear;
+  }
+
+  //set a property that already exists of the same name
+  set fullName(name) {
+    //setter to check for the fullname whether it contains space
+    //whenever fullName is set to fullname property the setter method is executed
+    if (name.includes(" ")) {
+      //setter will run whenever the property fullname is set because of this.fullName (use setter with dot notation) and FullName becomes name
+      this._fullName = name; //set fullname to name that was received add underscore before property to avoid errors (new property)
+    } else {
+      alert(`${name} is not a full name`);
+    }
+  }
+  get fullName() {
+    return this._fullName; //create getter to get new property created
+    //oerson.getFullname
+  }
+  //static methods
+  static hey() {
+    console.log("Hey there");
+    console;
+  }
+}
+//the extends keyword links prototypes behind the scenes with the super function
+class StudentCl extends PersonCl {
+  constructor(fullName, birthYear, course) {
+    //additional parameter
+    //call super the constructor function of parent class
+    //needs to happen first
+    super(fullName, birthYear); //pass in parameters in parent constructor responsible for creating this keyword in subclass
+    this.course = course;
+  }
+}
+
+const sebby = new StudentCl("Sebby Blake", 1991);
