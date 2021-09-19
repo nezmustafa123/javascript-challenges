@@ -180,7 +180,7 @@ console.log(nez.hasOwnProperty("species"));
 
 //prototypal inheritance
 //constructor function
-//prototype property which is an object with method calcage
+//prototype property which is an object with method calcage attached
 //Person.prototype has link back to constructor through .constructor property
 
 //1 new empty object created
@@ -295,68 +295,68 @@ console.dir((x) => x + 1);
 //just syntactic sugar implements prototypal inheritance like usual
 
 //class decleration
-class PersonCl {
-  //constructor is method for this class works like constructor function
-  constructor(fullName, birthYear) {
-    //pass in arguments for properties want object to have
-    this.fullName = fullName;
-    this.birthYear = birthYear;
-    //constructor returns new object stores in PersonCl
-  }
-  //methods written outside constructor no commas between methods
-  calcAge() {
-    console.log(2021 - this.birthYear);
-    //all methods will be on PROtotype of object NOT object itself like prortypal inheritance
-  }
+// class PersonCl {
+//   //constructor is method for this class works like constructor function
+//   constructor(fullName, birthYear) {
+//     //pass in arguments for properties want object to have
+//     this.fullName = fullName;
+//     this.birthYear = birthYear;
+//     //constructor returns new object stores in PersonCl
+//   }
+//   //methods written outside constructor no commas between methods
+//   calcAge() {
+//     console.log(2021 - this.birthYear);
+//     //all methods will be on PROtotype of object NOT object itself like prortypal inheritance
+//   }
 
-  greet() {
-    console.log(`Hey`);
-    console.log(this);
-  }
+//   greet() {
+//     console.log(`Hey`);
+//     console.log(this);
+//   }
 
-  get age() {
-    //add getter for class too
-    //same as method inside object
-    return 2021 - this.birthYear;
-  }
+//   get age() {
+//     //add getter for class too
+//     //same as method inside object
+//     return 2021 - this.birthYear;
+//   }
 
-  //set a property that already exists of the same name
-  set fullName(name) {
-    //setter to check for the fullname whether it contains space
-    //whenever fullName is set to fullname property the setter method is executed
-    if (name.includes(" ")) {
-      //setter will run whenever the property fullname is set because of this.fullName (use setter with dot notation) and FullName becomes name this.fullName = fullName so fullname becomes name argument
-      this._fullName = name; //set fullname to name that was received add underscore before property to avoid errors (new property)
-    } else {
-      alert(`${name} is not a full name`);
-    }
-  }
-  get fullName() {
-    return this._fullName; //create getter to get new property created
-    //oerson.getFullname
-  }
-}
+//   //set a property that already exists of the same name
+//   set fullName(name) {
+//     //setter to check for the fullname whether it contains space
+//     //whenever fullName is set to fullname property the setter method is executed
+//     if (name.includes(" ")) {
+//       //setter will run whenever the property fullname is set because of this.fullName (use setter with dot notation) and FullName becomes name this.fullName = fullName so fullname becomes name argument
+//       this._fullName = name; //set fullname to name that was received add underscore before property to avoid errors (new property)
+//     } else {
+//       alert(`${name} is not a full name`);
+//     }
+//   }
+//   get fullName() {
+//     return this._fullName; //create getter to get new property created
+//     //oerson.getFullname
+//   }
+// }
 
 //class expression
 // const PersonCl = class {}
 //use the new keyword constructor will automatically be called
 //this keyword set to point to object created
-const joanne = new PersonCl("Joanne Smith", 1999);
+// const joanne = new PersonCl("Joanne Smith", 1999);
 
-console.log(joanne);
-joanne.calcAge();
-console.log(joanne.age);
+// console.log(joanne);
+// joanne.calcAge();
+// console.log(joanne.age);
 //like a method on the prototype
-console.log(joanne.__proto__ === PersonCl.prototype);
+// console.log(joanne.__proto__ === PersonCl.prototype);
 //true
 //person cl is like constructor function
 
 //add method manually to ptotoype property
 
-PersonCl.prototype.greet = function () {
-  console.log(`Hey ${this.firstName}`);
-};
-joanne.greet();
+// PersonCl.prototype.greet = function () {
+//   console.log(`Hey ${this.firstName}`);
+// };
+// joanne.greet();
 
 //1. Classes are NOT hoisted
 //2. Class are first-class citizens pass them into functions and return them from functions
@@ -394,9 +394,9 @@ account.latest = 100; //100 gets passed in as an argument
 
 // console.log(account.movements);
 
-const david = new PersonCl("David Cameron", 1966);
+// const david = new PersonCl("David Cameron", 1966);
 //access full name with getter
-david.fullName;
+//david.fullName;
 
 //Static methods
 
@@ -628,12 +628,36 @@ class PersonCl {
 //the extends keyword links prototypes behind the scenes with the super function
 class StudentCl extends PersonCl {
   constructor(fullName, birthYear, course) {
-    //additional parameter
+    //pass in additional parameter to constructor
     //call super the constructor function of parent class
-    //needs to happen first
+    //needs to happen first responsible for creating this keyword in subclass
     super(fullName, birthYear); //pass in parameters in parent constructor responsible for creating this keyword in subclass
-    this.course = course;
+    this.course = course; //if didn't want to add extra properties super function will be automatically called
+  } //if don't need properties don't have to write constructor in child class
+
+  introduce() {
+    console.log(`My name is ${this.fullName} and I study ${this.course}`);
+  }
+
+  showThis() {
+    console.log(this);
+  }
+
+  calcAge() {
+    console.log(
+      `I'm ${
+        2021 - this.birthYear
+      } years old but as a student I feel more like I'm 65`
+    );
   }
 }
 
-const sebby = new StudentCl("Sebby Blake", 1991);
+const sebby = new StudentCl("Sebby Blake", 1991, "Computer Science");
+
+sebby.introduce();
+sebby.calcAge();
+sebby.showThis();
+// const sebby = new StudentCl("Sebby Blake", 1991);
+//still end up with _fullName and birthyear will hinerit from parent class
+
+//ovveride method of parents
