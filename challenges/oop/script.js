@@ -661,3 +661,24 @@ sebby.showThis();
 //still end up with _fullName and birthyear will hinerit from parent class
 
 //ovveride method of parents
+
+//OBJECT CREATE inheritance between classes
+
+const PersonProto = {
+  //object to serve as prototype to create object using object.create
+  calcAge() {
+    console.log(2021 - this.birthYear);
+  },
+
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+const axel = Object.create(PersonProto);
+
+//add another prototype in the middle of the chain betweeen person proto and the object
+//create object that will be prorotype of students
+const SudentProto = Object.create(PersonProto); //personproto is protoypue of studentproto
+const joel = Object.create(StudentProto); //studentptoro is prototype of joel
