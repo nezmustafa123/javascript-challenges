@@ -474,7 +474,7 @@ Person2.hey();
 // //this keyword points to whole class
 
 // OBJECT CREATE
-// //manually set prototype to any object required
+//manually set prototype to any object required
 
 //prototype object prorotype of all person objects
 //create object that acts as prototype to all instances
@@ -680,5 +680,32 @@ const axel = Object.create(PersonProto);
 
 //add another prototype in the middle of the chain betweeen person proto and the object
 //create object that will be prorotype of students
+//make student inherit direclty from person
 const SudentProto = Object.create(PersonProto); //personproto is protoypue of studentproto
+StudentProto.init = function (firstName, birthYear, course) {
+  //add method
+  //use same trick as constructor function so child prototpye can use init method
+  PersonProto.init.call(this, firstName, birthYear);
+  this.course = course; //course propery unique want to pass in extra method to this so have to link this method with the other
+  //set the this keyword equal to this keywork in the method
+};
 const joel = Object.create(StudentProto); //studentptoro is prototype of joel
+// personproto is also protoype of joel
+//person proto will also become prototype of student proto
+
+//1.person proto used to be prototype of all person objects
+
+//2.person proto becomes prototype of student proto student inherits from person
+
+//3. use object create to create new student inherit from student proto
+
+//create prototype chain
+
+StudentProto.introduce = function () {
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+};
+
+joel.init("Joel", 1991, "Computer Science");
+joel.introduce();
+joel.calcAge();
+//linking objects together where some objects inherit from other objects
