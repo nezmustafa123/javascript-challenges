@@ -726,11 +726,22 @@ class Account {
     //set to web browser navigator api will appear in acc1
     console.log(`Thanks for opening an account, ${owner}`);
   }
+  //public interface
   deposit(val) {
     this.movements.push(val);
   }
   withdraw(val) {
-    this.deposit(-val);
+    this.deposit(-val); //abstracts withdrawal being negative just write regular number
+  }
+  approveLoan(val) {
+    return true;
+  }
+  requestLoan(val) {
+    if (this.approveLoan(val)) {
+      //approvement comes from another function
+      this.deposit(val);
+      console.log("Loan approved");
+    }
   }
 }
 
@@ -741,3 +752,14 @@ acc1.movements.push(-140);
 acc1.movements.push(250);
 
 //create methods that interact with these properties
+acc1.deposit(250);
+acc1.withdraw(140);
+//use the methoods as interfacve to projects public, API
+
+console.log(acc1.pin); //can access the pin outside the classs
+
+acc1.requestLoan(1000);
+//in public interface only want requestloan method available
+//can also do
+
+acc1.approveLoan(1000); //shouldn't have access to this
