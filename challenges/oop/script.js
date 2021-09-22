@@ -2,7 +2,7 @@
 //object oriented programming
 //paradigm based on concept of objects
 //use objects to model real world or abstract features
-//can contain dara (properties) and code (methods)
+//can contain data (properties) and code (methods)
 //pack data and behaviour into one block
 //avoid spaghetti code make objects interact with each other
 //use classes classes like blueprint create object based off class
@@ -239,7 +239,7 @@ console.log(nez.__proto__.__proto__); //moving up the prorotype chain
 
 console.log(nez.__proto__.__proto__.__proto__);
 //null
-//object.prototype top of the scop chain
+//object.prototype top of the scope chain
 
 console.dir(Person.prototype.constructor);
 //points back to person itself
@@ -251,7 +251,7 @@ const arr = [4, 5, 6, 7, 3, 2, 5, 3]; //new Array === []
 console.log(arr.__proto__);
 //prototype of array is Array.prototype
 //has all the methods
-//map filter etc each array inherits methods from prototype
+//map filter etc each array inherits methods from prototype property
 console.log(arr.__proto__ === Array.prototype); //true
 //prototype of all objects created by array constructor
 
@@ -267,7 +267,7 @@ console.log(arr.__proto__.__proto__);
 //any array inherits methods from its prototype
 Array.prototype.unique = function () {
   //new method to prototye property of array constructor
-  //create a new set pass array in there
+  //create a new set pass array in there to get the unique values in an array
   return [...new Set(this)];
   //this is array on which method is called
 };
@@ -685,7 +685,7 @@ const SudentProto = Object.create(PersonProto); //personproto is protoypue of st
 StudentProto.init = function (firstName, birthYear, course) {
   //add method
   //use same trick as constructor function so child prototpye can use init method
-  PersonProto.init.call(this, firstName, birthYear);
+  PersonProto.init.call(this, firstName, birthYear); //won't have to manually specify properties on any new student object
   this.course = course; //course propery unique want to pass in extra method to this so have to link this method with the other
   //set the this keyword equal to this keywork in the method
 };
@@ -709,3 +709,35 @@ joel.init("Joel", 1991, "Computer Science");
 joel.introduce();
 joel.calcAge();
 //linking objects together where some objects inherit from other objects
+
+//new class example
+
+//account from bankist app
+
+class Account {
+  //each account should have pin owner currency
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this.pin = pin;
+    this.movements = [];
+    //automatically create property on any instance object that doesn't rely on input
+    this.locale = navigator.language;
+    //set to web browser navigator api will appear in acc1
+    console.log(`Thanks for opening an account, ${owner}`);
+  }
+  deposit(val) {
+    this.movements.push(val);
+  }
+  withdraw(val) {
+    this.deposit(-val);
+  }
+}
+
+const acc1 = new Account("Nez", "GBP", 3388);
+console.log(acc1);
+
+acc1.movements.push(-140);
+acc1.movements.push(250);
+
+//create methods that interact with these properties
