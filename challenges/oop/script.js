@@ -714,38 +714,38 @@ joel.calcAge();
 
 //account from bankist app
 
-class Account {
-  //each account should have pin owner currency
-  constructor(owner, currency, pin) {
-    this.owner = owner;
-    this.currency = currency;
-    this.pin = pin;
-    this.movements = [];
-    //automatically create property on any instance object that doesn't rely on input
-    this.locale = navigator.language;
-    //set to web browser navigator api will appear in acc1
-    console.log(`Thanks for opening an account, ${owner}`);
-  }
-  //public interface
-  deposit(val) {
-    this.movements.push(val);
-  }
-  withdraw(val) {
-    this.deposit(-val); //abstracts withdrawal being negative just write regular number
-  }
-  approveLoan(val) {
-    return true;
-  }
-  requestLoan(val) {
-    if (this.approveLoan(val)) {
-      //approvement comes from another function
-      this.deposit(val);
-      console.log("Loan approved");
-    }
-  }
-}
+// class Account {
+//   //each account should have pin owner currency
+//   constructor(owner, currency, pin) {
+//     this.owner = owner;
+//     this.currency = currency;
+//     this.pin = pin;
+//     this.movements = [];
+//     //automatically create property on any instance object that doesn't rely on input
+//     this.locale = navigator.language;
+//     //set to web browser navigator api will appear in acc1
+//     console.log(`Thanks for opening an account, ${owner}`);
+//   }
+//   //public interface
+//   deposit(val) {
+//     this.movements.push(val);
+//   }
+//   withdraw(val) {
+//     this.deposit(-val); //abstracts withdrawal being negative just write regular number
+//   }
+//   approveLoan(val) {
+//     return true;
+//   }
+//   requestLoan(val) {
+//     if (this.approveLoan(val)) {
+//       //approvement comes from another function
+//       this.deposit(val);
+//       console.log("Loan approved");
+//     }
+//   }
+// }
 
-const acc1 = new Account("Nez", "GBP", 3388);
+// const acc1 = new Account("Nez", "GBP", 3388);
 console.log(acc1);
 
 acc1.movements.push(-140);
@@ -763,3 +763,59 @@ acc1.requestLoan(1000);
 //can also do
 
 acc1.approveLoan(1000); //shouldn't have access to this
+
+//ENCAPSULATION
+//keep some properties and methods outside the class hidden and some usable (api)
+//prevent code from outside of a class from maniuplating data inside of a class
+//expose small api first then expose private methods with more with confidence
+
+//protect movements array fake movements array
+
+//account from bankist app
+
+class Account {
+  //each account should have pin owner currency
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this._pin = pin;
+    this._movements = []; //add underscore as a convension to 'make it private or protected'
+    //automatically create property on any instance object that doesn't rely on input
+    this.locale = navigator.language;
+    //set to web browser navigator api will appear in acc1
+    console.log(`Thanks for opening an account, ${owner}`);
+  }
+
+  //public interface
+
+  getMovements() {
+    //have a method called getmovments
+    return this._movements;
+  }
+  deposit(val) {
+    this.movements.push(val);
+  }
+  withdraw(val) {
+    this.deposit(-val); //abstracts withdrawal being negative just write regular number
+  }
+  _approveLoan(val) {
+    //this method should not be part of eht public api
+    return true;
+  }
+  requestLoan(val) {
+    if (this.approveLoan(val)) {
+      //if true
+      //approvement comes from another function
+      this.deposit(val);
+      console.log("Loan approved");
+    }
+  }
+}
+
+const acc2 = new Account("Nez", "GBP", 3388);
+
+acc2._movements.push(250);
+acc2._movements.push(-140);
+//still accessable but because of the underscore know it's wrong
+console.log(acc2.getMovements());
+//publically get movements rather than sense
