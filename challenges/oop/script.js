@@ -819,3 +819,58 @@ acc2._movements.push(-140);
 //still accessable but because of the underscore know it's wrong
 console.log(acc2.getMovements());
 //publically get movements rather than sense
+
+//PRIVATE CLASS FIELDS AND METHODS part of a bigger proposal hasn't been fully inplemented yet
+//properties are called fields trying to move away from classes being just syntactic sugar
+
+//1.public fields
+//2.private fileds
+//3.public methods
+//4.private methods
+
+//public and private version of fields and methods
+
+class Account {
+  //public field property that will be on ALL instances created with class NOT on prototype
+  //each account should have pin, owner, currency
+  //public fields (referenceable with this keyword)
+  locale = navigator.language; //add the public fields like a variable no commas or semi colons
+  _movements = [];
+  //add underscore as a convension to 'signify it private or protected'
+  //automatically create property on any instance object that doesn't rely on input
+  //set to web browser navigator api will appear in acc1
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    //protected proptery
+    this._pin = pin;
+    console.log(`Thanks for opening an account, ${owner}`);
+  }
+
+  //public interface
+
+  getMovements() {
+    //have a method called getmovments
+    return this._movements;
+  }
+  deposit(val) {
+    this.movements.push(val);
+  }
+  withdraw(val) {
+    this.deposit(-val); //abstracts withdrawal being negative just write regular number
+  }
+  _approveLoan(val) {
+    //this method should not be part of eht public api
+    return true;
+  }
+  requestLoan(val) {
+    if (this.approveLoan(val)) {
+      //if true
+      //approvement comes from another function
+      this.deposit(val);
+      console.log("Loan approved");
+    }
+  }
+}
+
+const acc3 = new Account("Nez", "GBP", 5566);
