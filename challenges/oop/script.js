@@ -835,42 +835,60 @@ class Account {
   //each account should have pin, owner, currency
   //public fields (referenceable with this keyword)
   locale = navigator.language; //add the public fields like a variable no commas or semi colons
-  _movements = [];
+  // _movements = [];
   //add underscore as a convension to 'signify it private or protected'
   //automatically create property on any instance object that doesn't rely on input
   //set to web browser navigator api will appear in acc1
+
+  //private fields use hash symbol makes property private
+  #movements = [];
+  #pin;
+  //field has to be outside method create private field with has
+
   constructor(owner, currency, pin) {
     this.owner = owner;
     this.currency = currency;
     //protected proptery
-    this._pin = pin;
+    //reference it with this keyword set it to value passed in in constructor not on the prototype
+    this.#pin = pin; //can't define field inside constructor fields like any other property
     console.log(`Thanks for opening an account, ${owner}`);
   }
 
   //public interface
 
+  //public methods by default
   getMovements() {
     //have a method called getmovments
-    return this._movements;
+    return this.#movements;
   }
   deposit(val) {
-    this.movements.push(val);
+    this.#movements.push(val);
   }
   withdraw(val) {
     this.deposit(-val); //abstracts withdrawal being negative just write regular number
   }
-  _approveLoan(val) {
-    //this method should not be part of eht public api
-    return true;
-  }
+  // _approveLoan(val) {
+  //   //this method should not be part of eht public api
+  //   return true;
+  // }
   requestLoan(val) {
-    if (this.approveLoan(val)) {
+    if (this.#approveLoan(val)) {
       //if true
       //approvement comes from another function
       this.deposit(val);
       console.log("Loan approved");
     }
   }
+
+  //private methods same as private fields with the has no browser supports this
+  #approveLoan(val) {
+    return true;
+  }
 }
 
 const acc3 = new Account("Nez", "GBP", 5566);
+console.log(acc3.#movements);
+//syntax error cannot access variable outside
+console.log(acc3.#approveLoan(100));
+
+//private class 'field' and not a 'method'
