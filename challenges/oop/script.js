@@ -863,9 +863,11 @@ class Account {
   }
   deposit(val) {
     this.#movements.push(val);
+    return this;
   }
   withdraw(val) {
     this.deposit(-val); //abstracts withdrawal being negative just write regular number
+    return this;
   }
   // _approveLoan(val) {
   //   //this method should not be part of eht public api
@@ -877,6 +879,7 @@ class Account {
       //approvement comes from another function
       this.deposit(val);
       console.log("Loan approved");
+      return this; //return this (the objecy)
     }
   }
 
@@ -892,3 +895,13 @@ console.log(acc3.#movements);
 console.log(acc3.#approveLoan(100));
 
 //private class 'field' and not a 'method'
+
+//chaining methods in methods of class
+
+//return object itself and method chainable
+
+acc3.deposit(300).deposit(500).withdraw(35).requestLoan(25000).withdraw(4000);
+//normally first chain will work but seocond will return nothing because deposit returns nothing
+//the result of deposit should be account so return THIS because this is current object
+//return THIS on methods that set a property
+console.log(acc3.getMovements());
