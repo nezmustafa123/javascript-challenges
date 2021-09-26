@@ -887,6 +887,10 @@ class Account {
   #approveLoan(val) {
     return true;
   }
+
+  static helper() {
+    console.log(`Helper`);
+  }
 }
 
 const acc3 = new Account("Nez", "GBP", 5566);
@@ -905,3 +909,4 @@ acc3.deposit(300).deposit(500).withdraw(35).requestLoan(25000).withdraw(4000);
 //the result of deposit should be account so return THIS because this is current object
 //return THIS on methods that set a property
 console.log(acc3.getMovements());
+Account.helper();
