@@ -17,7 +17,7 @@
 //     email
 
 //     login(password) {
-//         //login logic
+//        login logic
 //     }
 
 //     sendMessage(str) {
@@ -25,7 +25,7 @@
 //     }
 // }
 
-// //create new instance of class (object) for specific user
+// create new instance of class (object) for specific user
 
 // new User('Nez')
 
@@ -67,7 +67,7 @@
 
 //objects are instances instantiated from a class which functions like a blue print (classical)
 //javascript has protoype all objects are linked to certain prototype object
-//each object has prototype prototype has objects and methods linked to that prototype all objects can use
+//each object has prototype, prototype has objects and methods linked to that prototype all objects can use
 //prototypal inheritance objects inherit properties and methods from prototype, different from classical oop
 //objects delegate behaviour to linked prorotype object
 //can use array methods like map because of prototypal inheritance
@@ -76,7 +76,7 @@ const num = [1, 2, 3];
 num.map((v) => v * 2);
 //can use array method because of prorotypal inheritance
 
-// Array.prototype.map();
+//Array.prototype.map();
 //Array.protoype is the prototype of all array objects in javascript
 //all arrays have access to the map method
 //array inherites map method or delegates the method to its protoype
@@ -97,19 +97,19 @@ num.map((v) => v * 2);
 //constructor function normal functioin call with new operator
 //start with capital letter
 //call constructor function with new operator
-//arrow function won't work with constructor as it doesn;t have its own this keyword
+//arrow function won't work with constructor as it doesn't have its own this keyword
 
 const Person = function (firstName, birthYear) {
-  // console.log(this);
+  //console.log(this);
   //Person {}
   //object of the type person
   //take parameters and create properties on the object created with same name and equate them
-  this.firstName = firstName; //set value equal to paremeter have to have colon at end of each
+  this.firstName = firstName; //set value equal to paremeter have to have semi colon at end of each
   this.birthYear = birthYear;
   //properties are instance properties
   //will be available on INSTANCES created through constructor function
   // this.calcAge = function () {
-  //   console.log(2021 - this.birthYear);
+  // console.log(2021 - this.birthYear);
   // }; //shouldn't create method using constructor function each instance would carry this function otherwise use prototypal inheritance instead
 };
 
@@ -132,7 +132,7 @@ const jim = new Person("Jim", 1967);
 //console.log(nez instanceof Person); //true
 
 //protoypes
-// all objects created through this constructor will get access to all properties and methods defined on prototype property on constructor
+// all objects created through this constructor will get access to all properties and methods defined on prototype property of constructor
 //prototype is an object itself
 
 Person.prototype.calcAge = function () {
@@ -140,7 +140,7 @@ Person.prototype.calcAge = function () {
   console.log(2021 - this.birthYear); //this set to object created through constructor function
 };
 console.log(Person.prototype);
-//eacj object created with person will get access to a;; methods on protoype property
+//eacj object created with person will get access to its methods on protoype property
 // {calcAge: ƒ, constructor: ƒ}calcAge: ƒ ()constructor: ƒ (firstName, birthYear)[[Prototype]]: Object
 
 nez.calcAge();
@@ -269,7 +269,7 @@ Array.prototype.unique = function () {
   //new method to prototye property of array constructor
   //create a new set pass array in there to get the unique values in an array
   return [...new Set(this)];
-  //this is array on which method is called
+  //'this' is array on which method is called
 };
 
 //all arrays will inherit this method

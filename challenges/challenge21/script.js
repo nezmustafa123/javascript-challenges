@@ -46,4 +46,4 @@ const tesla = new EV("Tesla", 120, 33); //pass in make speed and charge
 tesla.chargeBattery(100);
 console.log(tesla);
 tesla.brake();
-tesla.accelerate();
+tesla.accelerate(); //can still inherit the accelerate method from car
