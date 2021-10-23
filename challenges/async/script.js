@@ -32,3 +32,10 @@ p.style.width = "300px";
 //once image is loaded it's displayed load event is emitted and callback function called
 //event listeners to not make code asynchronous
 //IMAGE LOADS ASYNCHRONOUSLY IN BACKGROUD
+
+//AJAX allows communication with web servers to get data asynchronously without blocking
+//happens asynchronously get requests and posts reguests etc
+//server has web api with data we're asking for
+//api piece of software used by another piece of software to allow apps to exchange information and data
+//eg dom api geolocation api self contained pieces of software allowing other software to interact class api also
+//online api recieves requests for data and sends it back to client as response
