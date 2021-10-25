@@ -7,9 +7,9 @@ const countriesContainer = document.querySelector(".countries");
 
 //xml requests old scool of doing ajax calls
 const getCountryData = function (country) {
-  //silo code in object
+  //silo code in function
   const request = new XMLHttpRequest(); //create new hhtp request object put it into variable
-  request.open("GET", `https://restcountries.com/v3.1/name/${country}`); //open request
+  request.open("GET", `https://restcountries.com/v2/name/${country}`); //open request
   request.send(); //send request ajax call in background async can't set result into some variable because result not there yet
   //FETCHED IN BACKGROUND
   //the rest of the code keeps runniung while the api is contacted need callback function
@@ -25,18 +25,27 @@ const getCountryData = function (country) {
       <h3 class="country__name">${data.name}</h3>
       <h4 class="country__region">${data.region}</h4>
       <p class="country__row"><span>👫</span>${(
-        +data.population / 100000
-      ).toFixed(1)}</p>
-      <p class="country__row"><span>🗣️</span>${data.languages.eng}</p>
-      <p class="country__row"><span>💰</span>${data.currencies.symbol}</p>
+        +data.population / 1000000
+      ).toFixed(1)} million</p>
+      <p class="country__row"><span>🗣️</span>${data.languages[0].name}</p>
+      <p class="country__row"><span>💰</span>${data.currencies[0].name}</p>
     </div>
   </article>
   `;
     countriesContainer.insertAdjacentHTML("beforeend", html);
-    countriesContainer.lastElementChild.opacity = 1;
+    countriesContainer.style.opacity = 1;
   });
 };
 //can also do
 // console.log(request.responseText);
 
 getCountryData("GB");
+getCountryData("usa");
+getCountryData("Germany");
+getCountryData("Turkey");
+getCountryData("Brazil");
+getCountryData("France");
+getCountryData("Canada");
+getCountryData("Japan");
+getCountryData("Germany");
+getCountryData("Russia");

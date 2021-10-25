@@ -20,7 +20,7 @@ const weekdays =  ['mon', 'tue','wed', 'thu','fri','sat', 'sun'];
 //        },
 //},
 
-const openingHours = {
+const openingHours = {//square bracket notation take values out of array write any expression
         [weekdays[3]]: {
             open: 12,
             close: 22,
@@ -340,11 +340,11 @@ const {sat} = openingHours;
 console.log(sat);
 //get opening and closing
 //sat is opject
-const {sat: 
+const {sat: //colon and property names of inner object
        {open, close}
       } = openingHours;
 
-//colon property names of ojbect 
+//colon property names of ojbect rename property
 //can also give new names to property like this
 const {
     sat: { open: o, close: c },
