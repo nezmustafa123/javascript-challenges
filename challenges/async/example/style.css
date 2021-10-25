@@ -37,12 +37,16 @@ body {
 
 .country {
   background-color: #fff;
-  box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0rem 0rem 1rem 1rem rgba(0, 0, 0, 0.1);
   font-size: 1.8rem;
   width: 30rem;
   border-radius: 0.7rem;
   margin: 0 3rem;
   /* overflow: hidden; */
+}
+
+.country:hover {
+  box-shadow: 0rem 0rem 2.5rem 2.5rem rgba(0, 0, 0, 0.3);
 }
 
 .neighbour::before {
