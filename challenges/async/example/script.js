@@ -87,14 +87,14 @@ const getCountryAndNeighbour = function (country) {
     //callback
     //console.log(this.responseText); //this is request response is in response text
     const [data] = JSON.parse(this.responseText); //convert it back to javascript object, as it's json (big string of text) destructure the big array
-    console.log(data); //array containing one object
+    //console.log(data); //array containing one object
     //destructure the array recieved remove the brackets
     //render country 1
     renderCountry(data);
 
     //get neighbour country (2)
     const [neighbour] = data.borders;
-    console.log(neighbour);
+    //console.log(neighbour);
     //if neighbour doesn't exist return immedietely
     if (!neighbour) return;
 
@@ -108,12 +108,31 @@ const getCountryAndNeighbour = function (country) {
       //appears after the UK
       // console.log(request2.responseText);
       const data2 = JSON.parse(this.responseText);
-      console.log(data2); //not an array anymore just one unique result country codes unique just one result
+      //console.log(data2); //not an array anymore just one unique result country codes unique just one result
       //call the rendercountry method at the end of the inner callback function
+      const [neighbour] = data2.borders;
       renderCountry(data2, "neighbour"); //when it is a neighbour pass in neighbouring country
+
+      const request3 = new XMLHttpRequest();
+      request3.open("GET", `https://restcountries.com/v2/alpha/${neighbour}`);
+      request3.send();
+      request3.addEventListener("load", function () {
+        const data3 = JSON.parse(this.responseText); //convert it back to javascript object, as it's json (big string of text) destructure the big array
+        //console.log(data3); //array containing one object
+
+        //destructure the array recieved remove the brackets
+        //get neighbour country (3)
+        const [neighbour] = data3.borders;
+        // console.log(neighbour);
+        if (!neighbour) return;
+        //render country 3
+
+        renderCountry(data3, "neighbour");
+      });
     });
   });
 };
+
 //can also do
 // console.log(request.responseText);
 
@@ -128,4 +147,29 @@ getCountryAndNeighbour("GB");
 // getCountryData("Germany");
 // getCountryData("Russia");
 
-//CALLBACK HELL
+//MORE CALLBACK HELL
+//with settimeout messy hard to understand
+
+setTimeout(() => {
+  console.log("1 second passed");
+  setTimeout(() => {
+    console.log("2 second passed");
+
+    setTimeout(() => {
+      console.log("3 second passed");
+
+      setTimeout(() => {
+        console.log("4 second passed");
+      }, 1000);
+    }, 1000);
+  }, 1000);
+}, 1000);
+
+//PROMISES AND FETCH API
+
+// const request = new XMLHttpRequest();
+// request.open("GET", `https://restcountries.com/v2/name/${country}`);
+// request.send();
+//fetch api
+const request4 = fetch("https://restcountries.com/v2/name/GB");
+console.log(request4);
