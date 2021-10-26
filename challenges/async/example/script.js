@@ -173,3 +173,29 @@ setTimeout(() => {
 //fetch api
 const request4 = fetch("https://restcountries.com/v2/name/GB");
 console.log(request4);
+//returns promise
+
+//promise an object that is used as a placeholder for future result of an asynchronous operation
+
+// async delivered value
+
+// container for future value
+
+//response coming from ajax call no value yet but will be in the future promise handles future value
+//like a lottery ticket buying a promise that you'll recieve some amount of money on the future if guess correct outcome
+
+// ticket(promise)
+// lottery draw (async)
+// if correct numbers recieve money
+
+//no need to rely on events and callbacks for async functions
+//can chain them insetead of nesting and escaping callback hell
+
+//time sensitive
+//1 pending before future value available
+//2 async task running in background
+//3 settled promise either fulfilled or rejected (error) user offline can't connect to api server
+
+//handle different states in code
+//promise either fullfilled or rejected impossible to change that state
+//consume a promise when you have one fetch function for example promise must be built/created
