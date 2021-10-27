@@ -71,72 +71,72 @@ const renderCountry = function (data, className = "") {
   countriesContainer.style.opacity = 1;
 };
 
-//xml requests old scool of doing ajax calls
-const getCountryAndNeighbour = function (country) {
-  //data of neighbouring country result of first call
-  //silo code in function
+// //xml requests old scool of doing ajax calls
+// const getCountryAndNeighbour = function (country) {
+//   //data of neighbouring country result of first call
+//   //silo code in function
 
-  //AJAX call country (1)
-  const request = new XMLHttpRequest(); //create new hhtp request object put it into variable
-  request.open("GET", `https://restcountries.com/v2/name/${country}`); //open request
-  request.send(); //send request ajax call in background async can't set result into some variable because result not there yet
-  //FETCHED IN BACKGROUND
-  //the rest of the code keeps runniung while the api is contacted need callback function
-  //callback on request object for load event once data arrives callback will be called
-  request.addEventListener("load", function () {
-    //callback
-    //console.log(this.responseText); //this is request response is in response text
-    const [data] = JSON.parse(this.responseText); //convert it back to javascript object, as it's json (big string of text) destructure the big array
-    //console.log(data); //array containing one object
-    //destructure the array recieved remove the brackets
-    //render country 1
-    renderCountry(data);
+//   //AJAX call country (1)
+//   const request = new XMLHttpRequest(); //create new hhtp request object put it into variable
+//   request.open("GET", `https://restcountries.com/v2/name/${country}`); //open request
+//   request.send(); //send request ajax call in background async can't set result into some variable because result not there yet
+//   //FETCHED IN BACKGROUND
+//   //the rest of the code keeps runniung while the api is contacted need callback function
+//   //callback on request object for load event once data arrives callback will be called
+//   request.addEventListener("load", function () {
+//     //callback
+//     //console.log(this.responseText); //this is request response is in response text
+//     const [data] = JSON.parse(this.responseText); //convert it back to javascript object, as it's json (big string of text) destructure the big array
+//     //console.log(data); //array containing one object
+//     //destructure the array recieved remove the brackets
+//     //render country 1
+//     renderCountry(data);
 
-    //get neighbour country (2)
-    const [neighbour] = data.borders;
-    //console.log(neighbour);
-    //if neighbour doesn't exist return immedietely
-    if (!neighbour) return;
+//     //get neighbour country (2)
+//     const [neighbour] = data.borders;
+//     //console.log(neighbour);
+//     //if neighbour doesn't exist return immedietely
+//     if (!neighbour) return;
 
-    //if it does exist
-    //AJAX call country (2)
-    const request2 = new XMLHttpRequest(); //second ajax call in first one dependant on first one
-    request2.open("GET", `https://restcountries.com/v2/alpha/${neighbour}`);
-    request2.send();
-    //second ajax call then load listener on the request
-    request2.addEventListener("load", function () {
-      //appears after the UK
-      // console.log(request2.responseText);
-      const data2 = JSON.parse(this.responseText);
-      //console.log(data2); //not an array anymore just one unique result country codes unique just one result
-      //call the rendercountry method at the end of the inner callback function
-      const [neighbour] = data2.borders;
-      renderCountry(data2, "neighbour"); //when it is a neighbour pass in neighbouring country
+//     //if it does exist
+//     //AJAX call country (2)
+//     const request2 = new XMLHttpRequest(); //second ajax call in first one dependant on first one
+//     request2.open("GET", `https://restcountries.com/v2/alpha/${neighbour}`);
+//     request2.send();
+//     //second ajax call then load listener on the request
+//     request2.addEventListener("load", function () {
+//       //appears after the UK
+//       // console.log(request2.responseText);
+//       const data2 = JSON.parse(this.responseText);
+//       //console.log(data2); //not an array anymore just one unique result country codes unique just one result
+//       //call the rendercountry method at the end of the inner callback function
+//       const [neighbour] = data2.borders;
+//       renderCountry(data2, "neighbour"); //when it is a neighbour pass in neighbouring country
 
-      const request3 = new XMLHttpRequest();
-      request3.open("GET", `https://restcountries.com/v2/alpha/${neighbour}`);
-      request3.send();
-      request3.addEventListener("load", function () {
-        const data3 = JSON.parse(this.responseText); //convert it back to javascript object, as it's json (big string of text) destructure the big array
-        //console.log(data3); //array containing one object
+//       const request3 = new XMLHttpRequest();
+//       request3.open("GET", `https://restcountries.com/v2/alpha/${neighbour}`);
+//       request3.send();
+//       request3.addEventListener("load", function () {
+//         const data3 = JSON.parse(this.responseText); //convert it back to javascript object, as it's json (big string of text) destructure the big array
+//         //console.log(data3); //array containing one object
 
-        //destructure the array recieved remove the brackets
-        //get neighbour country (3)
-        const [neighbour] = data3.borders;
-        // console.log(neighbour);
-        if (!neighbour) return;
-        //render country 3
+//         //destructure the array recieved remove the brackets
+//         //get neighbour country (3)
+//         const [neighbour] = data3.borders;
+//         // console.log(neighbour);
+//         if (!neighbour) return;
+//         //render country 3
 
-        renderCountry(data3, "neighbour");
-      });
-    });
-  });
-};
+//         renderCountry(data3, "neighbour");
+//       });
+//     });
+//   });
+// };
 
 //can also do
 // console.log(request.responseText);
 
-getCountryAndNeighbour("GB");
+// getCountryAndNeighbour("GB");
 // getCountryData("usa");
 // getCountryData("Germany");
 // getCountryData("Turkey");
@@ -204,19 +204,26 @@ setTimeout(() => {
 // const request4 = fetch("https://restcountries.com/v2/name/GB");
 // console.log(request4);
 
-const getCountryData = function (country) {
-  fetch(`https://restcountries.com/v2/name/${country}`) //returns promise
-    .then(function (response) {
-      //handle promise using then method
-      console.log(response); //response is an object
-      //have to read response body and call json method available on all responses on fetch method
-      return response.json(); //json is also asynchronous promise have to return it and handle the promise
-    })
-    .then(function (data) {
-      console.log(data); //handle second promuse
-    });
-};
+// const getCountryData = function (country) {
+//   fetch(`https://restcountries.com/v2/name/${country}`) //returns promise
+//     .then(function (response) {
+//       //handle promise using then method
+//       console.log(response); //response is an object
+//       //have to read response body and call json method available on all responses on fetch method
+//       return response.json(); //json is also asynchronous promise have to return it and handle the promise
+//     })
+//     .then(function (data) {
+//       console.log(data); //handle second promise
+//       renderCountry(data[2]);
+//     });
+// };
 //will be settled fulfilled or rejected use 'then' method available on all promises if successful
 //pass in callback function that you want to use when promise is fulfilled one argument
 
-getCountryData("GB");
+const getCountryData = function (country) {
+  fetch(`https://restcountries.com/v2/name/${country}`) //returns promise
+    .then((response) => response.json()) //implicitly return the promise
+    .then((data) => renderCountry(data[0])); //take data and render country to dom
+};
+
+getCountryData("CHINA");
