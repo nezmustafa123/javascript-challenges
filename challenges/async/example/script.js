@@ -171,8 +171,8 @@ setTimeout(() => {
 // request.open("GET", `https://restcountries.com/v2/name/${country}`);
 // request.send();
 //fetch api
-const request4 = fetch("https://restcountries.com/v2/name/GB");
-console.log(request4);
+// const request4 = fetch("https://restcountries.com/v2/name/GB");
+// console.log(request4);
 //returns promise
 
 //promise an object that is used as a placeholder for future result of an asynchronous operation
@@ -199,3 +199,24 @@ console.log(request4);
 //handle different states in code
 //promise either fullfilled or rejected impossible to change that state
 //consume a promise when you have one fetch function for example promise must be built/created
+
+//CONSUME A PROMISE
+// const request4 = fetch("https://restcountries.com/v2/name/GB");
+// console.log(request4);
+
+const getCountryData = function (country) {
+  fetch(`https://restcountries.com/v2/name/${country}`) //returns promise
+    .then(function (response) {
+      //handle promise using then method
+      console.log(response); //response is an object
+      //have to read response body and call json method available on all responses on fetch method
+      return response.json(); //json is also asynchronous promise have to return it and handle the promise
+    })
+    .then(function (data) {
+      console.log(data); //handle second promuse
+    });
+};
+//will be settled fulfilled or rejected use 'then' method available on all promises if successful
+//pass in callback function that you want to use when promise is fulfilled one argument
+
+getCountryData("GB");
