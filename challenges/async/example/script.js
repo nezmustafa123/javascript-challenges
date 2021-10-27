@@ -220,10 +220,40 @@ setTimeout(() => {
 //will be settled fulfilled or rejected use 'then' method available on all promises if successful
 //pass in callback function that you want to use when promise is fulfilled one argument
 
+// const getCountryData = function (country) {
+//   fetch(`https://restcountries.com/v2/name/${country}`) //returns promise
+//     .then((response) => response.json()) //implicitly return the promise
+//     .then((data) => renderCountry(data[0])); //take data and render country to dom
+// };
+
+// getCountryData("CHINA");
+
+//CHAINING PROMISES
+//get neighbouring country second ajax call depends on first call have to be done in sequence
+//second call has to happen inside then method
 const getCountryData = function (country) {
+  //main country
   fetch(`https://restcountries.com/v2/name/${country}`) //returns promise
     .then((response) => response.json()) //implicitly return the promise
-    .then((data) => renderCountry(data[0])); //take data and render country to dom
+    .then((data) => {
+      //then method also returns promise
+      console.log(data);
+      renderCountry(data[0]); //take data and render country to dom
+
+      const neighbour = data[0].borders[0];
+      //get the neightbour country from the data object using the first country in the borders array within the first countrry in the data array
+
+      if (!neighbour) return;
+      //second ajax call
+
+      //neighbour country
+      //whatever returned will become fulfillment value
+      //return new promise whatever returned wil be fulfilled value of the promise
+      return fetch(`https://restcountries.com/v2/alpha/${neighbour}`); //'then' method always returns a promise whether fulfilled or not
+    })
+    .then((response) => response.json()) //data recieved in function is fulfilled value of promise that's handled
+    .then((data) => renderCountry(data, "neighbour"));
 };
 
-getCountryData("CHINA");
+getCountryData("SYRIA");
+//flat chain of promises
