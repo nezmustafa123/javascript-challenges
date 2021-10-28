@@ -150,20 +150,20 @@ const renderCountry = function (data, className = "") {
 //MORE CALLBACK HELL
 //with settimeout messy hard to understand
 
-setTimeout(() => {
-  console.log("1 second passed");
-  setTimeout(() => {
-    console.log("2 second passed");
+// setTimeout(() => {
+//   console.log("1 second passed");
+//   setTimeout(() => {
+//     console.log("2 second passed");
 
-    setTimeout(() => {
-      console.log("3 second passed");
+//     setTimeout(() => {
+//       console.log("3 second passed");
 
-      setTimeout(() => {
-        console.log("4 second passed");
-      }, 1000);
-    }, 1000);
-  }, 1000);
-}, 1000);
+//       setTimeout(() => {
+//         console.log("4 second passed");
+//       }, 1000);
+//     }, 1000);
+//   }, 1000);
+// }, 1000);
 
 //PROMISES AND FETCH API
 
@@ -255,5 +255,10 @@ const getCountryData = function (country) {
     .then((data) => renderCountry(data, "neighbour"));
 };
 
-getCountryData("SYRIA");
+btn.addEventListener("click", function () {
+  getCountryData("SYRIA");
+});
 //flat chain of promises
+
+//handling rejected errors in promises
+//fetch promise rejects when use loses internet connection
