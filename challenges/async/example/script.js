@@ -240,11 +240,15 @@ const renderError = function (msg) {
 
 const getCountryData = function (country) {
   //main country
-  fetch(`https://restcountries.com/v2/name/${country}`) //returns promise
+  fetch(`https://restcountries.com/v3/name/${country}`) //returns promise
     .then((response) => {
-      response.json(); //convert response to json
-      // (err) => alert(err) //handling the rejected promise with second callback in then method
       console.log(response);
+      if (!response.ok)
+        //if response is not ok throw new error create error with error constructor throw will terminate 'then' function
+        throw new Error(`Country not found (${response.status})`); // will propgaate down to catch method create new error pass in error message use throw keyword
+
+      return response.json(); //convert response to json
+      // (err) => alert(err) //handling the rejected promise with second callback in then method
     }) //implicitly return the promise
     .then((data) => {
       //data is whatever is returned from previous then method
@@ -252,7 +256,8 @@ const getCountryData = function (country) {
       // console.log(data);
       renderCountry(data[0]); //take data and render country to dom using rendercountry function
 
-      const neighbour = data[0].borders[0];
+      ///const neighbour = data[0].borders[0];
+      const neighbour = "sdfsdf";
       //get the neightbour country from the data object using the first country in the borders array within the first countrry in the data array
 
       if (!neighbour) return;
@@ -261,23 +266,29 @@ const getCountryData = function (country) {
       //neighbour country
       //whatever returned will become fulfillment value
       //return new promise whatever returned wil be fulfilled value of the promise
-      return fetch(`https://restcountries.com/v2/alpha/${neighbour}`); //'then' method always returns a promise whether fulfilled or not
+      return fetch(`https://restcountries.com/v3/alpha/${neighbour}`); //'then' method always returns a promise whether fulfilled or not
     })
-    .then(
-      //will have to handle the error here too
-      (response) => response.json()
-      // (err) => alert(err)
-    ) //data recieved in function is fulfilled value of promise that's handled
+    .then((response) => response.json())
+    // (err) => alert(err); //data recieved in function is fulfilled value of promise that's handled
     .then((data) => renderCountry(data, "neighbour")) //add in extra neighbour class
     .catch((err) => {
+      //err.message is same thing that is passed into new Error constructor created errror gets handles down here
       //err is a javascript object
       console.error(`${err} 💣💣💣`);
-      renderError(`something went wrong ${err.message}, try again!`);
-    }); // handle errors globally callback function will be called inside catch metthod with error object catch all error handler
+      renderError(`something went wrong  💣💣💣 ${err.message}, try again!`);
+    });
+  // .finally(() => {
+  //   // handle errors globally callback function will be called inside catch metthod with error object catch all error handler
+  //   //catch also returns promise
+  //   //finally method
+  //   //use method for something that always needs to happen e.g hid loading spinner
+  //   //fade in container
+  //   countriesContainer.style.opacity = 1; //turn container opacity to one
+  // });
 };
 
 btn.addEventListener("click", function () {
-  getCountryData("SYRIA");
+  getCountryData("fuck you");
 });
 //flat chain of promises
 
@@ -285,3 +296,6 @@ btn.addEventListener("click", function () {
 //fetch promise rejects when use loses internet connection
 
 //when offline promise from fetch function was rejected pass in second callback function to then method
+
+//getCountryData("asgodfihgo"); //pl property set to false in response object
+//404 status error message not found because country doesn't exist api cannot find it
