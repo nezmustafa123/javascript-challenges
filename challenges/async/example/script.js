@@ -238,73 +238,62 @@ const renderError = function (msg) {
 //get neighbouring country second ajax call depends on first call have to be done in sequence
 //second call has to happen inside then method
 
-const getJSON = function (url, errorMsg = "Something went wrong") {
-  //generic json function
-  return fetch(url).then((response) => {
-    if (!response.ok) throw new Error(`${errorMsg} (${response.status})`); // will propagate down to catch method create new error pass in error message use throw keyword
-    return response.json(); //returns promise
-  });
-};
+// const getCountryData = function (country) {
+//   // main country
+//   fetch(`https://restcountries.com/v3/name/${country}`) //returns promise
+//     .then((response) => {
+//       // manually handle rejected promise
+//       console.log(response);
+//       if (!response.ok)
+//         // if response is not ok throw new error create error with error constructor throw will terminate 'then' function
+//         // throw new Error(`Country not found (${response.status})`); // will propagate down to catch method create new error pass in error message use throw keyword
+//         // this will be the error seen on screen promise returned will be rejected promise
+//         return response.json(); //convert response to json FIRST then handle the returned promise again
+//       //(err) => alert(err); //handling the rejected promise with second callback in then method
+//     }) //implicitly return the promise
+//     .then((data) => {
+//       // data is whatever is returned from previous then method
+//       // then method also returns promise
+//       console.log(data);
+//       renderCountry(data[0]); //take data and render country to dom using rendercountry function
+//       const neighbour = data[0].borders[0];
+//       const neighbour = "sdfsdf";
+//       // will be rejection in this promise
+//       // get the neightbour country from the data object using the first country in the borders array within the first countrry in the data array
+//       if (!neighbour) return;
+//       // second ajax call
+//       // neighbour country
+//       // whatever returned will become fulfillment value
+//       // return new promise whatever returned wil be fulfilled value of the promise
+//       return fetch(`https://restcountries.com/v3/alpha/${neighbour}`); //'then' method always returns a promise whether fulfilled or not
+//     })
+//     .then((response) => {
+//       if (!response.ok) {
+//         throw new Error(`Country not found (${response.status})`);
+//       }
+//       return response.json();
+//     })
+//     //(err) => alert(err); //data recieved in function is fulfilled value of promise that's handled
+//     .then((data) => renderCountry(data, "neighbour")) //add in extra neighbour class
+//     .catch((err) => {
+//       // will handle any rejected promise
+//       // err.message is same thing that is passed into new Error constructor created errror gets handles down here
+//       // err is a javascript object
+//       console.error(`${err} 💣💣💣`);
+//       renderError(`something went wrong  💣💣💣 ${err.message}, try again!`);
+//     })
+//     .finally(() => {
+//       //handle errors globally callback function will be called inside catch metthod with error object catch all error handler
+//       // catch also returns promise
+//       // finally method
+//       // use method for something that ALWAYS needs to happen e.g hide loading spinner
+//       // fade in container
+//       countriesContainer.style.opacity = 1;
+//       countriesContainer.style.transition = "3s";
 
-//const getCountryData = function (country) {
-//main country
-//fetch(`https://restcountries.com/v3/name/${country}`) //returns promise
-//.then((response) => {
-//manually handle rejected promise
-// console.log(response);
-//if (!response.ok)
-//if response is not ok throw new error create error with error constructor throw will terminate 'then' function
-// throw new Error(`Country not found (${response.status})`); // will propagate down to catch method create new error pass in error message use throw keyword
-//this will be the error seen on screen promise returned will be rejected promise
-// return response.json(); //convert response to json
-// (err) => alert(err) //handling the rejected promise with second callback in then method
-//}) //implicitly return the promise
-// .then((data) => {
-//data is whatever is returned from previous then method
-//then method also returns promise
-//console.log(data);
-//renderCountry(data[0]); //take data and render country to dom using rendercountry function
-
-// const neighbour = data[0].borders[0];
-// const neighbour = "sdfsdf";
-//will be rejection in this promise
-//get the neightbour country from the data object using the first country in the borders array within the first countrry in the data array
-
-//if (!neighbour) return;
-//second ajax call
-
-//neighbour country
-//whatever returned will become fulfillment value
-//return new promise whatever returned wil be fulfilled value of the promise
-//return fetch(`https://restcountries.com/v3/alpha/${neighbour}`); //'then' method always returns a promise whether fulfilled or not
-//})
-// .then((response) => {
-// if (!response.ok) {
-//   throw new Error(`Country not found (${response.status})`);
-// }
-// return response.json();
-// })
-// (err) => alert(err); //data recieved in function is fulfilled value of promise that's handled
-// .then((data) => renderCountry(data, "neighbour")) //add in extra neighbour class
-//.catch((err) => {
-//will handle any rejected promise
-//err.message is same thing that is passed into new Error constructor created errror gets handles down here
-//err is a javascript object
-// console.error(`${err} 💣💣💣`);
-//  renderError(`something went wrong  💣💣💣 ${err.message}, try again!`);
-// });
-// .finally(() => {
-/// handle errors globally callback function will be called inside catch metthod with error object catch all error handler
-//catch also returns promise
-//finally method
-//use method for something that ALWAYS needs to happen e.g hide loading spinner
-//fade in container
-// countriesContainer.style.opacity = 1;
-// countriesContainer.style.transition = "3s";
-
-//turn container opacity to one
-// });
-//};
+//       // turn container opacity to one
+//     });
+// };
 
 // btn.addEventListener("click", function () {
 //   getCountryData("GB");
@@ -320,17 +309,25 @@ const getJSON = function (url, errorMsg = "Something went wrong") {
 //pl property set to false in response object
 //404 status error message not found because country doesn't exist api cannot find it
 
+const getJSON = function (url, errorMsg = "Something went wrong") {
+  //generic json function
+  return fetch(url).then((response) => {
+    //if response ok is false throw new error then define new message
+    if (!response.ok) throw new Error(`${errorMsg} (${response.status})`); // will propagate down to catch method create new error pass in error message use throw keyword
+    return response.json(); //returns promise
+  });
+};
+
 const getCountryData = function (country) {
   //main country
-
   getJSON(`https://restcountries.com/v2/name/${country}`, "Country not found") //returns a promise
     .then((data) => {
-      //console.log(data);
+      console.log(data);
       renderCountry(data[0]);
       const neighbour = data[0].borders[0];
       console.log(neighbour);
       if (!neighbour) {
-        throw new Error("no neighbour found");
+        throw new Error("no neighbour found"); //will get caught in catch handler
       }
       //country 2
       return getJSON(
@@ -352,4 +349,4 @@ btn.addEventListener("click", function () {
   getCountryData("GB");
 });
 
-getCountryData("australia");
+//getCountryData("australia");
