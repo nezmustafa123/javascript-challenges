@@ -62,16 +62,23 @@ console.log("Test end");
 //if microtask takes a long time the regular callback in callback queue will be delayed
 
 //Building promises
-//promise constructor takes in one executor function promise constructor will execute the function
+//promise constructor function takes in one executor function promise constructor will execute the function
 
 const lotteryPromise = new Promise(function (resolve, reject) {
   //function will contain async behaviour trying to handle with promise will return resolved value
   if (Math.random() >= 0.5) {
+    //random number between 0-1
+    //simulate winning lottery 50% of the time
     //in this situation the lottery is won
     //fulfilled promise call the resolve method
-    resolve(`Congrats you WIN`); //fullfilled vaule will get consumed with then method whatever passed in is r
+    resolve(`Congrats you WIN`); //fullfilled value will get consumed with then method whatever passed in is r
   } else {
     //mark promise being rejected pass in error message handled in catch method
-    reject(`You lost better luck next time`);
+    reject(`You lost better luck next time`); //message will be available in the catch method
   }
-});
+}); //promise needs to end up in one of the two states
+
+//consume promise that built
+
+lotteryPromise.then((res) => console.log(res)).catch((err) => console.err(err));
+//promise object
