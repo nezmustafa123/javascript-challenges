@@ -48,10 +48,10 @@ setTimeout(() => console.log("0 sec timer"), 0);
 //promise that resolves immedietely using promise resolve
 //callback gets called with resolved value returned from promise
 Promise.resolve("Resolved promise 1").then((res) => console.log(res));
-
+//promise.resolve resolves immeditely
 //simulate promise taking a long time give callback function a heavy task
 Promise.resolve("Resolved promise 2").then((res) => {
-  for (let i = 0; i < 10000000000; i++);
+  for (let i = 0; i < 10000000000; i++); //large loop
   console.log(res); //microtask it contains in the queue takes a long time, timeout callback takes more than 0 seconds now
 });
 console.log("Test end");
@@ -60,3 +60,18 @@ console.log("Test end");
 //timers callback put into callback queue first callback of resolved promise put into microtasks queue
 //microtasks queue has priority and will be executed  first
 //if microtask takes a long time the regular callback in callback queue will be delayed
+
+//Building promises
+//promise constructor takes in one executor function promise constructor will execute the function
+
+const lotteryPromise = new Promise(function (resolve, reject) {
+  //function will contain async behaviour trying to handle with promise will return resolved value
+  if (Math.random() >= 0.5) {
+    //in this situation the lottery is won
+    //fulfilled promise call the resolve method
+    resolve(`Congrats you WIN`); //fullfilled vaule will get consumed with then method whatever passed in is r
+  } else {
+    //mark promise being rejected pass in error message handled in catch method
+    reject(`You lost better luck next time`);
+  }
+});
