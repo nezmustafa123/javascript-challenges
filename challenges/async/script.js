@@ -1,3 +1,4 @@
+"use strict";
 // //ASYNC javasdcript
 
 // //synchronous example
@@ -55,15 +56,15 @@
 //   console.log(res); //microtask it contains in the queue takes a long time, timeout callback takes more than 0 seconds now
 // });
 // console.log("Test end");
-//two console logs in the top level code in gloval execution context will run first first two logs will come from synchronous logs
+// // two console logs in the top level code in gloval execution context will run first first two logs will come from synchronous logs
 
-//timers callback put into callback queue first callback of resolved promise put into microtasks queue
-//microtasks queue has priority and will be executed  first
-//if microtask takes a long time the regular callback in callback queue will be delayed
+// //timers callback put into callback queue first callback of resolved promise put into microtasks queue
+// //microtasks queue has priority and will be executed  first
+// //if microtask takes a long time the regular callback in callback queue will be delayed
 
-//Building promises
-//promise constructor function takes in one executor function promise constructor will execute the function
-//creates new promise that gets stored in variable promise runs immediately
+// //Building promises
+// //promise constructor function takes in one executor function promise constructor will execute the function
+// //creates new promise that gets stored in variable promise runs immediately
 
 // const lotteryPromise = new Promise(function (resolve, reject) {
 //   //function will contain async behaviour trying to handle with promise will return resolved value
@@ -89,11 +90,11 @@
 // lotteryPromise
 //   .then((res) => console.log(res))
 //   .catch((err) => console.error(err));
-// promise object
-// res will be string passed into resolve
-// err will be strong passed into reject function
+// // promise object
+// // res will be string passed into resolve
+// // err will be strong passed into reject function
 
-//promisifying setTimeout function
+// // promisifying setTimeout function
 // const wait = function (seconds) {
 //   //timer won't fail reject not required
 //   //creating a function returning a promise
@@ -110,7 +111,77 @@
 //   })
 //   .then(() => console.log("I waited for 1 second"));
 
-//promise gets resolved immedietley static method on promise constructor
-//pass in resolve value
-Promise.resolve("testing123").then((x) => console.log(x));
-Promise.reject(new Error("Problem!")).catch((x) => console.error(x));
+// //promise gets resolved immedietley static method on promise constructor
+// //pass in resolve value
+// Promise.resolve("testing123").then((x) => console.log(x));
+// Promise.reject(new Error("Problem!")).catch((x) => console.error(x));
+
+//Promisifying geolocation api
+
+navigator.geolocation.getCurrentPosition(
+  //offloaded in the background
+  (position) => console.log(position),
+  (err) => console.error(err)
+);
+//first callback gets access to posiion object
+//asynchronous behaviour
+console.log("getting position");
+
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    navigator.geolocation.getCurrentPosition(
+      //offloaded in the background
+      (position) => resolve(position), //pass in position object get access to position pass it into resolve
+      (err) => reject(err)
+    );
+  });
+};
+
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    //current position automaticall calls callbacks and passes in objects
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+
+getPosition().then((pos) => console.log(pos));
+
+//promise resolved as succesful then handled in the then handler
+
+const btn = document.querySelector(".btn-country");
+const countriesContainer = document.querySelector(".countries");
+
+const whereAmI = function () {
+  getPosition().then((pos) => pos.coords);
+  //get coords property
+
+  //reverse geocoding function
+  fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
+    .then((response) => {
+      console.log(response);
+      if (!response.ok) throw new Error(`problem with geocoding ${res.status}`);
+      return response.json();
+    })
+    .then((data) => {
+      //gets data which is resolved value
+      console.log(data);
+      console.log(`You are in ${data.city}, ${data.country}`);
+      return fetch(`https://restcountries.com/v2/name/${data.country}`);
+    })
+    .then((response) => {
+      if (!response.ok) throw new error(`Country not (${response.status})`);
+      return response.json();
+    })
+    .then((data) => {
+      renderCountry(data[0]);
+    })
+    .catch((err) => console.error(`${err.message} X_X`));
+};
+// .catch((err) => {
+//   console.log(err);
+// });
+
+// whereAmI(51.507351, 0.007758);
+// whereAmI(48.8566, 2.3522);
+
+btn.addEventListener("click", whereAmI);

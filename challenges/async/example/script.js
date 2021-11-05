@@ -309,44 +309,113 @@ const renderError = function (msg) {
 //pl property set to false in response object
 //404 status error message not found because country doesn't exist api cannot find it
 
-const getJSON = function (url, errorMsg = "Something went wrong") {
-  //generic json function
-  return fetch(url).then((response) => {
-    //if response ok is false throw new error then define new message
-    if (!response.ok) throw new Error(`${errorMsg} (${response.status})`); // will propagate down to catch method create new error pass in error message use throw keyword
-    return response.json(); //returns promise
+// const getJSON = function (url, errorMsg = "Something went wrong") {
+//   //generic json function
+//   return fetch(url).then((response) => {
+//     //if response ok is false throw new error then define new message
+//     if (!response.ok) throw new Error(`${errorMsg} (${response.status})`); // will propagate down to catch method create new error pass in error message use throw keyword
+//     return response.json(); //returns promise
+//   });
+// };
+
+// const getCountryData = function (country) {
+//   //main country
+//   getJSON(`https://restcountries.com/v2/name/${country}`, "Country not found") //returns a promise
+//     .then((data) => {
+//       console.log(data);
+//       renderCountry(data[0]);
+//       const neighbour = data[0].borders[0];
+//       console.log(neighbour);
+//       if (!neighbour) {
+//         throw new Error("no neighbour found"); //will get caught in catch handler
+//       }
+//       //country 2
+//       return getJSON(
+//         `https://restcountries.com/v2/alpha/${neighbour}`,
+//         "country not found"
+//       );
+//     })
+//     .then((data) => renderCountry(data, "neighbour"))
+//     .catch((err) => {
+//       console.error(`${err} 💣💣💣`);
+//       renderError(`something went wrong  💣💣💣 ${err.message}, try again!`);
+//     })
+//     .finally(() => {
+//       countriesContainer.style.opacity = 1;
+//     });
+// };
+
+// btn.addEventListener("click", function () {
+//   getCountryData("GB");
+// });
+
+//getCountryData("australia");
+
+//Promisifying geolocation api
+
+navigator.geolocation.getCurrentPosition(
+  //offloaded in the background
+  (position) => console.log(position),
+  (err) => console.error(err)
+);
+//first callback gets access to posiion object
+//asynchronous behaviour
+console.log("getting position");
+
+// const getPosition = function () {
+//   return new Promise(function (resolve, reject) {
+//     navigator.geolocation.getCurrentPosition(
+//       //offloaded in the background
+//       (position) => resolve(position), //pass in position object get access to position pass it into resolve
+//       (err) => reject(err)
+//     );
+//   });
+// };
+
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    //current position automaticall calls callbacks and passes in objects
+    navigator.geolocation.getCurrentPosition(resolve, reject);
   });
 };
 
-const getCountryData = function (country) {
-  //main country
-  getJSON(`https://restcountries.com/v2/name/${country}`, "Country not found") //returns a promise
+getPosition().then((pos) => console.log(pos));
+
+//promise resolved as succesful then handled in the then handler
+
+const whereAmI = function () {
+  getPosition()
+    .then((pos) => {
+      //give latotude and longitude new name
+      const { latitude: lat, longitude: lng } = pos.coords;
+      return fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+      //chain next promise by returning it then handle it using next then method
+    })
+    .then((response) => {
+      console.log(response);
+      if (!response.ok) throw new Error(`problem with geocoding ${res.status}`);
+      return response.json();
+    })
     .then((data) => {
+      //gets data which is resolved value
       console.log(data);
+      console.log(`You are in ${data.city}, ${data.country}`);
+      return fetch(`https://restcountries.com/v2/name/${data.country}`);
+    })
+    .then((response) => {
+      if (!response.ok) throw new error(`Country not (${response.status})`);
+      return response.json();
+    })
+    .then((data) => {
       renderCountry(data[0]);
-      const neighbour = data[0].borders[0];
-      console.log(neighbour);
-      if (!neighbour) {
-        throw new Error("no neighbour found"); //will get caught in catch handler
-      }
-      //country 2
-      return getJSON(
-        `https://restcountries.com/v2/alpha/${neighbour}`,
-        "country not found"
-      );
     })
-    .then((data) => renderCountry(data, "neighbour"))
-    .catch((err) => {
-      console.error(`${err} 💣💣💣`);
-      renderError(`something went wrong  💣💣💣 ${err.message}, try again!`);
-    })
-    .finally(() => {
-      countriesContainer.style.opacity = 1;
-    });
+    .catch((err) => console.error(`${err.message} X_X`));
 };
+// .catch((err) => {
+//   console.log(err);
+// });
 
-btn.addEventListener("click", function () {
-  getCountryData("GB");
-});
+// whereAmI(51.507351, 0.007758);
+// whereAmI(48.8566, 2.3522);
 
-//getCountryData("australia");
+btn.addEventListener("click", whereAmI);

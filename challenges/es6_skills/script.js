@@ -96,10 +96,11 @@ const restaurant = {
     
 };
 
-//check if property exists may have to check for multiple properties multiple restuarnats maybe not open on monday
+//check if property exists may have to check for multiple properties restuarnats maybe not open on monday
 //maybe opening hours doesn't exists as a property either
-if(restaurant.openingHours && restaurant.openingHours.mon) console.log
-(restaurant.openingHours.mon.open);
+if(restaurant.openingHours && restaurant.openingHours.mon) {
+console.log(restaurant.openingHours.mon.open);
+}
 //undefined.open is error
 //will return error should check if openinghours.mon propery exists
 //if data came from api would cause problems
@@ -118,13 +119,13 @@ console.log(restaurant.openingHours?.mon?.open);
    const days = ['mon', 'tues', 'wed', 'thurs', 'fri', 'sat', 'sun'];
             
         for(const day of days) {
-//            console.log(day);
+         //console.log(day);
             //loop through days and test if opening hours has property corresponding to day
         const open = restaurant.openingHours[day]?.open ?? 'closed';
             //use nullish coalescing because roperty is zero
             //reelly on nullish null or undefined
             //if the current day exists check the open property
-//            console.log(`On ${day}, we are open at ${open}`);
+           console.log(`On ${day}, we are open at ${open}`);
 }
             
             
@@ -456,7 +457,7 @@ console.log(newRestaurant);
 //crate shallow copies of objects instead of using object assign
 
 const restaurantCopy = {...restaurant};
-restaurantCopy.name 'Ristorante Roma';
+restaurantCopy.name = 'Ristorante Roma';
 
 console.log(restaurantCopy.name);
 console.log(restaurant.name);
