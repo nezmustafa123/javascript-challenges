@@ -61,9 +61,9 @@ const restaurant = {
 //        },
 //    },
     //property can be name set to be object variable
-//    openingHours: openingHours,
+ // openingHours: openingHours,
     //with enhanced object literals can also do this 
-    openinghours,
+    openingHours,
     mainMenu: ['Pizza', 'Pasta', 'Risotto'],
     //two parameters one index for starter menu one index for main menu person will order giving index for each menu
     //es6 object literal syntax for methods
@@ -165,11 +165,11 @@ for(const item of menu.entries()) {
 
 //get current index
 for(const [i, el] of menu.entries()) {
-//    console.log(item);
-    //menu entries is array each item is new array
-    //each item becomes an array with index and array element itself
-    //first item in item array second item in item array
-//    console.log(`${i +1}: ${el}`);
+   console.log(item);
+    // menu entries is array each item is new array
+    // each item becomes an array with index and array element itself
+    // first item in item array second item in item array
+   console.log(`${i +1}: ${el}`);
 };
 
 

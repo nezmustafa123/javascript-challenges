@@ -43,8 +43,9 @@ const getCountryData = function (country) {
   //callback on request object for load event once data arrives callback will be called
   request.addEventListener("load", function () {
     //console.log(this.responseText); //this is request response is in response text
-    const [data] = JSON.parse(this.responseText); //convert it back to javascript object, as it's json (big string of text) destructure the big array
     console.log(data); //array containing one object
+
+    const [data] = JSON.parse(this.responseText); //convert it back to javascript object, as it's json (big string of text) destructure the big array
 
     const html = `<article class="country">
     <img class="country__img" src="${data.flag}"/>
@@ -77,72 +78,74 @@ const getCountryData = function (country) {
 // getCountryData("Germany");
 // getCountryData("Russia");
 
-// //xml requests old scool of doing ajax calls
-// const getCountryAndNeighbour = function (country) {
-//   //data of neighbouring country result of first call
-//   //silo code in function
+//xml requests old scool of doing ajax calls callback hell
+const getCountryAndNeighbour = function (country) {
+  //data of neighbouring country result of first call
+  //silo code in function
 
-//   //AJAX call country (1)
-//   const request = new XMLHttpRequest(); //create new hhtp request object put it into variable
-//   request.open("GET", `https://restcountries.com/v2/name/${country}`); //open request
-//   request.send(); //send request ajax call in background async can't set result into some variable because result not there yet
-//   //FETCHED IN BACKGROUND
-//   //the rest of the code keeps runniung while the api is contacted need callback function
-//   //callback on request object for load event once data arrives callback will be called
-//   request.addEventListener("load", function () {
-//     //callback
-//     //console.log(this.responseText); //this is request response is in response text
-//     const [data] = JSON.parse(this.responseText); //convert it back to javascript object, as it's json (big string of text) destructure the big array
-//     //console.log(data); //array containing one object
-//     //destructure the array recieved remove the brackets
-//     //render country 1
-//     renderCountry(data);
+  //AJAX call country (1)
+  const request = new XMLHttpRequest(); //create new hhtp request object put it into variable
+  request.open("GET", `https://restcountries.com/v2/name/${country}`); //open request
+  request.send(); //send request ajax call in background async can't set result into some variable because result not there yet
+  //FETCHED IN BACKGROUND
+  //the rest of the code keeps runniung while the api is contacted need callback function
+  //callback on request object for load event once data arrives callback will be called
+  request.addEventListener("load", function () {
+    //callback
+    console.log(this.responseText); //this is request response is in response text
+    const [data] = JSON.parse(this.responseText); //convert it back to javascript object, as it's json (big string of text) destructure the big array
+    console.log(data);
 
-//     //get neighbour country (2)
-//     const [neighbour] = data.borders;
-//     //console.log(neighbour);
-//     //if neighbour doesn't exist return immedietely
-//     if (!neighbour) return;
+    //console.log(data); //array containing one object
+    //destructure the array recieved remove the brackets
+    //render country 1
+    renderCountry(data);
 
-//     //if it does exist
-//     //AJAX call country (2)
-//     const request2 = new XMLHttpRequest(); //second ajax call in first one dependant on first one
-//     request2.open("GET", `https://restcountries.com/v2/alpha/${neighbour}`);
-//     request2.send();
-//     //second ajax call then load listener on the request
-//     request2.addEventListener("load", function () {
-//       //appears after the UK
-//       // console.log(request2.responseText);
-//       const data2 = JSON.parse(this.responseText);
-//       //console.log(data2); //not an array anymore just one unique result country codes unique just one result
-//       //call the rendercountry method at the end of the inner callback function
-//       const [neighbour] = data2.borders;
-//       renderCountry(data2, "neighbour"); //when it is a neighbour pass in neighbouring country
+    //get neighbour country (2)
+    const [neighbour] = data.borders;
+    //console.log(neighbour);
+    //if neighbour doesn't exist return immedietely
+    if (!neighbour) return;
 
-//       const request3 = new XMLHttpRequest();
-//       request3.open("GET", `https://restcountries.com/v2/alpha/${neighbour}`);
-//       request3.send();
-//       request3.addEventListener("load", function () {
-//         const data3 = JSON.parse(this.responseText); //convert it back to javascript object, as it's json (big string of text) destructure the big array
-//         //console.log(data3); //array containing one object
+    //if it does exist
+    //AJAX call country (2)
+    const request2 = new XMLHttpRequest(); //second ajax call in first one dependant on first one
+    request2.open("GET", `https://restcountries.com/v2/alpha/${neighbour}`);
+    request2.send();
+    //second ajax call then load listener on the request
+    request2.addEventListener("load", function () {
+      //appears after the UK
+      // console.log(request2.responseText);
+      const data2 = JSON.parse(this.responseText);
+      //console.log(data2); //not an array anymore just one unique result country codes unique just one result
+      //call the rendercountry method at the end of the inner callback function
+      const [neighbour] = data2.borders;
+      renderCountry(data2, "neighbour"); //when it is a neighbour pass in neighbouring country
 
-//         //destructure the array recieved remove the brackets
-//         //get neighbour country (3)
-//         const [neighbour] = data3.borders;
-//         // console.log(neighbour);
-//         if (!neighbour) return;
-//         //render country 3
+      const request3 = new XMLHttpRequest();
+      request3.open("GET", `https://restcountries.com/v2/alpha/${neighbour}`);
+      request3.send();
+      request3.addEventListener("load", function () {
+        const data3 = JSON.parse(this.responseText); //convert it back to javascript object, as it's json (big string of text) destructure the big array
+        //console.log(data3); //array containing one object
 
-//         renderCountry(data3, "neighbour");
-//       });
-//     });
-//   });
-// };
+        //destructure the array recieved remove the brackets
+        //get neighbour country (3)
+        const [neighbour] = data3.borders;
+        // console.log(neighbour);
+        if (!neighbour) return;
+        //render country 3
+
+        renderCountry(data3, "neighbour");
+      });
+    });
+  });
+};
 
 //can also do
 // console.log(request.responseText);
 
-// getCountryAndNeighbour("GB");
+getCountryAndNeighbour("Russia");
 // getCountryData("usa");
 // getCountryData("Germany");
 // getCountryData("Turkey");
@@ -153,8 +156,8 @@ const getCountryData = function (country) {
 // getCountryData("Germany");
 // getCountryData("Russia");
 
-//MORE CALLBACK HELL
-//with settimeout messy hard to understand
+// MORE CALLBACK HELL
+// with settimeout messy hard to understand
 
 // setTimeout(() => {
 //   console.log("1 second passed");
@@ -176,37 +179,37 @@ const getCountryData = function (country) {
 // const request = new XMLHttpRequest();
 // request.open("GET", `https://restcountries.com/v2/name/${country}`);
 // request.send();
-//fetch api
+// // fetch api
 // const request4 = fetch("https://restcountries.com/v2/name/GB");
 // console.log(request4);
-//returns promise
+// // returns promise
 
-//promise an object that is used as a placeholder for future result of an asynchronous operation
+// //promise an object that is used as a placeholder for future result of an asynchronous operation
 
-// async delivered value
+// // async delivered value
 
-// container for future value
+// // container for future value
 
-//response coming from ajax call no value yet but will be in the future promise handles future value
-//like a lottery ticket buying a promise that you'll recieve some amount of money on the future if guess correct outcome
+// //response coming from ajax call no value yet but will be in the future promise handles future value
+// //like a lottery ticket buying a promise that you'll recieve some amount of money on the future if guess correct outcome
 
-// ticket(promise)
-// lottery draw (async)
-// if correct numbers recieve money
+// // ticket(promise)
+// // lottery draw (async)
+// // if correct numbers recieve money
 
-//no need to rely on events and callbacks for async functions
-//can chain them insetead of nesting and escaping callback hell
+// //no need to rely on events and callbacks for async functions
+// //can chain them insetead of nesting and escaping callback hell
 
-//time sensitive
-//1 pending before future value available
-//2 async task running in background
-//3 settled promise either fulfilled or rejected (error) user offline can't connect to api server
+// //time sensitive
+// //1 pending before future value available
+// //2 async task running in background
+// //3 settled promise either fulfilled or rejected (error) user offline can't connect to api server
 
-//handle different states in code
-//promise either fullfilled or rejected impossible to change that state
-//consume a promise when you have one fetch function for example promise must be built/created
+// //handle different states in code
+// //promise either fullfilled or rejected impossible to change that state
+// //consume a promise when you have one fetch function for example promise must be built/created
 
-//CONSUME A PROMISE
+// // CONSUME A PROMISE
 // const request4 = fetch("https://restcountries.com/v2/name/GB");
 // console.log(request4);
 
@@ -223,8 +226,8 @@ const getCountryData = function (country) {
 //       renderCountry(data[2]);
 //     });
 // };
-//will be settled fulfilled or rejected use 'then' method available on all promises if successful
-//pass in callback function that you want to use when promise is fulfilled one argument
+// // will be settled fulfilled or rejected use 'then' method available on all promises if successful
+// // pass in callback function that you want to use when promise is fulfilled one argument
 
 // const getCountryData = function (country) {
 //   fetch(`https://restcountries.com/v2/name/${country}`) //returns promise
@@ -234,9 +237,9 @@ const getCountryData = function (country) {
 
 // getCountryData("CHINA");
 
-//CHAINING PROMISES
-//get neighbouring country second ajax call depends on first call have to be done in sequence
-//second call has to happen inside then method
+// // CHAINING PROMISES
+// // get neighbouring country second ajax call depends on first call have to be done in sequence
+// // second call has to happen inside then method
 
 // const getCountryData = function (country) {
 //   // main country
@@ -298,16 +301,16 @@ const getCountryData = function (country) {
 // btn.addEventListener("click", function () {
 //   getCountryData("GB");
 // });
-//flat chain of promises
+// // flat chain of promises
 
-//handling rejected errors in promises
-//fetch promise rejects when use loses internet connection
+// // handling rejected errors in promises
+// // fetch promise rejects when use loses internet connection
 
-//when offline promise from fetch function was rejected pass in second callback function to then method
+// // when offline promise from fetch function was rejected pass in second callback function to then method
 
 // getCountryData("asgodfihgo");
-//pl property set to false in response object
-//404 status error message not found because country doesn't exist api cannot find it
+// // pl property set to false in response object
+// // 404 status error message not found because country doesn't exist api cannot find it
 
 // const getJSON = function (url, errorMsg = "Something went wrong") {
 //   //generic json function
@@ -349,17 +352,17 @@ const getCountryData = function (country) {
 //   getCountryData("GB");
 // });
 
-//getCountryData("australia");
+// getCountryData("australia");
 
-//Promisifying geolocation api
+// // Promisifying geolocation api
 
 // navigator.geolocation.getCurrentPosition(
 //   //offloaded in the background
 //   (position) => console.log(position),
 //   (err) => console.error(err)
 // );
-//first callback gets access to posiion object
-//asynchronous behaviour
+// // first callback gets access to posiion object
+// // asynchronous behaviour
 // console.log("getting position");
 
 // const getPosition = function () {
@@ -372,50 +375,50 @@ const getCountryData = function (country) {
 //   });
 // };
 
-const getPosition = function () {
-  return new Promise(function (resolve, reject) {
-    //current position automaticall calls callbacks and passes in objects
-    navigator.geolocation.getCurrentPosition(resolve, reject);
-  });
-};
+// const getPosition = function () {
+//   return new Promise(function (resolve, reject) {
+//     //current position automaticall calls callbacks and passes in objects
+//     navigator.geolocation.getCurrentPosition(resolve, reject);
+//   });
+// };
 
-//getPosition().then((pos) => console.log(pos));
+// getPosition().then((pos) => console.log(pos));
 
-//promise resolved as succesful then handled in the then handler
+// //promise resolved as succesful then handled in the then handler
 
-const whereAmI = function () {
-  getPosition()
-    .then((pos) => {
-      //give latotude and longitude new name
-      const { latitude: lat, longitude: lng } = pos.coords;
-      return fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
-      //chain next promise by returning it then handle it using next then method
-    })
-    .then((response) => {
-      console.log(response);
-      if (!response.ok) throw new Error(`problem with geocoding ${res.status}`);
-      return response.json();
-    })
-    .then((data) => {
-      //gets data which is resolved value
-      console.log(data);
-      console.log(`You are in ${data.city}, ${data.country}`);
-      return fetch(`https://restcountries.com/v2/name/${data.country}`);
-    })
-    .then((response) => {
-      if (!response.ok) throw new error(`Country not (${response.status})`);
-      return response.json();
-    })
-    .then((data) => {
-      renderCountry(data[0]);
-    })
-    .catch((err) => console.error(`${err.message} X_X`));
-};
-// .catch((err) => {
-//   console.log(err);
-// });
+// const whereAmI = function () {
+//   getPosition()
+//     .then((pos) => {
+//       //give latotude and longitude new name
+//       const { latitude: lat, longitude: lng } = pos.coords;
+//       return fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+//       //chain next promise by returning it then handle it using next then method
+//     })
+//     .then((response) => {
+//       console.log(response);
+//       if (!response.ok) throw new Error(`problem with geocoding ${res.status}`);
+//       return response.json();
+//     })
+//     .then((data) => {
+//       //gets data which is resolved value
+//       console.log(data);
+//       console.log(`You are in ${data.city}, ${data.country}`);
+//       return fetch(`https://restcountries.com/v2/name/${data.country}`);
+//     })
+//     .then((response) => {
+//       if (!response.ok) throw new error(`Country not (${response.status})`);
+//       return response.json();
+//     })
+//     .then((data) => {
+//       renderCountry(data[0]);
+//     })
+//     .catch((err) => console.error(`${err.message} X_X`));
+// };
+// // .catch((err) => {
+// //   console.log(err);
+// // });
 
-// whereAmI(51.507351, 0.007758);
-// whereAmI(48.8566, 2.3522);
+// // whereAmI(51.507351, 0.007758);
+// // whereAmI(48.8566, 2.3522);
 
-btn.addEventListener("click", whereAmI);
+// btn.addEventListener("click", whereAmI);
