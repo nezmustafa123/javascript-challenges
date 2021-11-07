@@ -6,6 +6,12 @@
 const btn = document.querySelector(".btn-country");
 const countriesContainer = document.querySelector(".countries");
 
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+
 const renderCountry = function (data, className = "") {
   //dedault class name
   //once neighbouring country arrives will use this
@@ -26,7 +32,23 @@ const renderCountry = function (data, className = "") {
   countriesContainer.style.opacity = 1; //turn container opacity to one
 };
 
-const whereAmI = async function (country) {
+const whereAmI = async function () {
+  //use geolocation api promise  getposition to get coords
+  const pos = await getPosition(); //await promise returned from get position
+  console.log(pos);
+  const { latitude: lat, longitude: lng } = pos.coords;
+  //plug lat and lng into geocode api
+
+  //reverse geocoding
+  const resGeoCode = await fetch(
+    //returned promise stored in resGeoCode
+    `https://geocode.xyz/${lat},${lng}?geoit=json`
+  );
+  console.log(resGeoCode);
+
+  const dataGeo = await resGeoCode.json(); //also a promise
+  console.log(dataGeo);
+  //returns object with properties
   //one or more await statements inside the function
   //await the result of the fetch api promise will stop the execution of the code until the fetch promise is fulfilled
   //same as
@@ -34,14 +56,16 @@ const whereAmI = async function (country) {
   //   console.log(res)
   // );
 
-  const res = await fetch(`https://restcountries.com/v2/name/${country}`); //will be resolved value of promise
-  console.log(res);
-  const data = await res.json();
+  const countryRes = await fetch(
+    `https://restcountries.com/v2/name/${dataGeo.country}`
+  ); //will be resolved value of promise
+  //   console.log(res);
+  const countryData = await countryRes.json();
   //store fullfilled promise data into data variable
-
-  renderCountry(data[0]);
+  //   console.log(data);
+  renderCountry(countryData[0]);
 };
 //async function runs ASYNC in the background
 
-whereAmI("Russia");
+whereAmI();
 console.log("first");
