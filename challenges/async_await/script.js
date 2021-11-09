@@ -39,6 +39,8 @@ const renderCountry = function (data, className = "") {
   countriesContainer.style.opacity = 1; //turn container opacity to one
 };
 
+//async function runs ASYNC in the background
+
 const whereAmI = async function () {
   try {
     //use geolocation api promise  getposition to get coords
@@ -73,22 +75,22 @@ const whereAmI = async function () {
     //   console.log(res);
     const countryData = await countryRes.json();
     //store fullfilled promise data into data variable
-    //   console.log(data);
     renderCountry(countryData[0]);
+    return `You are in ${dataGeo.city}, ${dataGeo.country}`; //when console logging will return promise
   } catch (err) {
     console.error(`${err} ***`);
     renderError(`something went wrong X_X ${err.message}`);
   }
 };
-//async function runs ASYNC in the background
-
-whereAmI();
-whereAmI();
-whereAmI();
-
-console.log("first");
-
 //try catch to catch errors using async functions
+console.log("I will get the location ");
+// const city = whereAmI();
+// console.log(city);
+//returns promise javascript doesn't know what will be returned
+whereAmI().then((city) => console.log(city));
+//city is the resolved vale of the promise. the string returned
+console.log("FINISHED GETTING LOCATION");
+//value returned from  async function is the fulfilled value of the promise
 
 // try {
 //   let y = 1;
@@ -99,3 +101,5 @@ console.log("first");
 //   //has access to whatever error happened in the try block
 //   alert(err.message); //error  object has message property allert appears as a popup rather than in the console alert message
 // }
+
+//returning values from async await
