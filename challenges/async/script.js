@@ -204,15 +204,15 @@ navigator.geolocation.getCurrentPosition(
 //asynchronous behaviour
 console.log("getting position");
 
-const getPosition = function () {
-  return new Promise(function (resolve, reject) {
-    navigator.geolocation.getCurrentPosition(
-      //offloaded in the background
-      (position) => resolve(position), //pass in position object get access to position pass it into resolve
-      (err) => reject(err)
-    );
-  });
-};
+// const getPosition = function () {
+//   return new Promise(function (resolve, reject) {
+//     navigator.geolocation.getCurrentPosition(
+//       //offloaded in the background
+//       (position) => resolve(position), //pass in position object get access to position pass it into resolve
+//       (err) => reject(err)
+//     );
+//   });
+// };
 
 const getPosition = function () {
   return new Promise(function (resolve, reject) {

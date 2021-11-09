@@ -80,16 +80,23 @@ const whereAmI = async function () {
   } catch (err) {
     console.error(`${err} ***`);
     renderError(`something went wrong X_X ${err.message}`);
+
+    //reject promise returned from asynch function inside catch block
+    throw err; //manually throw in catch block
   }
 };
 //try catch to catch errors using async functions
-console.log("I will get the location ");
+console.log("1: I will get the location ");
 // const city = whereAmI();
 // console.log(city);
 //returns promise javascript doesn't know what will be returned
-whereAmI().then((city) => console.log(city));
+whereAmI()
+  .then((city) => console.log(`2: ${city}`))
+  .catch((err) => console.error(`2: ${err.message} xxx`))
+  .finally(() => console.log("3: finished getting location")); //3 will come at the end
+//promise is still fullfilled even through there is an error in the async function have to 'rethrow' eerror
 //city is the resolved vale of the promise. the string returned
-console.log("FINISHED GETTING LOCATION");
+// console.log("3: FINISHED GETTING LOCATION");
 //value returned from  async function is the fulfilled value of the promise
 
 // try {
