@@ -90,10 +90,24 @@ console.log("1: I will get the location ");
 // const city = whereAmI();
 // console.log(city);
 //returns promise javascript doesn't know what will be returned
-whereAmI()
-  .then((city) => console.log(`2: ${city}`))
-  .catch((err) => console.error(`2: ${err.message} xxx`))
-  .finally(() => console.log("3: finished getting location")); //3 will come at the end
+//handle promise returned using async await
+
+(async function(){
+try {
+ const city = await whereAmI();
+ console.log(`2: ${city}`))
+} catch(err) {
+  console.error(`2: ${err.message} xxx`))
+}
+console.log("3: finished getting location"));
+//return data from an async funcition and recieve and handle returned data
+//async function returning other async function
+})();
+
+// whereAmI()
+//   .then((city) => console.log(`2: ${city}`))
+//   .catch((err) => console.error(`2: ${err.message} xxx`))
+//   .finally(() => console.log("3: finished getting location")); //3 will come at the end
 //promise is still fullfilled even through there is an error in the async function have to 'rethrow' eerror
 //city is the resolved vale of the promise. the string returned
 // console.log("3: FINISHED GETTING LOCATION");
