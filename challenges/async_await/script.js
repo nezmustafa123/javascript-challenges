@@ -159,3 +159,55 @@ const get3Countries = async function (c1, c2, c3) {
 };
 
 get3Countries("Madagascar", "Brazil", "GB");
+
+//promise combinators race, allSetled, any
+//promise rejected or fulfilled state
+
+(async function () {
+  //get only ONE result
+  //one promise wins the rasce
+  const res = await Promise.race([
+    getJSON(`https://restcountries.com/v2/name/Italy`),
+    getJSON(`https://restcountries.com/v2/name/Japan`),
+    getJSON(`https://restcountries.com/v2/name/Australia`),
+  ]);
+  console.log(res[0]);
+})();
+//promises will race against each other like in a race
+//if winning promise is fulfilled promise the value will be fulfilled promise
+//promise that gets rejected also wins the race
+//fetch request takes time so can use the timeout promise to reject if it takes too long
+
+const timeout = function (seconds) {
+  return new Promise(function (_, reject) {
+    setTimeout(function () {
+      reject(new Error("Request took too long!"));
+    }, seconds * 1000);
+  });
+};
+
+//ajax call racing against time out
+Promise.race([
+  getJSON(`https://restcountries.com/v2/name/Italy`),
+  timeout(0.2),
+  //two will race against each other
+])
+  .then((res) => console.log(res[0]))
+  .catch((err) => console.error(err));
+//if timeout happens first it will all be rejected
+
+//Promise.allSettled returns array of all promises whether rejected or settled
+//Promise.all rejects if there is one error
+Promise.allSettled([
+  Promise.resolve("Succsss"),
+  Promise.reject("Error"),
+  Promise.resolve("Another success"),
+]).then((res) => console.log(res));
+
+//Promise.any [ES2021]
+
+Promise.any([
+  Promise.resolve("Succsss"),
+  Promise.reject("Error"),
+  Promise.resolve("Another success"),
+]).then((res) => console.log(res));
