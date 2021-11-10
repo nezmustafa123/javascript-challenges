@@ -41,68 +41,70 @@ const renderCountry = function (data, className = "") {
 
 //async function runs ASYNC in the background
 
-const whereAmI = async function () {
-  try {
-    //use geolocation api promise  getposition to get coords
-    const pos = await getPosition(); //await promise returned from get position
-    // console.log(pos); //automatically gets rejected
-    const { latitude: lat, longitude: lng } = pos.coords;
-    //plug lat and lng into geocode api
+// const whereAmI = async function () {
+//   try {
+//     //use geolocation api promise  getposition to get coords
+//     const pos = await getPosition(); //await promise returned from get position
+//     // console.log(pos); //automatically gets rejected
+//     const { latitude: lat, longitude: lng } = pos.coords;
+//     //plug lat and lng into geocode api
 
-    //reverse geocoding
-    const resGeoCode = await fetch(
-      //response will have ok property
-      //returned promise stored in resGeoCode
-      `https://geocode.xyz/${lat},${lng}?geoit=json` //promise gets rejected only if no internet connection
-    );
-    if (!resGeoCode.ok) throw new Error(`problem getting location data`);
-    console.log(resGeoCode);
+//     //reverse geocoding
+//     const resGeoCode = await fetch(
+//       //response will have ok property
+//       //returned promise stored in resGeoCode
+//       `https://geocode.xyz/${lat},${lng}?geoit=json` //promise gets rejected only if no internet connection
+//     );
+//     if (!resGeoCode.ok) throw new Error(`problem getting location data`);
+//     console.log(resGeoCode);
 
-    const dataGeo = await resGeoCode.json(); //also a promise
-    console.log(dataGeo);
-    //returns object with properties
-    //one or more await statements inside the function
-    //await the result of the fetch api promise will stop the execution of the code until the fetch promise is fulfilled
-    //same as
-    //fetch(`https://restcountries.eu/v2/name/${country}`).then((res) =>
-    //   console.log(res)
-    // );
+//     const dataGeo = await resGeoCode.json(); //also a promise
+//     console.log(dataGeo);
+//     //returns object with properties
+//     //one or more await statements inside the function
+//     //await the result of the fetch api promise will stop the execution of the code until the fetch promise is fulfilled
+//     //same as
+//     //fetch(`https://restcountries.eu/v2/name/${country}`).then((res) =>
+//     //   console.log(res)
+//     // );
 
-    const countryRes = await fetch(
-      `https://restcountries.com/v2/name/${dataGeo.country}`
-    ); //will be resolved value of promise
-    if (!countryRes.ok) throw new Error(`Problem getting country data`);
-    //   console.log(res);
-    const countryData = await countryRes.json();
-    //store fullfilled promise data into data variable
-    renderCountry(countryData[0]);
-    return `You are in ${dataGeo.city}, ${dataGeo.country}`; //when console logging will return promise
-  } catch (err) {
-    console.error(`${err} ***`);
-    renderError(`something went wrong X_X ${err.message}`);
+//     const countryRes = await fetch(
+//       `https://restcountries.com/v2/name/${dataGeo.country}`
+//     ); //will be resolved value of promise
+//     if (!countryRes.ok) throw new Error(`Problem getting country data`);
+//     //   console.log(res);
+//     const countryData = await countryRes.json();
+//     //store fullfilled promise data into data variable
+//     renderCountry(countryData[0]);
+//     return `You are in ${dataGeo.city}, ${dataGeo.country}`; //when console logging will return promise
+//   } catch (err) {
+//     //returning values from async await
 
-    //reject promise returned from asynch function inside catch block
-    throw err; //manually throw in catch block
-  }
-};
-//try catch to catch errors using async functions
-console.log("1: I will get the location ");
+//     console.error(`${err} ***`);
+//     renderError(`something went wrong X_X ${err.message}`);
+
+//     //reject promise returned from asynch function inside catch block
+//     throw err; //manually throw in catch block
+//   }
+// };
+// //try catch to catch errors using async functions
+// console.log("1: I will get the location ");
 // const city = whereAmI();
 // console.log(city);
 //returns promise javascript doesn't know what will be returned
 //handle promise returned using async await
 
-(async function(){
-try {
- const city = await whereAmI();
- console.log(`2: ${city}`))
-} catch(err) {
-  console.error(`2: ${err.message} xxx`))
-}
-console.log("3: finished getting location"));
+// (async function () {
+//   try {
+//     const city = await whereAmI();
+//     console.log(`2: ${city}`);
+//   } catch (err) {
+//     console.error(`2: ${err.message} xxx`);
+//   }
+//   console.log("3: finished getting location");
+// })();
 //return data from an async funcition and recieve and handle returned data
 //async function returning other async function
-})();
 
 // whereAmI()
 //   .then((city) => console.log(`2: ${city}`))
@@ -123,4 +125,27 @@ console.log("3: finished getting location"));
 //   alert(err.message); //error  object has message property allert appears as a popup rather than in the console alert message
 // }
 
-//returning values from async await
+//3 countries at the same time without order data arrives in mattering
+
+const getJSON = function (url, errorMsg = "Something went wrong") {
+  //generic json function
+  return fetch(url).then((response) => {
+    //if response ok is false throw new error then define new message
+    if (!response.ok) throw new Error(`${errorMsg} (${response.status})`); // will propagate down to catch method create new error pass in error message use throw keyword
+    return response.json(); //returns promise
+  });
+};
+
+const get3Countries = async function (c1, c2, c3) {
+  //wrap code in try and catch block
+  try {
+    const [data1] = await getJSON(`https://restcountries.com/v2/name/${c1}`);
+    const [data2] = await getJSON(`https://restcountries.com/v2/name/${c2}`);
+    const [data3] = await getJSON(`https://restcountries.com/v2/name/${c3}`);
+    console.log(data1.capital, data2.capital, data3.capital);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+get3Countries("Madagascar", "Brazil", "GB");
