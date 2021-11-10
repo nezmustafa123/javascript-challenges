@@ -139,10 +139,20 @@ const getJSON = function (url, errorMsg = "Something went wrong") {
 const get3Countries = async function (c1, c2, c3) {
   //wrap code in try and catch block
   try {
-    const [data1] = await getJSON(`https://restcountries.com/v2/name/${c1}`);
-    const [data2] = await getJSON(`https://restcountries.com/v2/name/${c2}`);
-    const [data3] = await getJSON(`https://restcountries.com/v2/name/${c3}`);
-    console.log(data1.capital, data2.capital, data3.capital);
+    // const [data1] = await getJSON(`https://restcountries.com/v2/name/${c1}`);
+    // const [data2] = await getJSON(`https://restcountries.com/v2/name/${c2}`);
+    // const [data3] = await getJSON(`https://restcountries.com/v2/name/${c3}`);
+
+    //all combinator satic method takes asrray of promises and runs all promises at the same time
+    const data = await Promise.all([
+      //returned value of promise becomes array containing three arrays that each contain an object
+      getJSON(`https://restcountries.com/v2/name/${c1}`),
+      getJSON(`https://restcountries.com/v2/name/${c2}`),
+      getJSON(`https://restcountries.com/v2/name/${c3}`),
+    ]); //if one promise rejects the whole thing rejects and short circuits
+    //loop through array of data get first element of each array and capital property
+    console.log(data.map((country) => country[0].capital));
+    // console.log(data1.capital, data2.capital, data3.capital);
   } catch (err) {
     console.error(err);
   }
