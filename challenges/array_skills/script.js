@@ -298,7 +298,7 @@ const currencies = new Map([
 //call for each on map takes three parameters first current value in iteration
 //second is the key third one entire map being looped over
 currencies.forEach(function(value, key, map) {
-    console.log(`${key}: ${value}`);
+    console.log(`${key}: ${value} : ${map}`);
 });
 
                                  
@@ -458,7 +458,7 @@ const withdrawals = movements.filter(function(mov){
 
 //REDUCE METHOD
 
-//reduce method boil doing all elements in to one single value
+//reduce method boil down all elements in to one single value
 //parameters available to callback in reduce method is accumulator current element index and array
 //accumulator is like snowbball callback called on each iteration
 const balanace = movements.reduce(function (acc, cur, i, arr) { //acc is accumulator
