@@ -262,3 +262,14 @@ const whereAmI = function () {
 // whereAmI(48.8566, 2.3522);
 
 btn.addEventListener("click", whereAmI);
+
+
+//promise combinators race, allSetled, any
+//promise rejected or fulfilled state
+
+(async function() {
+  //one promise wins the rasce
+  const res = await Promise.race([
+    
+  ]);
+  })

@@ -41,52 +41,52 @@ const renderCountry = function (data, className = "") {
 
 //async function runs ASYNC in the background
 
-// const whereAmI = async function () {
-//   try {
-//     //use geolocation api promise  getposition to get coords
-//     const pos = await getPosition(); //await promise returned from get position
-//     // console.log(pos); //automatically gets rejected
-//     const { latitude: lat, longitude: lng } = pos.coords;
-//     //plug lat and lng into geocode api
+const whereAmI = async function () {
+  try {
+    //use geolocation api promise  getposition to get coords
+    const pos = await getPosition(); //await promise returned from get position
+    // console.log(pos); //automatically gets rejected
+    const { latitude: lat, longitude: lng } = pos.coords;
+    //plug lat and lng into geocode api
 
-//     //reverse geocoding
-//     const resGeoCode = await fetch(
-//       //response will have ok property
-//       //returned promise stored in resGeoCode
-//       `https://geocode.xyz/${lat},${lng}?geoit=json` //promise gets rejected only if no internet connection
-//     );
-//     if (!resGeoCode.ok) throw new Error(`problem getting location data`);
-//     console.log(resGeoCode);
+    //reverse geocoding
+    const resGeoCode = await fetch(
+      //response will have ok property
+      //returned promise stored in resGeoCode
+      `https://geocode.xyz/${lat},${lng}?geoit=json` //promise gets rejected only if no internet connection
+    );
+    if (!resGeoCode.ok) throw new Error(`problem getting location data`);
+    console.log(resGeoCode);
 
-//     const dataGeo = await resGeoCode.json(); //also a promise
-//     console.log(dataGeo);
-//     //returns object with properties
-//     //one or more await statements inside the function
-//     //await the result of the fetch api promise will stop the execution of the code until the fetch promise is fulfilled
-//     //same as
-//     //fetch(`https://restcountries.eu/v2/name/${country}`).then((res) =>
-//     //   console.log(res)
-//     // );
+    const dataGeo = await resGeoCode.json(); //also a promise
+    console.log(dataGeo);
+    //returns object with properties
+    //one or more await statements inside the function
+    //await the result of the fetch api promise will stop the execution of the code until the fetch promise is fulfilled
+    //same as
+    //fetch(`https://restcountries.eu/v2/name/${country}`).then((res) =>
+    //   console.log(res)
+    // );
 
-//     const countryRes = await fetch(
-//       `https://restcountries.com/v2/name/${dataGeo.country}`
-//     ); //will be resolved value of promise
-//     if (!countryRes.ok) throw new Error(`Problem getting country data`);
-//     //   console.log(res);
-//     const countryData = await countryRes.json();
-//     //store fullfilled promise data into data variable
-//     renderCountry(countryData[0]);
-//     return `You are in ${dataGeo.city}, ${dataGeo.country}`; //when console logging will return promise
-//   } catch (err) {
-//     //returning values from async await
+    const countryRes = await fetch(
+      `https://restcountries.com/v2/name/${dataGeo.country}`
+    ); //will be resolved value of promise
+    if (!countryRes.ok) throw new Error(`Problem getting country data`);
+    //   console.log(res);
+    const countryData = await countryRes.json();
+    //store fullfilled promise data into data variable
+    renderCountry(countryData[0]);
+    return `You are in ${dataGeo.city}, ${dataGeo.country}`; //when console logging will return promise
+  } catch (err) {
+    //returning values from async await
 
-//     console.error(`${err} ***`);
-//     renderError(`something went wrong X_X ${err.message}`);
+    console.error(`${err} ***`);
+    renderError(`something went wrong X_X ${err.message}`);
 
-//     //reject promise returned from asynch function inside catch block
-//     throw err; //manually throw in catch block
-//   }
-// };
+    //reject promise returned from asynch function inside catch block
+    throw err; //manually throw in catch block
+  }
+};
 // //try catch to catch errors using async functions
 // console.log("1: I will get the location ");
 // const city = whereAmI();
