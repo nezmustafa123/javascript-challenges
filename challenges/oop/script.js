@@ -209,8 +209,8 @@ console.log(nez2.calcAge2()); //javascript can't find function in object
 
 //prototype chain prototype lookup
 //.prototype is also an object its prototype is Object.prototype
-//person.prorotype made with built in object constructor function its prototype is Object.protoype
-//objcect constructor called behind scenes when using object literat
+//person.prorotype made with built in object constructor function, its prototype is Object.protoype
+//objcect constructor called behind scenes when using object literal
 
 // {}=== new Object ()
 // Object.prototype is root prototype
@@ -294,48 +294,48 @@ console.dir((x) => x + 1);
 //ES6 classes
 //just syntactic sugar implements prototypal inheritance like usual
 
-//class decleration
-// class PersonCl {
-//   //constructor is method for this class works like constructor function
-//   constructor(fullName, birthYear) {
-//     //pass in arguments for properties want object to have
-//     this.fullName = fullName;
-//     this.birthYear = birthYear;
-//     //constructor returns new object stores in PersonCl
-//   }
-//   //methods written outside constructor no commas between methods
-//   calcAge() {
-//     console.log(2021 - this.birthYear);
-//     //all methods will be on PROtotype of object NOT object itself like prortypal inheritance
-//   }
+// class decleration
+class PersonCl {
+  //constructor is method for this class works like constructor function
+  constructor(fullName, birthYear) {
+    //pass in arguments for properties want object to have
+    this.fullName = fullName;
+    this.birthYear = birthYear;
+    //constructor returns new object stores in PersonCl
+  }
+  //methods written outside constructor no commas between methods
+  calcAge() {
+    console.log(2021 - this.birthYear);
+    //all methods will be on PROtotype of object NOT object itself like prortypal inheritance
+  }
 
-//   greet() {
-//     console.log(`Hey`);
-//     console.log(this);
-//   }
+  greet() {
+    console.log(`Hey`);
+    console.log(this);
+  }
 
-//   get age() {
-//     //add getter for class too
-//     //same as method inside object
-//     return 2021 - this.birthYear;
-//   }
+  get age() {
+    //add getter for class too
+    //same as method inside object
+    return 2021 - this.birthYear;
+  }
 
-//   //set a property that already exists of the same name
-//   set fullName(name) {
-//     //setter to check for the fullname whether it contains space
-//     //whenever fullName is set to fullname property the setter method is executed
-//     if (name.includes(" ")) {
-//       //setter will run whenever the property fullname is set because of this.fullName (use setter with dot notation) and FullName becomes name this.fullName = fullName so fullname becomes name argument
-//       this._fullName = name; //set fullname to name that was received add underscore before property to avoid errors (new property)
-//     } else {
-//       alert(`${name} is not a full name`);
-//     }
-//   }
-//   get fullName() {
-//     return this._fullName; //create getter to get new property created
-//     //oerson.getFullname
-//   }
-// }
+  //set a property that already exists of the same name
+  set fullName(name) {
+    //setter to check for the fullname whether it contains space
+    //whenever fullName is set to fullname property the setter method is executed
+    if (name.includes(" ")) {
+      //setter will run whenever the property fullname is set because of this.fullName (use setter with dot notation) and FullName becomes name this.fullName = fullName so fullname becomes name argument
+      this._fullName = name; //set fullname to name that was received add underscore before property to avoid errors (new property)
+    } else {
+      alert(`${name} is not a full name`);
+    }
+  }
+  get fullName() {
+    return this._fullName; //create getter to get new property created
+    //oerson.getFullname
+  }
+}
 
 //class expression
 // const PersonCl = class {}
@@ -541,6 +541,7 @@ Person3.prototype.calcAge = function () {
   const age = 2021 - this.birthYear;
   return age;
 };
+// STUDENT CONSTRUCTOR INHERITS FROM PERSON CONSTRUCTOR
 
 const Student = function (name, dob, course) {
   //instead of duplicating code by writing this.name etc call person constructor
@@ -557,7 +558,7 @@ Student.prototype.introduce = function () {
   console.log(`My name is ${this.name} and I study ${this.course}`);
 };
 
-const robert = new Student("Robert", 1990, "Computer Science");
+const robert = new Student("Robert", 1990, "Mathematics");
 robert.introduce();
 console.log(robert);
 robert.calcAge();

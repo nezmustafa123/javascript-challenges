@@ -639,6 +639,61 @@ console.log(guestCorrect);
 //it's as if falsey values are truthy values so only continues when first operand is undefined 
 //or null if it's falsey it is short circuited
 
+//LOGICAL ASSIGNMENT OPERATORS
+
+//es2021
+
+
+const rest1 = {
+    name: 'Capri',
+    // numGuests: 20,
+    numGuests: 0, //0 is a falsey value
+};
+
+const rest2 = {
+    name: 'La Piazza',
+    owner: 'Giovanni Rossi',
+};
+
+
+//set default number of guests for restaurants that don't have that property 
+rest1.numGuests = rest1.numGuests || 10;
+rest2.numGuests = rest2.numGuests || 10;
+
+//first opertor was undefined so second one got returned
+
+//write same thing in more conscise way 
+//or equal
+//logical or assignment operator is variable is currently falsey it will assign a value to it
+rest1.numGuests ||=10;
+rest2.numGuests ||=10;
+//write same thing in more conscise way 
+
+//logical nullish assignment operator
+
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+//null or undefined, will assign value to variable if that variable is nullish
+
+//logical and assignment operator ananoymise names of restaurant owners
+//replace name with string anonymous
+
+
+rest1.owner = rest1.owner && '<ANONYMOUS>'; //no restaurant owner property doesn't exist so short cirtuits when first value is falsey
+rest2.owner = rest2.owner && '<ANONYMOUS>';
+//short circuiting when first value is true the second value is evaluated and returned
+
+rest1.owner &&= '<ANONYMOUS>';
+rest2.owner &&= '<ANONYMOUS>';
+
+console.log(res1);
+console.log(rest2);
+
+
+
+
+
+
 //LOOPING OVER OBJECTS 
 
 //loop over property names(keys) values or both together
