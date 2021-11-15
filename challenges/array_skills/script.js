@@ -236,7 +236,9 @@ console.log(arr.slice(-1)[0]);//use slice returns copy of array with last elemen
 console.log(arr.at(-1)); //write the same negative index as the slice method 
 //64 starts counting from right side from end of array
 
-
+//also works on strings
+console.log('nez'.at(0));
+console.log('nez'.at(-1));
 
 
 

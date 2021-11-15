@@ -131,7 +131,7 @@ console.log(+(2.345).toFixed(2)); //convert the to fixed string to a number
 
 
 
-//REMAINDER of an operator 
+//REMAINDER operator (modulus)
 
 console.log(5 % 2); //1  remainder
 console.log(5 / 2); //2 * 2 is 4 plus remainder 1
@@ -165,6 +165,35 @@ console.log((isEven(940)));//true
 //check if any number is disible by another number if remainder is 0 
 
 //select movements row 
+
+//NUMERIC SEPERATORS
+//eg big number
+//write like this in english language
+//287, 460, 000, 000
+// const diameter = 28746000000;
+//write number like this
+
+const diameter = 287_460_000_000;
+console.log(diameter);
+//engine ignores sperators in the console
+
+const priceCents = 345_99;
+//34599 cents
+
+const transferFee1 = 15_00;
+const transferFee2 = 1_500; //both are 1500 but underscore gives different meainings
+
+const PI = 3.14157;
+console.log(PI);
+//can only place underscore between numbers and not two in a row
+
+//can't convert strings that contain underscores to a number 
+
+console.log(Number('230000')); //works
+console.log(Number('230_000')); //doesn't work
+
+
+
 
 
 //BIG INT is a primative
