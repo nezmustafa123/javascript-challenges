@@ -190,8 +190,8 @@ console.log(PI);
 //can't convert strings that contain underscores to a number 
 
 console.log(Number('230000')); //works
-console.log(Number('230_000')); //doesn't work
-
+console.log(Number('230_000')); //doesn't work nan
+console.log(parseInt('230_000')); 
 
 
 

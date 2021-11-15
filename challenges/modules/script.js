@@ -1,7 +1,7 @@
 //Importing module
 //import with the path of the module in a string
 // import "./shoppingCart.js";
-// import { addToCart, totalPrice as price, qt } from "./shoppingCart.js"; //exact same variable name in curly braces
+import { addToCart, totalPrice as price, qt } from "./shoppingCart.js"; //exact same variable name in curly braces
 // addToCart("bread", 6);
 // console.log(price, qt);
 // import * as ShoppingCart from "./shoppingCart.js"; //creates object containing everthing
@@ -21,13 +21,24 @@
 // console.log(ShoppingCart.totalPrice);
 //also access properties as if it's a class
 // import * as ShoppingCart from "./shoppingCart"; //creates object containing everthing
-import * as ShoppingCart from "./shoppingCart.js"; //creates object containing everthing
+// import * as ShoppingCart from "./shoppingCart.js";
+//creates object containing everthing
 
 //can give any name you want because default export
 // import add, { cart } from "./shoppingCart.js";
-addToCart("pizza", 2);
-addToCart("bread", 5);
-addToCart("apples", 4); //live conntection keep pushing values to array
+// addToCart("pizza", 2);
+// addToCart("bread", 5);
+// addToCart("apples", 4); //live conntection keep pushing values to array
 console.log(price);
 console.log(qt);
 //don't mix named exports and defaults in same module
+
+//TOP level await only works inside modules
+
+const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+console.log(res);
+const data = await res.json();
+console.log(data);
+
+//blocks execution of entire module now
+console.log("something");
