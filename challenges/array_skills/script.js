@@ -220,6 +220,25 @@ console.log(letters.join(' - '));
 //join by a dash delimiter
 
 
+//AT
+ //at method
+
+ const arr = [23, 11, 64];
+ console.log(arr[0]);
+ //take out first element in array
+ console.log(arr.at(0)); //achieves the same thing
+//if wanted to get the last element of the array in normal way
+
+console.log(arr[arr.length-1]);//last element-1 because zero indexed
+
+console.log(arr.slice(-1)[0]);//use slice returns copy of array with last element take out last value by taking out square brackets
+
+console.log(arr.at(-1)); //write the same negative index as the slice method 
+//64 starts counting from right side from end of array
+
+
+
+
 
 const movements = [200, 450, -400, 3000, -650, 130, 70, 1300];
 
