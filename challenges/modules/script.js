@@ -34,11 +34,40 @@ console.log(qt);
 //don't mix named exports and defaults in same module
 
 //TOP level await only works inside modules
+// console.log("Start fetching");
+// const res = await fetch("https://jsonplaceholder.typicode.com/posts"); //blocking entire execution of this module
+// console.log(res);
+// const data = await res.json(); //returns another promise parse data as json
+// //store the json in a variable
+// console.log(data);
 
-const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-console.log(res);
-const data = await res.json();
-console.log(data);
+// //blocks execution of entire module now use with caution
+// console.log("something");
 
-//blocks execution of entire module now
-console.log("something");
+//async funciton want to return some data from
+
+const getLastPost = async function () {
+  //do the fetch request but only return the very last post
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+
+  //blocking entire execution of this module
+  // console.log(res);
+  const data = await res.json(); //returns another promise parse data as json
+  //store the json in a variable
+  //console.log(data); //return last post
+  return { title: data.at(-1).title, text: data.at(-1).body };
+  //returns new promise and not expected object async always returns promise data not yet arrived still have the pending promise
+};
+
+const lastPost = getLastPost();
+console.log(lastPost);
+//not very clean
+lastPost.then((last) => console.log(last));
+
+//use top level await instead
+
+const lastPost2 = await getLastPost();
+console.log(lastPost2);
+//returns the last post directly
+
+//if one module importa a module which has a top level modules importing module will wait for iomported module to finish blocking code

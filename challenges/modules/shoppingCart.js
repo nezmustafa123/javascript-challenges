@@ -1,7 +1,15 @@
 //exporting module
 console.log("Exporting module");
 
-//variables scoped to the module inside the module module itself is top level scope private inside the module
+//variables scoped to the module inside the module module itself is top level scopeprivate inside the module
+
+//blocking code cod in script.js has to wait for code in shopping cart js to finish
+console.log("blocking code");
+
+await fetch("https://jsonplaceholder.typicode.com/users");
+
+console.log("Finish fetching users");
+
 export const shippingCost = 10;
 export const cart = [];
 
