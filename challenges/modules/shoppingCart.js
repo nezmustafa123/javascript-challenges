@@ -35,3 +35,15 @@ export { totalPrice, totalQuantity as qt };
 //   console.log(`${quantity} ${product} added to cart`);
 //   console.log(cart);
 // }
+
+//OLD MODULE PATTERN
+
+//main goal is to encapsulate functinoality to have private data and to expose a public api
+//functions return values and give private data by default
+//use iffe
+//only call it once don't call it seperately
+
+(function () {
+  //creat a new scope and return data just once
+  const cart = [];
+})();

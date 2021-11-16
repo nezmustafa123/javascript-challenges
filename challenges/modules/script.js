@@ -71,3 +71,40 @@ console.log(lastPost2);
 //returns the last post directly
 
 //if one module importa a module which has a top level modules importing module will wait for iomported module to finish blocking code
+
+//OLD MODULE PATTERN
+
+//main goal is to encapsulate functinoality to have private data and to expose a public api
+//functions return values and give private data by default
+//use iffe
+//only call it once don't call it seperately
+
+const ShoppingCart2 = (function () {
+  //assign result of iffe into a new variable
+  //creat a new scope and return data just once
+  const cart = [];
+  const shippingCost = 10;
+  const totalPrice = 273;
+  const totalQuantity = 23;
+
+  //named export has to happen in top level code
+  const addToCart = function (product, quantity) {
+    cart.push(product, quantity);
+    console.log(`${quantity} ${product} added to cart`);
+  };
+  const orderStock = function (product, quantity) {
+    console.log(`${quantity} ${product} ordered from supplier`);
+  };
+
+  return {
+    //return public api object that contains stuff you wish to mke public
+    //could have defined them as properties and methods too
+    addToCart,
+    cart,
+    totalPrice,
+    totalQuantity,
+  };
+})();
+
+ShoppingCart2.addToCart("apple", 4);
+ShoppingCart2.addToCart("pizza", 2);
