@@ -90,7 +90,9 @@ const ShoppingCart2 = (function () {
   //named export has to happen in top level code
   const addToCart = function (product, quantity) {
     cart.push(product, quantity);
-    console.log(`${quantity} ${product} added to cart`);
+    console.log(
+      `${quantity} ${product} added to car(shipping cost is ${shippingCost})`
+    );
   };
   const orderStock = function (product, quantity) {
     console.log(`${quantity} ${product} ordered from supplier`);
@@ -103,8 +105,16 @@ const ShoppingCart2 = (function () {
     cart,
     totalPrice,
     totalQuantity,
-  };
+  }; //ever loses connection to birth place (closure) acces to all variables available in birthplace
+  //add to car never closes connection to its birth place, the whole scope
 })();
 
 ShoppingCart2.addToCart("apple", 4);
 ShoppingCart2.addToCart("pizza", 2);
+
+//private module everything is private to the module can't access it in the console
+
+console.log(ShoppingCart2);
+console.log(ShoppingCart2.shippingCost); //undefined private variable
+//implementation of the module pattern
+//method exposed as api but properties are not
