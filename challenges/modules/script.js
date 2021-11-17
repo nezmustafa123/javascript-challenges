@@ -118,3 +118,21 @@ console.log(ShoppingCart2);
 console.log(ShoppingCart2.shippingCost); //undefined private variable
 //implementation of the module pattern
 //method exposed as api but properties are not
+
+//COMMON JS MODULES other module systems from the past
+
+//relied on external implementations
+
+//one file is one module in common js
+//export and then the name of the export
+//export
+export.addTocart = function (product, quantity) {
+  cart.push(product, quantity);
+  console.log(
+    `${quantity} ${product} added to car(shipping cost is ${shippingCost})`
+  ); //export is an object in node js
+};
+// won't work in browser put will work in NODE JS
+
+//Import 
+const {addToCart} = require('./shoppingCart.js');
