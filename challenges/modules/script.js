@@ -1,7 +1,7 @@
 //Importing module
 //import with the path of the module in a string
 // import "./shoppingCart.js";
-import { addToCart, totalPrice as price, qt } from "./shoppingCart.js"; //exact same variable name in curly braces
+// import { addToCart, totalPrice as price, qt } from "./shoppingCart.js"; //exact same variable name in curly braces
 // addToCart("bread", 6);
 // console.log(price, qt);
 // import * as ShoppingCart from "./shoppingCart.js"; //creates object containing everthing
@@ -135,4 +135,27 @@ export.addTocart = function (product, quantity) {
 // won't work in browser put will work in NODE JS
 
 //Import 
-const {addToCart} = require('./shoppingCart.js');
+// const {addToCart} = require('./shoppingCart.js');
+
+
+import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+
+//copying nested objects
+const state = {
+  cart: [
+    {product: 'bread', quantity: 5},
+    {product: 'pizza', quantity: 5},
+  ],
+  user: {loggedIn : true },
+};
+
+const stateClone = Object.assign({}, state);
+const stateDeepClone = cloneDeep(state);
+//lodash function 
+state.user.loggedIn = false;
+console.log(stateClone);
+//changes the property in both objects
+//to create deep clone use the function that lodash gives us
+console.log(stateDeepClone);
+
+//use piece of open source software 
