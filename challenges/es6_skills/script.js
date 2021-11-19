@@ -3,7 +3,7 @@
 //DESTRUCTURING ARRAYS
 //computer porerty names
 
-const weekdays =  ['mon', 'tue','wed', 'thu','fri','sat', 'sun'];
+const weekdays =  ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 ////take property names out of array and use them
 //const openingHours = {
 //        thu: {
@@ -670,7 +670,8 @@ rest2.numGuests ||=10;
 //write same thing in more conscise way 
 
 //logical nullish assignment operator
-
+//null or undefined assigns value if that variable is nullish (null or undefined)
+//numguests undefined in restaurant 2
 rest1.numGuests ??= 10;
 rest2.numGuests ??= 10;
 //null or undefined, will assign value to variable if that variable is nullish

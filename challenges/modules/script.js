@@ -9,7 +9,7 @@
 // console.log("Importing module");
 //exported code is parsed and executed BEFORE the script it's imported into
 //statements are hoiseted to the top
-import add, { cart } from "./shoppingCart.js";
+import { addToCart as add, cart } from "./shoppingCart.js";
 
 //console.log(shippingCost); //can't access variable
 //can't use it in this file need named exports
@@ -169,3 +169,29 @@ if (module.hot) {
 }
 //only parcel understands it
 //will reload the page everytime new module is there
+
+class Person {
+  #greeting = "Hey";
+  constructor(name) {
+    this.name = name;
+    console.log(`${this.#greeting}, ${this.name}`);
+  }
+}
+
+const nez = new Person("Nez");
+console.log(nez);
+
+console.log("Nez" ?? null);
+
+console.log(cart.find((el) => el.quantity >= 2));
+//find first element
+
+Promise.resolve("Test").then((x) => console.log(x));
+//browser understands es6
+//still is in es6 in compiled file babel can only transpile es6 syntax
+
+//new features have to POLLYFILL the code
+//import core js library
+import "core-js/stable";
+//polifilling async functions one feature that's not polyfilled by the previous package
+import "regenerator-runtime/runtime";
