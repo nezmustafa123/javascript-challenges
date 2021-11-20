@@ -15,6 +15,10 @@ const spendingLimits = {
 };
 //spending limits object
 
+const getLimit = (user) => {
+  //refactor
+  return spendingLimits?.[user] ?? 0;
+};
 const addExpense = function (value, description, user = "Nez") {
   //if (!user) user = "Nez"; //like setting a default parameter
   user = user.toLowerCase();
@@ -25,44 +29,56 @@ const addExpense = function (value, description, user = "Nez") {
   // } else {
   //   lim = 0;
   // }
-  const limit = spendingLimits[user] ? spendingLimits[user] : 0;
-  if (value <= limit) {
-    budget.push({ value: -value, description: description, user: user });
+  // const limit = spendingLimits[user] ? spendingLimits[user] : 0;
+
+  // const limit = getLimit(user);
+  //optional chaining with nullish coalescing operator
+  //if poperty exists then returns that if not returns 0
+  if (value <= getLimit(user)) {
+    budget.push({ value: -value, description, user }); //property name is the same as value name
   }
 };
 addExpense(10, "Pizza 🍕");
-addExpense(100, "Going to movies 🍿", "Matilda");
+addExpense(150, "Going to movies 🍿", "Matilda");
 addExpense(200, "Stuff", "Jim"); //limit of jay will be zero
+addExpense(5000, "White powder");
+
 console.log(budget);
 
-const check = function () {
-  for (const el of budget) {
-    let lim;
-    if (spendingLimits[el.user]) {
-      lim = spendingLimits[el.user];
-    } else {
-      lim = 0;
-    }
+const checkExpenses = function () {
+  //loop though budget see if entry value exceeds spending limit for each user
+  for (const entry of budget) {
+    // let lim;
+    // if (spendingLimits[entry.user]) {
+    //   lim = spendingLimits[entry.user];
+    // } else {
+    //   lim = 0;
+    // }
 
-    if (el.value < -lim) {
-      el.flag = "limit";
+    //const limit = spendingLimits?.[entry.user] ?? 0;
+    //if spending limit for each use exists then returns the value into the limit variable for each iteration
+    if (entry.value < -getLimit(entry.user)) {
+      //put it direcly in the if statement entry.user is now the user
+      entry.flag = "limit";
     }
   }
 };
-check();
+checkExpenses();
 
 console.log(budget);
 
-const bigExpenses = function (limit) {
+const logBigExpenses = function (bigLimit) {
   let output = "";
-  for (const el of budget) {
-    if (el.value <= -limit) {
-      output += el.description.slice(-3) + " / "; // Emojis are 2 chars
-      console.log(output);
-    }
+  for (const entry of budget) {
+    output +=
+      entry.value <= -bigLimit ? `${entry.description.slice(-3)} / ` : "";
+    // if (entry.value <= -bigLimit) {
+    //   output += `${entry.description.slice(-3)} / `; // Emojis are 2 chars
+    //   // console.log(output);
+    // }
   }
   output = output.slice(0, -2); // Remove last '/ '
   console.log(output);
 };
-
-bigExpenses(1000);
+console.log(budget);
+logBigExpenses(100);
