@@ -30,8 +30,18 @@ const spendingLimits = Object.freeze({
 //optional chaining with nullish coalescing operator
 //if poperty exists then returns that if not returns 0
 const getLimit = (limits, user) => {
-  //pass in spendingLimits as an argument
-  return limits?.[user] ?? 0;
+  //pass in spendingLimits as an argument if it exists return the value otherwise return 0
+  // let lim;
+  // if (spendingLimits[user]) {
+  //   lim = spendingLimits[user];
+  // } else {
+  //   lim = 0;
+  // }
+  const limit = limits[user] ? limits[user] : 0;
+  return limit;
+  // const limit = spendingLimits[user] ? spendingLimits[user] : 0;
+  // const limit = getLimit(user); use ternary operator
+  // return limits?.[user] ?? 0;
 };
 const addExpense = function (state, limits, value, description, user = "Nez") {
   //add expense to expense array
@@ -41,15 +51,6 @@ const addExpense = function (state, limits, value, description, user = "Nez") {
   //store mutated value in variable
   const cleanUser = user.toLowerCase();
 
-  // let lim;
-  // if (spendingLimits[user]) {
-  //   lim = spendingLimits[user];
-  // } else {
-  //   lim = 0;
-  // }
-  // const limit = spendingLimits[user] ? spendingLimits[user] : 0;
-
-  // const limit = getLimit(user); use ternary operator
   return value <= getLimit(limits, cleanUser)
     ? [...state, { value: -value, description, user: cleanUser }]
     : state;
@@ -72,50 +73,70 @@ const newBudget3 = addExpense(newBudget2, spendingLimits, 200, "Stuff", "Jim"); 
 // console.log(newBudget2);
 // console.log(newBudget3);
 
-const checkExpenses = function (state, limits) {
-  //loop though budget see if entry value exceeds spending limit for each user
-  return state.map((entry) => {
-    //copy entire objectthen add flag entry on top of that
-    return entry.value < -getLimit(limits, entry.user)
-      ? { ...entry, flag: "limit" } //copy the individual entry object then add the flag value on top of that
-      : entry;
-  });
-  // for (const entry of budget) {
-  //   // let lim;
-  //   // if (spendingLimits[entry.user]) {
-  //   //   lim = spendingLimits[entry.user];
-  //   // } else {
-  //   //   lim = 0;
-  //   // }
+// const checkExpenses = function (state, limits) {
+//   //loop though budget see if entry value exceeds spending limit for each user
+//   return state.map((entry) => {
+//     //copy entire objectthen add flag entry on top of that
+//     return entry.value < -getLimit(limits, entry.user)
+//       ? { ...entry, flag: "limit" } //copy the individual entry object then add the flag value on top of that
+//       : entry;
+//   });
+// };
 
-  //   //const limit = spendingLimits?.[entry.user] ?? 0;
-  //   //if spending limit for each use exists then returns the value into the limit variable for each iteration
-  //   if (entry.value < -getLimit(limits, entry.user)) {
-  //     //put it direcly in the if statement entry.user is now the user
-  //     entry.flag = "limit";
-  //   }
-  // }
-};
+const checkExpenses = (state, limits) =>
+  state.map((entry) =>
+    entry.value < -getLimit(limits, entry.user)
+      ? { ...entry, flag: "limit" } //copy the individual entry object then add the flag value on top of that
+      : entry
+  );
+// for (const entry of budget) {
+//   // let lim;
+//   // if (spendingLimits[entry.user]) {
+//   //   lim = spendingLimits[entry.user];
+//   // } else {
+//   //   lim = 0;
+//   // }
+
+//   //const limit = spendingLimits?.[entry.user] ?? 0;
+//   //if spending limit for each use exists then returns the value into the limit variable for each iteration
+//   if (entry.value < -getLimit(limits, entry.user)) {
+//     //put it direcly in the if statement entry.user is now the user
+//     entry.flag = "limit";
+//   }
+// }
 
 const finalBudget = checkExpenses(newBudget3, spendingLimits);
 // console.log(newBudget3);
 console.log(finalBudget);
 // console.log(budget);
 
-const logBigExpenses = function (bigLimit) {
-  let output = "";
-  for (const entry of budget) {
-    output +=
-      entry.value <= -bigLimit ? `${entry.description.slice(-3)} / ` : "";
-    // if (entry.value <= -bigLimit) {
-    //   output += `${entry.description.slice(-3)} / `; // Emojis are 2 chars
-    //   // console.log(output);
-    // }
-  }
-  output = output.slice(0, -2); // Remove last '/ '
-  // console.log(output);
+const logBigExpenses = function (state, bigLimit) {
+  //in functional programmign never see the let variable
+  //filter results for each entry create a string with the emoji
+  //less than big limit passed into the function
+  const bigExpenses = state
+    .filter((entry) => entry.value <= -bigLimit)
+    .reduce((str, cur) => `${str}/ ${cur.description.slice(-2)}`, "");
+  // .join("/");
+  //str is accumulator cur is current iteration and element
+
+  // .map((entry) => entry.description.slice(-2))
+  // .join("/"); //filter array for big expenses then add emoji for each
+  // .reduce(str, cur) => `${str}/ ${cur.description.slice(-2)`};
+  console.log(bigExpenses); //get the big expenses
+  // let output = "";
+  // for (const entry of budget) {
+  //   output +=
+  //     entry.value <= -bigLimit ? `${entry.description.slice(-3)} / ` : "";
+  //   // if (entry.value <= -bigLimit) {
+  //   //   output += `${entry.description.slice(-3)} / `; // Emojis are 2 chars
+  //   //   // console.log(output);
+  //   // }
+  // }
+  // output = output.slice(0, -2); // Remove last '/ '
+  // // console.log(output);
 };
-logBigExpenses(1500);
+logBigExpenses(finalBudget, 500);
 
 //fucntional and declarative code
 
